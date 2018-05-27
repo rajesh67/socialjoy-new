@@ -1,0 +1,756 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>SocialGrants - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | Home :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content=" a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="{{ STATIC_URL }}bootstrap.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="{{ STATIC_URL }}owl.carousel.css" type="text/css" media="all">
+	<link rel="stylesheet" href="{{ STATIC_URL }}owl.theme.css" type="text/css" media="all">
+	<link href="{{ STATIC_URL }}style.css" rel='stylesheet' type='text/css' />
+	<!-- <link href="{{ STATIC_URL }}fontawesome-all.css" rel="stylesheet"> -->
+	<link href="{{ STATIC_URL }}simpleLightbox.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,900" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700" rel="stylesheet">
+</head>
+
+<body>
+
+	<!--/banner-->
+	<div class="banner" id="home">
+		<!-- header -->
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light top-header">
+				<button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+				    aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<!-- search -->
+				<div class="search">
+					<div class="cd-main-header">
+						<ul class="cd-header-buttons">
+							<li>
+								<a class="cd-search-trigger" href="#cd-search">
+									<span></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div id="cd-search" class="cd-search">
+						<form action="#" method="post">
+							<input name="Search" type="search" placeholder="Click enter after typing...">
+						</form>
+					</div>
+				</div>
+				<!-- //search -->
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mx-auto">
+						<li class="nav-item active">
+							<a class="nav-link ml-lg-0" href="{% url 'home' %}">Home
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'about-us' %}">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="gallery.html">Gallery</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+							    aria-expanded="false">
+								About US
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
+								<a class="dropdown-item text-center" href="404.html">Services</a>
+
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+							    aria-expanded="false">
+								Projects
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item text-center" href="single-store.html">Single Store Offers</a>
+								<a class="dropdown-item text-center" href="stores-list.html">Shopping</a>
+
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Contact</a>
+						</li>
+					</ul>
+
+				</div>
+			</nav>
+		</header>
+		<!-- //header -->
+		<!-- banner-text -->
+		<div id="wrapper">
+
+			<!-- Slideshow 1 -->
+			<div class="rslides_container">
+				<ul class="rslides" id="slider1">
+					<li>
+						<div class="banner-img">
+							<div class="banner-info text-center">
+								<h3 class="logo">
+									<a class="navbar-brand" href="index.html">
+										<i class="fas fa-gift"></i> SocialGrants</a>
+								</h3>
+								<h4>Every shopping of yours contributes to educate a orphange child.</h4>
+								<div class="banner-form">
+									<form action="#" method="post" style="font-size: 1em; font-weight: bold;">
+										<div class="row">
+											<div class="col-md-1">
+												<!-- <input type="text" class="form-control" name="name" placeholder="Name" required=""> -->
+											</div>
+											<div class="col-md-4">
+												<select class="form-control option">
+													<option>Shopping From</option>
+													<option>Flipkart</option>
+													<option>Amazon</option>
+													<option>Snapdeal</option>
+													<option>Myntra</option>
+													<option>Jabong</option>
+													<option>Ebay</option>
+												</select>
+											</div>
+											<div class="col-md-4">
+												<select class="form-control option">
+													<option>Supporting Charity</option>
+													<option>Diksha Seema Center</option>
+													<option>Friends for Animal</option>
+													<option>E-prowess solutions</option>
+												</select>
+											</div>
+											<div class="col-md-3">
+												<button type="submit" class="btn btn-primary submit">Shop Now</button>
+											</div>
+										</div>
+										<a href="{% url 'stores-list' 'shopping' %}" class="btn btn-warning btn-lg" style="margin-top: 2%;">View All Stores</a>
+										</a>
+									</form>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="banner-img one">
+							<div class="banner-info text-center">
+								<h3 class="logo">
+									<a class="navbar-brand" href="index.html">
+										<i class="fas fa-credit-card"></i> SocialGrants</a>
+								</h3>
+								<h4>Let us educate a child on your online flights, hotels and travel bookings.</h4>
+								<div class="content">
+									<!-- <div class="simply-countdown-custom" id="simply-countdown-custom"></div> -->
+									<a href="{% url 'stores-list' 'travel' %}"><button class="btn btn-warning btn-lg" style="margin-top: 2%;">View All Stores</button></a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="banner-img two">
+							<div class="banner-info text-center">
+								<h3 class="logo">
+									<a class="navbar-brand" href="index.html">
+										<i class="fas fa-rupee-sign"></i> SocialGrants</a>
+								</h3>
+								<h4>Let us educate a child on your online recharges, bills and payments.</h4>
+								<div class="banner-form">
+									<form action="#" method="post">
+										<div class="row">
+											<div class="col-md-3">
+												<input type="text" class="form-control" name="name" placeholder="Name" required="">
+											</div>
+											<div class="col-md-3">
+												<select class="form-control option">
+													<option>Transport From</option>
+													<option>Albania</option>
+													<option>Belgium</option>
+													<option>Cameroon</option>
+													<option>Dominica</option>
+													<option>France</option>
+													<option>Jersey</option>
+												</select>
+											</div>
+											<div class="col-md-3">
+												<select class="form-control option">
+													<option>Transport To</option>
+													<option>Colombia</option>
+													<option>Indonesia</option>
+													<option>Japan</option>
+													<option>Lebanon</option>
+													<option>Luxembourg</option>
+													<option>Montserrat</option>
+												</select>
+											</div>
+											<div class="col-md-3">
+												<button type="submit" class="btn btn-primary submit">Submit</button>
+											</div>
+										</div>
+									</form>
+								</div>
+								<a href="{% url 'stores-list' 'payments' %}">
+									<button class="btn btn-warning btn-lg" style="margin-top: 2%;">View All Stores</button>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="banner-img three">
+							<div class="banner-info text-center">
+								<h3 class="logo">
+									<a class="navbar-brand" href="index.html">
+										<i class="fas fa-heart"></i> SocialGrants</a>
+								</h3>
+								<h4>Let us secure the future of the orphange children while making them future leaders.</h4>
+								<div class="content">
+									<!-- <div class="simply-countdown-custom" id="simply-countdown-custom1"></div> -->
+									<a href="gallery.html">
+										<button class="btn btn-warning btn-lg" style="margin-top: 2%;">Our Gallery</button>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //banner -->
+	<!--/banner-bottom-agile-w3ls-->
+	<section class="banner-bottom-agile-w3ls">
+		<div class="container">
+			<h3 class="tittle-w3ls text-center">What we do</h3>
+			<p class="text-center"><bold>Mission :</bold> We secure and transform the future of orphan and poor children using technology.</p>
+			<div class="row inner-sec-w3layouts-agileits">
+				<div class="col-lg-6 about-img">
+					<img src="{{STATIC_URL}}banners/first.jpg" class="img-fluid rounded" alt="">
+				</div>
+				<div class="col-lg-6 about-info text-left">
+					<h4 class="sub-hd mb-4">What problem are we solving?</h4>
+					<p>NGO’s and Govt. bodies working for welfare of poor or orphaned children are right now only providing education and support till intermediate level. In most of the cases these children are not able to get higher education or employment due to the lack of professional training and expertise. Resources used on these children goes to waste because they once again return to homelessness, poverty and unemployment.</p>
+					<p class="sup-para mt-2">Orphanages, NGOs and Govt. Institutions are providing basic standard education to these children till intermediate school level. Govt. schemes are provided to support higher education of these children, but only a few of them are able to secure their future.</p>
+					<div class="view my-4">
+						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">View More</a>
+					</div>
+					<!-- <img src="{{STATIC_URL}}banner3.jpg" class="img-fluid rounded" alt=""> -->
+				</div>
+
+
+				<div class="col-lg-6 about-info text-left">
+					<h4 class="sub-hd mb-4">What is our solution approach </h4>
+					<p>We offer a solution in which orphan and poor children will get education / training of professional software, web development, app development, software engineering, marketing, sales and other professional courses to prepare them according to industry level expertise</p>
+					<p class="sup-para mt-2">Professional courses on software, marketing and entrepreneurship will allow these unprivileged children to have a part-time or freelance job while continuing their higher studies. Entrepreneurship courses can inspire them to innovate and take risks and provide solutions to the world’s largest problems.</p>
+					<div class="view my-4">
+						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">View More</a>
+					</div>
+				</div>
+				<div class="col-lg-6 about-img">
+					<img src="{{STATIC_URL}}banners/third.jpg" class="img-fluid rounded" alt="">
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<h5 class="modal-title text-center" id="exampleModalLongTitle">We provide quality education to orphan and poor children.</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<img src="{{STATIC_URL}}banner3.jpg" class="img-fluid rounded" alt="">
+					<h4>Quality education through one-on-one mentoring and teaching</h4>
+					<p>NGO’s and Govt. bodies working for welfare of poor or orphaned children are right now only providing education and support till intermediate level. In most of the cases these children are not able to get higher education or employment due to the lack of professional training and expertise. Resources used on these children goes to waste because they once again return to homelessness, poverty and unemployment.</p>
+
+					<p>Orphanages, NGOs and Govt. Institutions are providing basic standard education to these children till intermediate school level. Govt. schemes are provided to support higher education of these children, but only a few of them are able to secure their future.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//banner-bottom-agile-w3ls-->
+	<!--/services-->
+	<section class="banner-bottom-agile-w3ls services">
+		<div class="container">
+			<h3 class="tittle-w3ls cen text-center">Our Programs & Services</h3>
+			<div class="row inner-sec-w3layouts-agileits">
+				<div class="col-lg-6 service-in text-center">
+					<div class="card">
+						<div class="card-body">
+							<i class="fas fa-book"></i>
+							<h5 class="card-title">Professional & Quality Education</h5>
+							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
+								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco.</p>
+							<div class="view my-4">
+								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 service-in  text-center">
+					<div class="card">
+						<div class="card-body">
+							<i class="fas fa-desktop"></i>
+							<h5 class="card-title">Virtual Classes</h5>
+							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
+								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco</p>
+							<div class="view my-4">
+								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 service-in  text-center mt-4">
+					<div class="card">
+						<div class="card-body">
+							<i class="fas fa-gift"></i>
+							<h5 class="card-title">Clothes & Shoes Giving</h5>
+							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
+								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco.</p>
+							<div class="view my-4">
+								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 service-in text-center mt-4">
+					<div class="card">
+						<div class="card-body">
+							<i class="fas fa-handshake"></i>
+							<h5 class="card-title">Professional Services</h5>
+							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
+								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco..</p>
+							<div class="view my-4">
+								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--//services-->
+	<!--/features-->
+	<section class="banner-bottom-agile-w3ls">
+		<div class="feature-main container-fluid text-left">
+			<div class="row">
+				<div class="col-lg-3 feature text-left">
+					<h3>Special Services</h3>
+					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
+					<div class="view my-4">
+						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+					</div>
+				</div>
+				<div class="col-lg-3 card feature text-left">
+					<img src="{{STATIC_URL}}banners/first.jpg" alt=" " class="img-fluid rounded" />
+					<h5 class="card-title">Minimum Price Guaranteed</h5>
+					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
+					<div class="view my-4">
+						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+					</div>
+				</div>
+				<div class="col-lg-3 card feature text-left">
+					<img src="{{STATIC_URL}}f2.jpg" alt=" " class="img-fluid rounded" />
+					<h5 class="card-title">All-in-One Application for Charity</h5>
+					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
+					<div class="view my-4">
+						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+					</div>
+				</div>
+				<div class="col-lg-3 card feature text-left">
+					<img src="{{STATIC_URL}}f3.jpg" alt=" " class="img-fluid rounded" />
+					<h5 class="card-title">Latest Offers & Deals</h5>
+					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
+					<div class="view my-4">
+						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--//features-->
+	<!--/areas-->
+	<section class="banner-bottom-agile-w3ls areas text-center">
+		<div class="container">
+			<h3 class="tittle-w3ls cen">500+ Partner Stores</h3>
+			<div class="row inner-sec-w3layouts-agileits">
+				<!-- <p></p> -->
+				<p class="text-center" style="margin: .5% auto;">Featured Stores for Online Shopping</p>
+				<div class="row">
+					{% for store in shoppingStores %}
+					<div class="col-md-3">
+						<div class="card" style="width: 18rem; margin-top: 15px; height: 18rem;">
+						  <img class="card-img-top" src="{{MEDIA_URL}}{{store.logo_image}}" alt="Card image cap">
+						  <div class="card-body">
+						    <h5 class="card-title">{{store.name|upper}}</h5>
+						    <a target="_blank" href="{{store.home_url}}" class="btn btn-warning">Shop On {{store.name}}</a>
+						  </div>
+						</div>
+					</div>
+					{% endfor %}
+					<div class="btnDiv text-center" style="margin: 2% auto;">
+						<a href="{% url 'stores-list' 'shopping' %}">
+							<button class="btn btn-lg btn-warning">View All Stores</button>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- /// Shopping Feauted Stores -->
+			<!-- Recharges and Bill Payment Stores -->
+			
+			<!-- ////Utitility payments -->
+		</div>
+	</section>
+	<!--//areas-->
+	<!--/testimonials-->
+	<section class="testimonials banner-bottom-agile-w3ls">
+		<div class="container">
+			<h3 class="tittle-w3ls text-center">What our clients say</h3>
+			<div class="inner-sec-w3layouts-agileits">
+				<div class="owl-carousel owl-theme">
+					<div class="item">
+						<div class="icon-test">
+							<i class="fas fa-quote-left"></i>
+						</div>
+						<div class="feedback-info">
+							<div class="feedback-top p-4">
+								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
+							</div>
+							<div class="feedback-grids">
+								<div class="feedback-img">
+									<img src="{{STATIC_URL}}t1.jpg" class="img-fluid rounded" alt="" />
+								</div>
+								<div class="feedback-img-info">
+									<h5>Mary Jane</h5>
+									<p>United States
+										<span>(Company)</span>
+									</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="icon-test">
+							<i class="fas fa-quote-left"></i>
+						</div>
+						<div class="feedback-info">
+							<div class="feedback-top p-4">
+								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
+							</div>
+							<div class="feedback-grids">
+								<div class="feedback-img">
+									<img src="{{STATIC_URL}}t2.jpg" class="img-fluid rounded" alt="" />
+								</div>
+								<div class="feedback-img-info">
+									<h5>Peter guptill</h5>
+									<p>United States
+										<span>(Company)</span>
+									</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="icon-test">
+							<i class="fas fa-quote-left"></i>
+						</div>
+						<div class="feedback-info">
+							<div class="feedback-top p-4">
+								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
+							</div>
+							<div class="feedback-grids">
+								<div class="feedback-img">
+									<img src="{{STATIC_URL}}t3.jpg" class="img-fluid rounded" alt="" />
+								</div>
+								<div class="feedback-img-info">
+									<h5>Steven Wilson</h5>
+									<p>United States
+										<span>(Company)</span>
+									</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="icon-test">
+							<i class="fas fa-quote-left"></i>
+						</div>
+						<div class="feedback-info">
+							<div class="feedback-top p-4">
+								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
+							</div>
+							<div class="feedback-grids">
+								<div class="feedback-img">
+									<img src="{{STATIC_URL}}t1.jpg" class="img-fluid rounded" alt="" />
+								</div>
+								<div class="feedback-img-info">
+									<h5>Mary Jane</h5>
+									<p>Vestibulum</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="icon-test">
+							<i class="fas fa-quote-left"></i>
+						</div>
+						<div class="feedback-info">
+							<div class="feedback-top p-4">
+								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
+							</div>
+							<div class="feedback-grids">
+								<div class="feedback-img">
+									<img src="{{STATIC_URL}}t3.jpg" class="img-fluid rounded" alt="" />
+								</div>
+								<div class="feedback-img-info">
+									<h5>Peter guptill</h5>
+									<p>Vestibulum</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="icon-test">
+							<i class="fas fa-quote-left"></i>
+						</div>
+						<div class="feedback-info">
+							<div class="feedback-top p-4 p-4">
+								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
+							</div>
+							<div class="feedback-grids">
+								<div class="feedback-img">
+									<img src="{{STATIC_URL}}t4.jpg" class="img-fluid rounded" alt="" />
+								</div>
+								<div class="feedback-img-info">
+									<h5>Steven Wilson</h5>
+									<p>Vestibulum</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--//testimonials-->
+	<!--footer-->
+	<footer>
+		<div class="container">
+			<div class="footer-top-agileits-w3ls text-center">
+				<h2 class="logo">
+					<a href="index.html">
+						<i class="fas fa-shopping-cart"></i> SocialGrants</a>
+				</h2>
+				<p class="para three mt-4">Our customers helps us raise funds on their online purchase through our website or mobile app. We are the first non-profit startup to providing professional courses or softwares education to unprivilidged children so that all can have jobs or businesses.</p>
+			</div>
+			<div class="subscribe-grid text-center">
+				<h5>Subscribe for our latest updates</h5>
+				<p>Get
+					<span>Latest</span> best offers and deals on shopping, booking and utility payments.</p>
+				<form action="#" method="post">
+					<input class="form-control" type="email" placeholder="Subscribe" name="Subscribe" required="">
+					<button class="btn1">
+						<i class="far fa-envelope"></i>
+					</button>
+				</form>
+			</div>
+			<div class="row footer-bottom-wthree-agile">
+				<div class="col-lg-6 copyright">
+					<p>&copy; 2018 SocialGrants Education Foundation . All Rights Reserved | Design by
+						<a href="https://www.facebook.com/dustyraju">Rajesh</a>
+					</p>
+
+				</div>
+				<div class="col-lg-6 social-icon footer text-right">
+					<div class="icon-social">
+						<a target="_blank" href="https://www.facebook.com/statsbotSocialInnovations/" class="button-footr">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+						<a target="_blank" href="https://twitter.com/StatsbotI" class="button-footr">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a target="_blank" href="https://www.linkedin.com/company/statsbot-social-innovations/" class="button-footr">
+							<i class="fab fa-linkedin"></i>
+						</a>
+						<a target="_blank" href="https://www.instagram.com/statsbot_org/" class="button-footr">
+							<i class="fab fa-instagram"></i>
+						</a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+
+			</div>
+			<!-- //footer -->
+		</div>
+	</footer>
+	<!---->
+
+	<!-- js -->
+	<script  src="{{STATIC_URL}}jquery-2.2.3.min.js"></script>
+	<!-- //js -->
+	<!--slider-->
+	<script src="{{STATIC_URL}}responsiveslides.min.js"></script>
+	<script>
+		$(function () {
+
+			// Slideshow 1
+			$("#slider1").responsiveSlides({
+				auto: false,
+				pager: true,
+				nav: true,
+				speed: 500,
+				namespace: "centered-btns"
+			});
+
+
+		});
+	</script>
+	<!--//slider-->
+	<!--search-bar-->
+	<script src="{{STATIC_URL}}search.js"></script>
+	<!--//search-bar-->
+	<script  src="{{STATIC_URL}}simplyCountdown.js"></script>
+	<link href="{{STATIC_URL}}simplyCountdown.css" rel='stylesheet' type='text/css' />
+	<script>
+		var d = new Date();
+
+		simplyCountdown('simply-countdown-custom', {
+			year: d.getFullYear(),
+			month: d.getMonth() + 2,
+			day: 25
+		});
+		simplyCountdown('simply-countdown-custom1', {
+			year: d.getFullYear(),
+			month: d.getMonth() + 2,
+			day: 25
+		});
+	</script>
+	<!--js-->
+
+	<!-- carousel -->
+	<script src="{{STATIC_URL}}owl.carousel.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.owl-carousel').owlCarousel({
+				loop: true,
+				margin: 10,
+				responsiveClass: true,
+				responsive: {
+					0: {
+						items: 1,
+						nav: true
+					},
+					600: {
+						items: 1,
+						nav: false
+					},
+					900: {
+						items: 2,
+						nav: false
+					},
+					1000: {
+						items: 3,
+						nav: true,
+						loop: false,
+						margin: 20
+					}
+				}
+			})
+		})
+	</script>
+	<!-- //carousel -->
+
+
+
+	<!-- simpleLightbox -->
+	<script src="{{STATIC_URL}}simpleLightbox.js"></script>
+	<script>
+		$('.proj_gallery_grid a').simpleLightbox();
+	</script>
+	<!-- //simpleLightbox -->
+
+	<!--search-bar-->
+	<!--/ start-smoth-scrolling -->
+	<script  src="{{STATIC_URL}}move-top.js"></script>
+	<script  src="{{STATIC_URL}}easing.js"></script>
+	<script >
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 900);
+			});
+		});
+	</script>
+	<!--// end-smoth-scrolling -->
+
+	<script >
+		$(document).ready(function () {
+			/*
+									var defaults = {
+							  			containerID: 'toTop', // fading element id
+										containerHoverID: 'toTopHover', // fading element hover id
+										scrollSpeed: 1200,
+										easingType: 'linear' 
+							 		};
+									*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<a href="#home" class="scroll" id="toTop" style="display: block;">
+		<span id="toTopHover" style="opacity: 1;"> </span>
+	</a>
+
+	<!-- //Custom-JavaScript-File-Links -->
+	<script src="{{STATIC_URL}}bootstrap.js"></script>
+
+
+</body>
+
+</html>
