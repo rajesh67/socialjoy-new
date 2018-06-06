@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response
 
 # Create your views here.
-from webapp.models import Store, StoreCategory
+from webapp.models import Store, StoreCategory, ProductCategory
 
 def homeView(request):
 	shoppingCat=StoreCategory.objects.get(name__icontains='shopping')
@@ -21,8 +21,8 @@ def contactView(request):
 	return render(request, 'contact.html', {})
 
 def categoryView(request, catName):
-	category=StoreCategory.objects.filter(name__icontains=catName)
-	return render(request, 'stores-list.html', {'category': category.first()})
+	category=ProductCategory.objects.get(catId=catName)
+	return render(request, 'stores-list.html', {'category': category})
 
 def categoryListView(request):
 	return render(request, 'categories.html', {'categories': StoreCategory.objects.all()})
@@ -32,3 +32,9 @@ def storeDetailView(request, pk):
 
 def gallaryView(request):
 	return render(request, 'gallery.html',{})
+
+def blogListView(request):
+	return render(request, 'blogs.html', {})
+
+def blogDetailView(request, pk):
+	return render(request, 'blog-details.html', {'blog':''})

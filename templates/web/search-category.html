@@ -65,9 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'about-us' %}">About</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="gallery.html">Gallery</a>
-						</li>
+						
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 							    aria-expanded="false">
@@ -75,8 +73,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
-								<a class="dropdown-item text-center" href="404.html">Services</a>
-
+								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
+								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Gallery</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">

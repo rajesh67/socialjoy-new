@@ -72,18 +72,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item active">
 							<a class="nav-link" href="{% url 'about-us' %}">About</a>
 						</li>
+						
 						<li class="nav-item">
-							<a class="nav-link" href="gallery.html">Gallery</a>
+							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 							    aria-expanded="false">
-								Dropdown
+								About
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
-								<a class="dropdown-item text-center" href="404.html">Services</a>
-
+								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
+								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Gallery</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -139,12 +140,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="row">
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1">
 							<div class="category-block">
 								<div class="header">
 									<i class="fa fa-laptop icon-bg-1"></i> 
 									<h4>
-										<a href="{% url 'stores-list' 'shopping' %}">Electronics</a>
+										<a href="{% url 'stores-list' 'electronics' %}">Electronics</a>
 									</h4>
 								</div>
 								<ul class="category-list" >
@@ -156,7 +157,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div> <!-- /Category List -->
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1">
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-money-bill-alt icon-bg-2"></i> 
@@ -173,7 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div> <!-- /Category List -->
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1">
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-shopping-bag icon-bg-3"></i> 
@@ -188,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div> <!-- /Category List -->
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1">
 							<div class="category-block">
 								<div class="header">
 									<i class="fa fa-shopping-basket icon-bg-4"></i> 
@@ -203,7 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div> <!-- /Category List -->
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 ">
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-medkit icon-bg-5"></i> 
@@ -220,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div> <!-- /Category List -->
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 ">
 							<div class="category-block">
 								<div class="header">
 									<i class="fa fa-car icon-bg-6"></i> 
@@ -235,7 +236,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div> <!-- /Category List -->
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 ">
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-gift icon-bg-7"></i> 
@@ -250,7 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div> <!-- /Category List -->
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 ">
 							<div class="category-block">
 								<div class="header">
 									<i class="fab fa-servicestack icon-bg-8"></i> 
@@ -266,7 +267,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div> <!-- /Category List -->
 
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 ">
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-book-open icon-bg-4"></i> 
@@ -282,7 +283,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div> <!-- /Category List -->
 						
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 ">
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-rupee-sign icon-bg-1"></i> 
@@ -298,7 +299,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div> <!-- /Category List -->
 						
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1">
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-gamepad icon-bg-2"></i> 
@@ -314,7 +315,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div> <!-- /Category List -->
 
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1">
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-utensils icon-bg-3"></i> 
@@ -330,7 +331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div> <!-- /Category List -->
 
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 ">
 							<div class="category-block">
 								<div class="header">
 									<i class="fab fa-aws icon-bg-8"></i> 
@@ -346,7 +347,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div> <!-- /Category List -->
 
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 ">
 							<div class="category-block">
 								<div class="header">
 									<i class="fab fa-digital-ocean icon-bg-5"></i> 
@@ -363,7 +364,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 						<!-- Category list -->
-						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1">
 							<div class="category-block">
 								<div class="header">
 									<i class="far fa-eye icon-bg-6"></i> 

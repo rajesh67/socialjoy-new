@@ -70,10 +70,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{% url 'stores-list' 'shopping' %}" class="nav-link">Stores</a>
+							<a href="{% url 'stores-list' 'electronics' %}" class="nav-link">Stores</a>
 						</li>
+						
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -83,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
 								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
-
+								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Gallery</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -110,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="wrapper-inner">
 			<h3 class="logo text-center">
 				<a class="navbar-brand" href="{% url 'home' %}">
-					<i class="fas fa-gift"></i> SocialGrants</a>
+					<i class="fas fa-gift"></i> SocialJoy</a>
 			</h3>
 		</div>
 	</div>
@@ -200,7 +201,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </div>
 
           <div class="row">
-          	{% for store in category.stores.all %}
+          	{% for store in category.store_cats.all %}
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
                 <a href="{% url 'store-details' store.pk %}"><img class="card-img-top" src="{{MEDIA_URL}}{{store.logo_image}}" alt=""></a>
@@ -292,7 +293,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="footer-top-agileits-w3ls text-center">
 				<h2 class="logo">
 					<a href="index.html">
-						<i class="fas fa-gift"></i> SocialGrants</a>
+						<i class="fas fa-gift"></i> SocialJoy</a>
 				</h2>
 				<p class="para three mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at placerat ante. Praesent nulla nunc, pretium dapibus
 					efficitur in, auctor eget elit. Lorem ipsum dolor sit amet consectetur adipiscing elit. Phasellus at placerat ante.

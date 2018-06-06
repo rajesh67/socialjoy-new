@@ -72,10 +72,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{% url 'stores-list' 'shopping' %}" class="nav-link">Stores</a>
+							<a href="{% url 'stores-list' 'electronics' %}" class="nav-link">Stores</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -85,7 +85,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
 								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
-
+							
+								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Gallery</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -121,7 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a class="navbar-brand" href="{% url 'home' %}">
 										<i class="fas fa-gift"></i> SocialJoy</a>
 								</h3>
-								<h4>Every shopping of yours contributes to educate a orphange child.</h4>
+								<h4 style="font-weight: bold; color: #ffffff;">Every shopping of yours contributes to educate a poor child.</h4>
 								<div class="banner-form">
 									<form action="#" method="post" style="font-size: 1em; font-weight: bold;">
 										<div class="row">
@@ -151,7 +152,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<button type="submit" class="btn btn-primary submit">Shop Now</button>
 											</div>
 										</div>
-										<a href="{% url 'stores-list' 'shopping' %}" class="btn btn-warning btn-lg" style="margin-top: 2%;">View All Stores</a>
+										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-warning btn-lg" style="margin-top: 2%;">View All Stores</a>
 										</a>
 									</form>
 								</div>
@@ -165,7 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a class="navbar-brand" href="{% url 'home' %}">
 										<i class="fas fa-credit-card"></i> SocialJoy</a>
 								</h3>
-								<h4>Let us educate a child on your online flights, hotels and travel bookings.</h4>
+								<h4 style="font-weight: bold; color: #ffffff;">Your online flights, hotels and travel bookings helps us educate a poor child.</h4>
 								<div class="content">
 									<!-- <div class="simply-countdown-custom" id="simply-countdown-custom"></div> -->
 									<a href="{% url 'stores-list' 'travel' %}"><button class="btn btn-warning btn-lg" style="margin-top: 2%;">View All Stores</button></a>
@@ -180,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a class="navbar-brand" href="{% url 'home' %}">
 										<i class="fas fa-rupee-sign"></i> SocialJoy</a>
 								</h3>
-								<h4>Let us educate a child on your online recharges, bills and payments.</h4>
+								<h4 style="font-weight: bold; color: #ffffff;">Your online recharges, bills and payments helps us raise funds to educate remote children.</h4>
 								<div class="banner-form">
 									<form action="#" method="post">
 										<div class="row">
@@ -215,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 									</form>
 								</div>
-								<a href="{% url 'stores-list' 'payments' %}">
+								<a href="{% url 'stores-list' 'recharge' %}">
 									<button class="btn btn-warning btn-lg" style="margin-top: 2%;">View All Stores</button>
 								</a>
 							</div>
@@ -228,7 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a class="navbar-brand" href="{% url 'home' %}">
 										<i class="fas fa-heart"></i> SocialJoy</a>
 								</h3>
-								<h4>Let us secure the future of the orphange children while making them future leaders.</h4>
+								<h4 style="font-weight: bold; color: #ffffff;">We together secure the future of the poor and remote children.</h4>
 								<div class="content">
 									<!-- <div class="simply-countdown-custom" id="simply-countdown-custom1"></div> -->
 									<a href="gallery.html">
@@ -258,7 +259,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<p>NGO’s and Govt. bodies working for welfare of poor or orphaned children are right now only providing education and support till intermediate level. In most of the cases these children are not able to get higher education or employment due to the lack of professional training and expertise. Resources used on these children goes to waste because they once again return to homelessness, poverty and unemployment.</p>
 					<p class="sup-para mt-2">Orphanages, NGOs and Govt. Institutions are providing basic standard education to these children till intermediate school level. Govt. schemes are provided to support higher education of these children, but only a few of them are able to secure their future.</p>
 					<div class="view my-4">
-						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">View More</a>
+						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#problemModalCenter">View More</a>
 					</div>
 					<!-- <img src="{{STATIC_URL}}banner3.jpg" class="img-fluid rounded" alt=""> -->
 				</div>
@@ -269,7 +270,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<p>We offer a solution in which orphan and poor children will get education / training of professional software, web development, app development, software engineering, marketing, sales and other professional courses to prepare them according to industry level expertise</p>
 					<p class="sup-para mt-2">Professional courses on software, marketing and entrepreneurship will allow these unprivileged children to have a part-time or freelance job while continuing their higher studies. Entrepreneurship courses can inspire them to innovate and take risks and provide solutions to the world’s largest problems.</p>
 					<div class="view my-4">
-						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">View More</a>
+						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#solutionModalCenter">View More</a>
 					</div>
 				</div>
 				<div class="col-lg-6 about-img">
@@ -280,18 +281,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</section>
 	<!-- Modal -->
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal fade" id="problemModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-dialog-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header text-center">
-					<h5 class="modal-title text-center" id="exampleModalLongTitle">We provide quality education to orphan and poor children.</h5>
+					<h5 class="modal-title text-center" id="exampleModalLongTitle">What problem are we solving?</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-					<img src="{{STATIC_URL}}banner3.jpg" class="img-fluid rounded" alt="">
-					<h4>Quality education through one-on-one mentoring and teaching</h4>
+					<img src="{{STATIC_URL}}banners/first.jpg" class="img-fluid rounded" alt="">
+					<h4>Education is the biggest weapon to kill poverty.</h4>
 					<p>NGO’s and Govt. bodies working for welfare of poor or orphaned children are right now only providing education and support till intermediate level. In most of the cases these children are not able to get higher education or employment due to the lack of professional training and expertise. Resources used on these children goes to waste because they once again return to homelessness, poverty and unemployment.</p>
 
 					<p>Orphanages, NGOs and Govt. Institutions are providing basic standard education to these children till intermediate school level. Govt. schemes are provided to support higher education of these children, but only a few of them are able to secure their future.</p>
@@ -302,7 +303,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 		</div>
-	</div>
+	</div><!-- /Problem Model -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="solutionModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<h5 class="modal-title text-center" id="exampleModalLongTitle">What is our solution approach?</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<img src="{{STATIC_URL}}banners/third.jpg" class="img-fluid rounded" alt="">
+					<h4>Education is the biggest weapon to kill poverty.</h4>
+					<p>We offer a solution in which orphan and poor children will get education / training of professional software, web development, app development, software engineering, marketing, sales and other professional courses to prepare them according to industry level expertise.<br>
+					Professional courses on software, marketing and entrepreneurship will allow these unprivileged children to have a part-time or freelance job while continuing their higher studies. Entrepreneurship courses can inspire them to innovate and take risks and provide solutions to the world’s largest problems.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+				</div>
+			</div>
+		</div>
+	</div><!-- /Solution Model -->
 	<!--//banner-bottom-agile-w3ls-->
 	<!--/services-->
 	<section class="banner-bottom-agile-w3ls services">
@@ -370,7 +395,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="feature-main container-fluid text-left">
 			<div class="row">
 				<div class="col-lg-3 feature text-left">
-					<h3>Special Services</h3>
+					<h3>Recent Blogs</h3>
 					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
 					<div class="view my-4">
 						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
@@ -420,12 +445,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                  <h4 class="card-title">
 		                    <a href="{% url 'store-details' store.pk %}">{{store.name}}</a>
 		                  </h4>
-		                  <small>Donation Rate :- 0<small> % </small> - 12 <small>%</small> / transaction</small>
-		                  <p class="card-text"></p>
+		                  <p class="card-text">
+		                  	<small>Donation Rate :- 0<small> % </small> - 12 <small>%</small> / transaction</small>
+		                  </p>
 		                </div>
 		                <div class="card-footer">
+		                  <a href="" class="btn btn-sm btn-warning text-center" style="position: absolute; bottom: 20%;">Shop Now</a>
 		                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-		                  <a href="" class="btn btn-sm btn-warning">Shop Now</a>
 		                </div>
 		              </div>
 		            </div>

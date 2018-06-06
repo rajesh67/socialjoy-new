@@ -10,4 +10,7 @@ urlpatterns=[
 	url(r'^all/$', views.categoryListView, name="category-list"),
 	url(r'^categories/(?P<catName>[a-zA-Z-_0-9]+)/$', views.categoryView, name="stores-list"),
 	url(r'^stores/(?P<pk>[0-9]+)/$', views.storeDetailView, name="store-details"),
+
+	url(r'^blogs/$', views.blogListView, name="blog-list"),
+	url(r'^blogs/(?P<pk>[0-9]+)/$', views.blogDetailView, name="blog-details"),
 ]

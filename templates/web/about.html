@@ -72,8 +72,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="{% url 'stores-list' 'shopping' %}" class="nav-link">Stores</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
 						</li>
+						
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 							    aria-expanded="false">
@@ -82,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
 								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
-
+								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Gallery</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -108,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- banner -->
 		<div class="wrapper-inner">
 			<h3 class="logo text-center">
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="{% url 'home' %}">
 					<i class="fas fa-gift"></i> SocialJoy</a>
 			</h3>
 		</div>

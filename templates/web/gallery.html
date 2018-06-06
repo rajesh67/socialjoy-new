@@ -4,7 +4,7 @@
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -71,26 +71,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item">
 							<a href="{% url 'stores-list' 'shopping' %}" class="nav-link">Stores</a>
 						</li>
+						
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown" aria-haspopup="true"
+							    aria-expanded="false">
+								About US
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDrop">
+								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
+								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
+								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Gallery</a>
+							</div>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 							    aria-expanded="false">
-								About US
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
-								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
-
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="Dropdown1" role="button" data-toggle="dropdown" aria-haspopup="true"
-							    aria-expanded="false">
 								Projects
 							</a>
-							<div class="dropdown-menu" aria-labelledby="Dropdown1">
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item text-center" href="single-store.html">Single Store Offers</a>
 								<a class="dropdown-item text-center" href="stores-list.html">Shopping</a>
 
@@ -127,8 +128,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3 class="tittle-w3ls text-center">Gallery</h3>
 			<div class="row inner-sec-w3layouts-agileits">
 				<div class="col-md-3 gallery-grids">
-					<a class="w3 wow zoomIn animated" href="images/g1.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut metus sit amet magna vehicula eleifend in in urna.">
-						<img src="images/g1.jpg" class="img-fluid rounded zoom-img" alt="" />
+					<a class="w3 wow zoomIn animated" href="{% static 'images/cat.jpg' %}" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut metus sit amet magna vehicula eleifend in in urna.">
+						<img src="{{ STATIC_URL }}images/cat.jpg" class="img-fluid rounded zoom-img" alt="" />
 						<div class="gallery-b-wrapper">
 							<h5>Transco</h5>
 						</div>
@@ -257,17 +258,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</footer>
 	<!---->
 	<!-- js -->
-	<script  src="js/jquery-2.2.3.min.js"></script>
+	<script  src="{{ STATIC_URL }}jquery-2.2.3.min.js"></script>
 	<!-- //js -->
 	<!--search-bar-->
-	<script src="js/search.js"></script>
+	<script src="{{ STATIC_URL }}search.js"></script>
 	<!--//search-bar-->
 	<!--light-box-files -->
-	<script src="js/lightbox-plus-jquery.min.js"></script>
+	<script src="{{ STATIC_URL }}lightbox-plus-jquery.min.js"></script>
 	<!--//light-box-files -->
 	<!--/ start-smoth-scrolling -->
-	<script  src="js/move-top.js"></script>
-	<script  src="js/easing.js"></script>
+	<script  src="{{ STATIC_URL }}move-top.js"></script>
+	<script  src="{{ STATIC_URL }}easing.js"></script>
 	<script >
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
@@ -302,7 +303,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</a>
 
 	<!-- //Custom-JavaScript-File-Links -->
-	<script  src="js/bootstrap.js"></script>
+	<script  src="{{STATIC_URL}}bootstrap.js"></script>
 
 
 </body>
