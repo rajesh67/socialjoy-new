@@ -23,10 +23,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			window.scrollTo(0, 1);
 		}
 	</script>
-	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<link href="css/style.css" rel='stylesheet' type='text/css' />
-	<link rel="stylesheet" href="css/lightbox.css">
-	<link href="css/fontawesome-all.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}bootstrap.css" rel='stylesheet' type='text/css' />
+	<link href="{{STATIC_URL}}style.css" rel='stylesheet' type='text/css' />
+	<!-- <link href="{{STATIC_URL}}fontawesome-all.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,900" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700" rel="stylesheet">
 </head>
@@ -60,34 +60,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<!-- //search -->
+
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mx-auto">
-						<li class="nav-item">
-							<a class="nav-link ml-lg-0" href="index.html">Home
+						<li class="nav-item active">
+							<a class="nav-link ml-lg-0" href="{% url 'home' %}">Home
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
+							<a href="{% url 'stores-list' 'shopping' %}" class="nav-link">Stores</a>
 						</li>
-						<li class="nav-item active">
-							<a class="nav-link" href="gallery.html">Gallery</a>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 							    aria-expanded="false">
-								Dropdown
+								About US
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item text-center" href="team.html">Team</a>
-								<a class="dropdown-item text-center" href="404.html">Services</a>
+								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
+								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
+
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="Dropdown1" role="button" data-toggle="dropdown" aria-haspopup="true"
+							    aria-expanded="false">
+								Projects
+							</a>
+							<div class="dropdown-menu" aria-labelledby="Dropdown1">
+								<a class="dropdown-item text-center" href="single-store.html">Single Store Offers</a>
+								<a class="dropdown-item text-center" href="stores-list.html">Shopping</a>
 
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contact</a>
+							<a class="nav-link" href="{% url 'contact-us' %}">Contact</a>
 						</li>
 					</ul>
+
 				</div>
 			</nav>
 		</header>
@@ -96,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="wrapper-inner">
 			<h3 class="logo text-center">
 				<a class="navbar-brand" href="index.html">
-					<i class="fas fa-gift"></i> SocialGrants</a>
+					<i class="fas fa-gift"></i> SocialJoy</a>
 			</h3>
 		</div>
 	</div>
@@ -196,7 +209,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="footer-top-agileits-w3ls text-center">
 				<h2 class="logo">
 					<a href="index.html">
-						<i class="fas fa-gift"></i> SocialGrants</a>
+						<i class="fas fa-gift"></i> SocialJoy</a>
 				</h2>
 				<p class="para three mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at placerat ante. Praesent nulla nunc, pretium dapibus
 					efficitur in, auctor eget elit. Lorem ipsum dolor sit amet consectetur adipiscing elit. Phasellus at placerat ante.

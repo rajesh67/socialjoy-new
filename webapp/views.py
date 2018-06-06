@@ -23,3 +23,12 @@ def contactView(request):
 def categoryView(request, catName):
 	category=StoreCategory.objects.filter(name__icontains=catName)
 	return render(request, 'stores-list.html', {'category': category.first()})
+
+def categoryListView(request):
+	return render(request, 'categories.html', {'categories': StoreCategory.objects.all()})
+
+def storeDetailView(request, pk):
+	return render(request, 'store-details.html', {'store': Store.objects.get(pk=pk)})
+
+def gallaryView(request):
+	return render(request, 'gallery.html',{})
