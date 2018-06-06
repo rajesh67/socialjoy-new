@@ -25,7 +25,7 @@ SECRET_KEY = '^8bhx_ur^9d(sp&xir!07n$x4t(p_*np@ja@p746rqs8-u2q_j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['socialjoy.herokuapp.com','127.0.0.1']
 
 
 # Application definition
