@@ -169,6 +169,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <!-- /.col-lg-3 -->
 
+        
         <div class="col-lg-9" id="content">
 
           <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" style="height: 20rem;">
@@ -210,7 +211,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="{% url 'store-details' store.pk %}">{{store.name}}</a>
                   </h4>
                   <small>Donation Rate :- 0<small> % </small> - 12 <small>%</small> / transaction</small>
-                  <p class="card-text"></p>
+                  <p class="card-text">
+                  	<a href="{% url 'store-details' store.pk %}">{{store.offers.all|length}}<small>offers</small></a>
+                  </p>
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

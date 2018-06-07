@@ -910,7 +910,7 @@ p.card-text {
 }
 
 .banner-inner {
-	background: url(../images/banner1.jpg) no-repeat 0px 0px;
+	background: url({% static 'team/ritesh.png' %}) no-repeat 0px 0px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
