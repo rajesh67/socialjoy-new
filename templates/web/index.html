@@ -24,6 +24,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 	</script>
 	<link href="{{ STATIC_URL }}bootstrap.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.9.2.custom.min.css">
 	<link rel="stylesheet" href="{{ STATIC_URL }}owl.carousel.css" type="text/css" media="all">
 	<link rel="stylesheet" href="{{ STATIC_URL }}owl.theme.css" type="text/css" media="all">
 	<link href="{{ STATIC_URL }}style.css" rel='stylesheet' type='text/css' />
@@ -120,8 +121,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="banner-info text-center">
 								<h3 class="logo">
 									<a class="navbar-brand" href="{% url 'home' %}">
-										<!-- <i class="fas fa-gift"></i> SocialJoy</a> -->
-										<img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a>
+										<i class="fas fa-gift"></i> SocialJoy</a>
+										<!-- <img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a> -->
 								</h3>
 								<h4 style="font-weight: bold; color: #ffffff;">Every shopping of yours helps us educate a poor child.</h4>
 								<div class="banner-form">
@@ -150,11 +151,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</select>
 											</div> -->
 											<div class="col-md-3">
-												<button type="submit" class="btn btn-primary submit">Shop Now</button>
+												<button type="submit" class="btn btn-primary submit">visit store</button>
 											</div>
+											
 										</div>
-										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-warning btn-lg" style="margin-top: 2%;">View All Stores</a>
-										</a>
+										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-laptop"></i>Electronics</a>
+										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-shopping-bag"></i>Fashion</a>
+										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-medkit"></i>Health & Beauty</a>
+										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-book-open"></i> Books</a>
+										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-money-bill-alt"></i>Recharges</a>
+										
+										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-car"></i>Travel</a>
+
+										<br style="margin-top: 10px;">
+										
+										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-info nav-link" style="margin-top: 2%;">View All Stores</a>
 									</form>
 								</div>
 							</div>
@@ -165,10 +176,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="banner-info text-center">
 								<h3 class="logo">
 									<a class="navbar-brand" href="{% url 'home' %}">
-										<!-- <i class="fas fa-credit-card"></i> SocialJoy</a>
-										 -->
-										 <img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a>
-								</h3>
+										<i class="fas fa-credit-card"></i> SocialJoy</a>
+										
+<!-- 										 <img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a>
+ -->								</h3>
 								<h4 style="font-weight: bold; color: #ffffff;">Every booking of yours helps us educate a poor child.</h4>
 								<div class="content">
 									<!-- <div class="simply-countdown-custom" id="simply-countdown-custom"></div> -->
@@ -182,9 +193,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="banner-info text-center">
 								<h3 class="logo">
 									<a class="navbar-brand" href="{% url 'home' %}">
-										<!-- <i class="fas fa-rupee-sign"></i> SocialJoy</a> -->
-										<img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a>
-								</h3>
+										<i class="fas fa-rupee-sign"></i> SocialJoy</a>
+<!-- 										<img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a>
+ -->								</h3>
 								<h4 style="font-weight: bold; color: #ffffff;">Every recharge of yours helps us educate a poor child.</h4>
 								<div class="banner-form">
 									<form action="#" method="post">
@@ -231,8 +242,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="banner-info text-center">
 								<h3 class="logo">
 									<a class="navbar-brand" href="{% url 'home' %}">
-										<!-- <i class="fas fa-heart"></i> SocialJoy</a> -->
-										<img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a>
+										<i class="fas fa-heart"></i> SocialJoy</a>
+										<!-- <img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a> -->
 								</h3>
 								<h4 style="font-weight: bold; color: #ffffff;">We teach poor children to become future leaders.</h4>
 								<div class="content">
@@ -666,6 +677,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<!-- js -->
 	<script  src="{{STATIC_URL}}jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}jquery-ui-bootstrap/js/jquery-ui-1.9.2.custom.min.js"></script>
 	<!-- //js -->
 	<!--slider-->
 	<script src="{{STATIC_URL}}responsiveslides.min.js"></script>
