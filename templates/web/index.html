@@ -120,9 +120,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="banner-info text-center">
 								<h3 class="logo">
 									<a class="navbar-brand" href="{% url 'home' %}">
-										<img class="img-fluid" src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG"></img></a>
+										<i class="fas fa-gift"></i> SocialJoy</a>
 								</h3>
-								<h4 style="font-weight: bold; color: #ffffff;">Every shopping of yours contributes to educate a poor child.</h4>
+								<h4 style="font-weight: bold; color: #ffffff;">Every shopping of yours helps us educate a poor child.</h4>
 								<div class="banner-form">
 									<form action="#" method="post" style="font-size: 1em; font-weight: bold;">
 										<div class="row">
@@ -166,7 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a class="navbar-brand" href="{% url 'home' %}">
 										<i class="fas fa-credit-card"></i> SocialJoy</a>
 								</h3>
-								<h4 style="font-weight: bold; color: #ffffff;">Your online flights, hotels and travel bookings helps us educate a poor child.</h4>
+								<h4 style="font-weight: bold; color: #ffffff;">Every booking of yours helps us educate a poor child.</h4>
 								<div class="content">
 									<!-- <div class="simply-countdown-custom" id="simply-countdown-custom"></div> -->
 									<a href="{% url 'stores-list' 'travel' %}"><button class="btn btn-warning btn-lg" style="margin-top: 2%;">View All Stores</button></a>
@@ -181,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a class="navbar-brand" href="{% url 'home' %}">
 										<i class="fas fa-rupee-sign"></i> SocialJoy</a>
 								</h3>
-								<h4 style="font-weight: bold; color: #ffffff;">Your online recharges, bills and payments helps us raise funds to educate remote children.</h4>
+								<h4 style="font-weight: bold; color: #ffffff;">Every recharge of yours helps us educate a poor child.</h4>
 								<div class="banner-form">
 									<form action="#" method="post">
 										<div class="row">
@@ -229,7 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a class="navbar-brand" href="{% url 'home' %}">
 										<i class="fas fa-heart"></i> SocialJoy</a>
 								</h3>
-								<h4 style="font-weight: bold; color: #ffffff;">We together secure the future of the poor and remote children.</h4>
+								<h4 style="font-weight: bold; color: #ffffff;">We teach poor children to become future leaders.</h4>
 								<div class="content">
 									<!-- <div class="simply-countdown-custom" id="simply-countdown-custom1"></div> -->
 									<a href="gallery.html">
@@ -438,7 +438,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<p class="text-center" style="margin: .5% auto;">Featured Stores for Online Shopping</p>
 				<div class="row">
 					{% for store in shoppingStores %}
-					<div class="col-lg-3 col-md-6 mb-4">
+					<div class="col-lg-3 col-md-6 col-sm-4 mb-4">
 		              <div class="card h-100">
 		                <a href="{% url 'store-details' store.pk %}"><img class="card-img-top" src="{{MEDIA_URL}}{{store.logo_image}}" alt=""></a>
 		                <div class="card-body">
