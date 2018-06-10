@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{% url 'stores-list' 'electronics' %}" class="nav-link">Stores</a>
+							<a href="{% url 'stores-list' 'electronics' %}" class="nav-link">Electronics</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
@@ -96,8 +96,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								Projects
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item text-center" href="single-store.html">Single Store Offers</a>
-								<a class="dropdown-item text-center" href="stores-list.html">Shopping</a>
+								<a class="dropdown-item text-center" href="">Cloth Giving</a>
+								<a class="dropdown-item text-center" href="">Digital Centers</a>
+								<a class="dropdown-item text-center" href="">Residential Campus</a>
+								<a class="dropdown-item text-center" href="">Digital Library</a>
 
 							</div>
 						</li>
@@ -121,7 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="banner-info text-center">
 								<h3 class="logo">
 									<a class="navbar-brand" href="{% url 'home' %}">
-										<i class="fas fa-gift"></i> SocialJoy</a>
+										<i class="fas fa-hands"></i> Nimrit <small>Foundation</small></a>
 										<!-- <img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a> -->
 								</h3>
 								<h4 style="font-weight: bold; color: #ffffff;">Every shopping of yours helps us educate a poor child.</h4>
@@ -151,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</select>
 											</div> -->
 											<div class="col-md-3">
-												<button type="submit" class="btn btn-primary submit">visit store</button>
+												<button type="submit" class="btn btn-primary submit" target="_">visit store</button>
 											</div>
 											
 										</div>
@@ -165,8 +167,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 										<br style="margin-top: 10px;">
 										
-										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-info nav-link" style="margin-top: 2%;">View All Stores</a>
+										
 									</form>
+									<div class="text-center">
+										<a href="{% url 'category-list' %}" class="btn btn-warning nav-link text-center" style=" max-width: 635px; margin: 1% auto;">View All Stores</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -176,14 +181,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="banner-info text-center">
 								<h3 class="logo">
 									<a class="navbar-brand" href="{% url 'home' %}">
-										<i class="fas fa-credit-card"></i> SocialJoy</a>
+										<i class="fas fa-hands"></i> Nimrit <small>Foundation</small></a>
 										
 <!-- 										 <img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a>
  -->								</h3>
 								<h4 style="font-weight: bold; color: #ffffff;">Every booking of yours helps us educate a poor child.</h4>
 								<div class="content">
 									<!-- <div class="simply-countdown-custom" id="simply-countdown-custom"></div> -->
-									<a href="{% url 'stores-list' 'travel' %}"><button class="btn btn-warning btn-lg" style="margin-top: 2%;">View All Stores</button></a>
+									<div class="text-center">
+										<a href="{% url 'category-list' %}" class="btn btn-warning nav-link text-center" style=" max-width: 635px; margin: 1% auto;">View All Stores</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -193,7 +200,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="banner-info text-center">
 								<h3 class="logo">
 									<a class="navbar-brand" href="{% url 'home' %}">
-										<i class="fas fa-rupee-sign"></i> SocialJoy</a>
+										<i class="fas fa-hands"></i> Nimrit <small>Foundation</small></a>
 <!-- 										<img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a>
  -->								</h3>
 								<h4 style="font-weight: bold; color: #ffffff;">Every recharge of yours helps us educate a poor child.</h4>
@@ -230,10 +237,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</div>
 									</form>
+									<div class="text-center">
+										<a href="{% url 'category-list' %}" class="btn btn-warning nav-link text-center" style=" max-width: 635px; margin: 1% auto;">View All Stores</a>
+									</div>
 								</div>
-								<a href="{% url 'stores-list' 'recharge' %}">
-									<button class="btn btn-warning btn-lg" style="margin-top: 2%;">View All Stores</button>
-								</a>
+								
 							</div>
 						</div>
 					</li>
@@ -242,15 +250,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="banner-info text-center">
 								<h3 class="logo">
 									<a class="navbar-brand" href="{% url 'home' %}">
-										<i class="fas fa-heart"></i> SocialJoy</a>
+										<i class="fas fa-hands"></i> Nimrit <small>Foundation</small></a>
 										<!-- <img src="{{STATIC_URL}}banners/nimrit_foundation_2.PNG" class="img-fluid"></a> -->
 								</h3>
 								<h4 style="font-weight: bold; color: #ffffff;">We teach poor children to become future leaders.</h4>
 								<div class="content">
 									<!-- <div class="simply-countdown-custom" id="simply-countdown-custom1"></div> -->
-									<a href="gallery.html">
-										<button class="btn btn-warning btn-lg" style="margin-top: 2%;">Our Gallery</button>
-									</a>
+									<div class="text-center">
+										<a href="{% url 'category-list' %}" class="btn btn-warning nav-link text-center" style=" max-width: 635px; margin: 1% auto;">View All Stores</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -274,9 +282,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h4 class="sub-hd mb-4">What problem are we solving?</h4>
 					<p>NGO’s and Govt. bodies working for welfare of poor or orphaned children are right now only providing education and support till intermediate level. In most of the cases these children are not able to get higher education or employment due to the lack of professional training and expertise. Resources used on these children goes to waste because they once again return to homelessness, poverty and unemployment.</p>
 					<p class="sup-para mt-2">Orphanages, NGOs and Govt. Institutions are providing basic standard education to these children till intermediate school level. Govt. schemes are provided to support higher education of these children, but only a few of them are able to secure their future.</p>
-					<div class="view my-4">
+					<!-- <div class="view my-4">
 						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#problemModalCenter">View More</a>
-					</div>
+					</div> -->
 					<!-- <img src="{{STATIC_URL}}banner3.jpg" class="img-fluid rounded" alt=""> -->
 				</div>
 
@@ -285,9 +293,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h4 class="sub-hd mb-4">What is our solution approach </h4>
 					<p>We offer a solution in which orphan and poor children will get education / training of professional software, web development, app development, software engineering, marketing, sales and other professional courses to prepare them according to industry level expertise</p>
 					<p class="sup-para mt-2">Professional courses on software, marketing and entrepreneurship will allow these unprivileged children to have a part-time or freelance job while continuing their higher studies. Entrepreneurship courses can inspire them to innovate and take risks and provide solutions to the world’s largest problems.</p>
-					<div class="view my-4">
+					<!-- <div class="view my-4">
 						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#solutionModalCenter">View More</a>
-					</div>
+					</div> -->
 				</div>
 				<div class="col-lg-6 about-img">
 					<img src="{{STATIC_URL}}banners/third.jpg" class="img-fluid rounded" alt="">
@@ -354,11 +362,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="card">
 						<div class="card-body">
 							<i class="fas fa-book"></i>
-							<h5 class="card-title">Professional & Quality Education</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
-								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco.</p>
+							<h5 class="card-title">Life Skills & Creative Education</h5>
+							<p class="card-text">We provide life skills & creative education to the unprivilidged children. This will help them become a better decision maker, leader and elite personality. Education is provided on no-time bound manner.</p>
 							<div class="view my-4">
-								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+								<!-- <a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a> -->
 							</div>
 						</div>
 					</div>
@@ -368,10 +375,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="card-body">
 							<i class="fas fa-desktop"></i>
 							<h5 class="card-title">Virtual Classes</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
-								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco</p>
+							<p class="card-text">We setup digital labs acrosss our centers where anyone interested student can study online through video courses or they can be taught by an available vounteer teacher. This will provide opportunity to the remote poor students.</p>
 							<div class="view my-4">
-								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+								<!-- <a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a> -->
 							</div>
 						</div>
 					</div>
@@ -381,10 +387,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="card-body">
 							<i class="fas fa-gift"></i>
 							<h5 class="card-title">Clothes & Shoes Giving</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
-								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco.</p>
+							<p class="card-text">As an environmental issue, we recycle the old clothes and shoes, so that these clothes can be used by the needy people. In future we are also planning to refurbish shoes, and then they will be distributed.</p>
 							<div class="view my-4">
-								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+								<!-- <a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a> -->
 							</div>
 						</div>
 					</div>
@@ -394,10 +399,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="card-body">
 							<i class="fas fa-handshake"></i>
 							<h5 class="card-title">Professional Services</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
-								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco..</p>
+							<p class="card-text">We provide professional service like - Web Development, App Development and Software Development services to our clients for a minimum fees. We also provide consultancy in the field of virtual classes.</p>
 							<div class="view my-4">
-								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+								<!-- <a href="{% url 'contact-us' %}" class="btn btn-primary read-m">contact-us</a> -->
 							</div>
 						</div>
 					</div>
@@ -412,33 +416,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="row">
 				<div class="col-lg-3 feature text-left">
 					<h3>Recent Blogs</h3>
-					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
+					<p class="card-text">Read our amazing news & updates. Our goal is to impact millions of unprivilidged lives by providing resources to them. In this you are also a part of our movement so please do give a read to our articles. </p>
 					<div class="view my-4">
-						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+						<a href="{% url 'blog-list' %}" class="btn btn-primary read-m">View All</a>
 					</div>
 				</div>
 				<div class="col-lg-3 card feature text-left">
 					<img src="{{STATIC_URL}}banners/first.jpg" alt=" " class="img-fluid rounded" />
-					<h5 class="card-title">Minimum Price Guaranteed</h5>
+					<h5 class="card-title"><a href="">The history of Indian Education System?</a></h5>
 					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
 					<div class="view my-4">
-						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+						<a href="{% url 'blog-details' '1' %}" class="btn btn-primary read-m">Read More</a>
 					</div>
 				</div>
 				<div class="col-lg-3 card feature text-left">
-					<img src="{{STATIC_URL}}f2.jpg" alt=" " class="img-fluid rounded" />
-					<h5 class="card-title">All-in-One Application for Charity</h5>
+					<img src="{{STATIC_URL}}banners/second.jpg" alt=" " class="img-fluid rounded" />
+					<h5 class="card-title"><a href="">How our education system is failing?</a></h5>
 					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
 					<div class="view my-4">
-						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+						<a href="{% url 'blog-details' '1' %}" class="btn btn-primary read-m">Read More</a>
 					</div>
 				</div>
 				<div class="col-lg-3 card feature text-left">
-					<img src="{{STATIC_URL}}f3.jpg" alt=" " class="img-fluid rounded" />
-					<h5 class="card-title">Latest Offers & Deals</h5>
+					<img src="{{STATIC_URL}}banners/third.jpg" alt=" " class="img-fluid rounded" />
+					<h5 class="card-title"><a href="">Join our movement to change the lives of millions !</a></h5>
 					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
 					<div class="view my-4">
-						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+						<a href="{% url 'blog-details' '1' %}" class="btn btn-primary read-m">Read More</a>
 					</div>
 				</div>
 			</div>
@@ -629,14 +633,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="footer-top-agileits-w3ls text-center">
 				<h2 class="logo">
 					<a href="index.html">
-						<i class="fas fa-shopping-cart"></i> SocialJoy</a>
+						<i class="fas fa-hands"></i> Nimrit <small>Foundation</small></a>
 				</h2>
-				<p class="para three mt-4">Our customers helps us raise funds on their online purchase through our website or mobile app. We are the first non-profit startup to providing professional courses or softwares education to unprivilidged children so that all can have jobs or businesses.</p>
+				<p class="para three mt-4">We are a for-profit social impact company. Our company is planning to build low-cost residential centers in remote areas, where our volunteer teachers will tecah poor, unprivilidged and drop-out school children life skills and computer expertise for e.g :- Digital Library, Virtual Class Center, Group Based Studies, Sports Training and Infrastructure. etc. As our goals are to empower the lives of millions by the support of other privilidged millions, who are in position of helping others.</p>
+				<p class="para three mt-2">
+					We are seeking for your support to help us raise funds on your every online payments that you make. So we request everyone to shop from our website, this converts some portion of your shopping amount into donations. We strongly think that this model will be sustainable because you can do charity at "no cost to the consumer". Now educating children is click away from your thumb. Let's be part of this movement and help us impact lives of millions. 
+				</p>
+			</div>
+			<div class="">
+				<a href="{% url 'category-list' %}" class="btn btn-warning list-group-item" style="max-width: 625px; margin: 2% auto;">View All Stores</a> 
+				<a href="{% url 'contact-us' %}" class="btn btn-warning list-group-item" style="max-width: 625px; margin: 2% auto;">Contact US</a> 
 			</div>
 			<div class="subscribe-grid text-center">
-				<h5>Subscribe for our latest updates</h5>
+				<h5>Subscribe for our latest programs, news and updates</h5>
 				<p>Get
-					<span>Latest</span> best offers and deals on shopping, booking and utility payments.</p>
+					<span>Latest</span> offers and deals on shopping, booking, recharges, utility payments and many more exclusive contents.</p>
 				<form action="#" method="post">
 					<input class="form-control" type="email" placeholder="Subscribe" name="Subscribe" required="">
 					<button class="btn1">
@@ -646,8 +657,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="row footer-bottom-wthree-agile">
 				<div class="col-lg-6 copyright">
-					<p>&copy; 2018 SocialJoy Education Foundation . All Rights Reserved | Design by
-						<a href="https://www.facebook.com/dustyraju">Rajesh</a>
+					<p>&copy; 2018 Nimrit Foundation - We Educate Poor Children . All Rights Reserved | Design by
+						<a href="https://www.facebook.com/dustyraju">ImpactOcean Developers</a>
 					</p>
 
 				</div>

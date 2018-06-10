@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'webapp',
+
+    #Third Party Apps
+    'jet',
+    'jet.dashboard',
 ]
 
 MIDDLEWARE = [
@@ -131,7 +135,7 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR, "templates/web/css/"),
     os.path.join(BASE_DIR, "templates/web/js/"),
     os.path.join(BASE_DIR, "templates/web/images/"),
-    os.path.join(BASE_DIR, "templates/web/webfonts/"),
+    #os.path.join(BASE_DIR, "templates/web/webfonts/"),
 ]
 
 MEDIA_URL = '/media/'
@@ -140,3 +144,6 @@ MEDIA_ROOT=os.path.join(BASE_DIR, "media/")
 MEDIAFILES_DIRS=[
     os.path.join('media/stores/'),
 ]
+
+JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
+JET_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
