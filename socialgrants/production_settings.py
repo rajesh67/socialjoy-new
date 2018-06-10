@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'webapp',
 
     #Third Party Apps
-    'jet',
-    'jet.dashboard',
+    # 'jet',
+    # 'jet.dashboard',
+    'bootstrap_admin',
     'whitenoise',
     'django_heroku',
 
@@ -161,5 +162,5 @@ MEDIAFILES_DIRS=[
 # django_heroku.settings(locals())
 
 #JET ADMIN SETTINGS
-JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
-JET_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
+# JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
+# JET_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'

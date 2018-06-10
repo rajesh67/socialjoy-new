@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'webapp.apps.SuitConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,8 +42,8 @@ INSTALLED_APPS = [
     'webapp',
 
     #Third Party Apps
-    'jet',
-    'jet.dashboard',
+    # 'jet',
+    # 'jet.dashboard',
 ]
 
 MIDDLEWARE = [
@@ -145,5 +146,5 @@ MEDIAFILES_DIRS=[
     os.path.join('media/stores/'),
 ]
 
-JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
-JET_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
+# JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
+# JET_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
