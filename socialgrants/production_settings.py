@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     'webapp',
 
+    #Third Party Apps
+    'jet',
+    'jet.dashboard',
     'whitenoise',
     'django_heroku',
 
