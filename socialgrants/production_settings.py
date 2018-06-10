@@ -157,5 +157,9 @@ MEDIAFILES_DIRS=[
     os.path.join('media/stores/'),
 ]
 
-import django_heroku
+# import django_heroku
 # django_heroku.settings(locals())
+
+#JET ADMIN SETTINGS
+JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
+JET_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
