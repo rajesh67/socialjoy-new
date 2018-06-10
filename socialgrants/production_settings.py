@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['socialjoy.herokuapp.com','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'webapp.apps.SuitConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +44,6 @@ INSTALLED_APPS = [
     #Third Party Apps
     # 'jet',
     # 'jet.dashboard',
-    'bootstrap_admin',
     'whitenoise',
     'django_heroku',
 
