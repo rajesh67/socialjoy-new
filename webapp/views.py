@@ -4,12 +4,7 @@ from django.shortcuts import render, render_to_response
 from webapp.models import Store, StoreCategory, ProductCategory
 
 def homeView(request):
-	shoppingCat=StoreCategory.objects.get(name__icontains='shopping')
-	utilityCat=StoreCategory.objects.get(name__icontains='utility')
-	return render(request, 'index.html', {
-			'shoppingStores':shoppingCat.stores.filter(featured=True),
-			'utilityStores':utilityCat.stores.filter(featured=True),
-		})
+	return render(request, 'index.html', {})
 
 def aboutView(request):
 	return render(request, 'about.html', {})
