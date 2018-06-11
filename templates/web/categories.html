@@ -9,7 +9,7 @@
 <html lang="zxx">
 
 <head>
-	<title>Transco a Transportation Category Bootstrap responsive WebTemplate | About :: w3layouts</title>
+	<title>SocialJoy - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | All Categories :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="Transco a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -110,9 +110,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- banner -->
 		<div class="wrapper-inner">
 			<h3 class="logo text-center">
-				<a class="navbar-brand" href="index.html">
-					<i class="fas fa-gift"></i> SocialJoy</a>
+				<a class="navbar-brand" href="{% url 'home' %}">
+					<i class="fas fa-hands"></i> Nimrit <small>Foundation</small>
+				</a>
 			</h3>
+			<h4 style="font-weight: bold; color: #ffffff;" class="text-center">We educate poor children about life and creative skills to rise above the ocean of poverty.</h4>
+				
+			</div>
 		</div>
 	</div>
 	<!-- //banner -->
@@ -137,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- Section title -->
 					<div class="section-title">
 						<h2>All Categories</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>
+						<p>Find the desired store, grab the hottest offers with <bold>Coupon Codes</bold> then together we can impact the lives of thousand of poor children!</p>
 					</div>
 					<div class="row">
 						<!-- Category list -->
@@ -150,10 +154,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</h4>
 								</div>
 								<ul class="category-list" >
-									<li><a href="category.html">Laptops <span>93 <small>offers</small></span></a></li>
+									<!-- <li><a href="category.html">Laptops <span>93 <small>offers</small></span></a></li>
 									<li><a href="category.html">Iphone <span>233</span></a></li>
-									<li><a href="category.html">Microsoft  <span>183</span></a></li>
-									<li><a href="category.html">Monitors <span>343</span></a></li>
+									<li><a href="category.html">Microsoft  <span>183</span></a></li> -->
+									<!-- {% for store in eCat.get_featured_stores %}
+										<li><a href="{% url 'store-details' store.pk %}">{{store.name}} <span>{{store.offers.all|length}}</span></a></li>
+									{% endfor %} -->
+									{% for store in eCat.get_top_stores %}
+										<li><a href="{% url 'store-details' store.pk %}">{{store.name}} <span>{{store.offers.all|length}} offers</span></a></li>
+									{% endfor %}
 								</ul>
 							</div>
 						</div> <!-- /Category List -->
@@ -163,7 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="header">
 									<i class="fas fa-money-bill-alt icon-bg-2"></i> 
 									<h4>
-										<a href="{% url 'stores-list' 'payments' %}">Recharges</a>
+										<a href="{% url 'stores-list' 'recharge' %}">Recharges</a>
 									</h4>
 								</div>
 								<ul class="category-list" >
@@ -179,7 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-shopping-bag icon-bg-3"></i> 
-									<h4><a href="{% url 'stores-list' 'shopping' %}">Fashion</a></h4>
+									<h4><a href="{% url 'stores-list' 'fashion' %}">Fashion</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Farms <span>93</span></a></li>
@@ -194,7 +203,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fa fa-shopping-basket icon-bg-4"></i> 
-									<h4><a href="">Food & Grocery</a></h4>
+									<h4><a href="{% url 'stores-list' 'food-grocery' %}">Food & Grocery</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Mens Wears <span>53</span></a></li>
@@ -210,7 +219,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="header">
 									<i class="fas fa-medkit icon-bg-5"></i> 
 									<h4>
-										<a href="{% url 'stores-list' 'shopping' %}">Health & Beauty</a>
+										<a href="{% url 'stores-list' 'health-beauty' %}">Health & Beauty</a>
 									</h4>
 								</div>
 								<ul class="category-list" >
@@ -241,7 +250,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-gift icon-bg-7"></i> 
-									<h4><a href="">Flowers & Gifts</a></h4>
+									<h4><a href="{% url 'stores-list' 'flower-gifts' %}">Flowers & Gifts</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cats <span>65</span></a></li>
@@ -256,7 +265,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fab fa-servicestack icon-bg-8"></i> 
-									<h4><a href="">Services</a></h4>
+									<h4><a href="{% url 'stores-list' 'services' %}">Services</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -272,7 +281,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-book-open icon-bg-4"></i> 
-									<h4><a href="">Books</a></h4>
+									<h4><a href="{% url 'stores-list' 'books' %}">Books</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -288,7 +297,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-rupee-sign icon-bg-1"></i> 
-									<h4><a href="">Finance</a></h4>
+									<h4><a href="{% url 'stores-list' 'finance' %}">Finance</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -304,7 +313,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-gamepad icon-bg-2"></i> 
-									<h4><a href="">Gaming</a></h4>
+									<h4><a href="{% url 'stores-list' 'gaming' %}">Gaming</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -320,7 +329,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-utensils icon-bg-3"></i> 
-									<h4><a href="">Home & Kitchen</a></h4>
+									<h4><a href="{% url 'stores-list' 'home-kitchen' %}">Home & Kitchen</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -336,7 +345,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fab fa-aws icon-bg-8"></i> 
-									<h4><a href="">Web Hosting & Domain Names</a></h4>
+									<h4><a href="{% url 'stores-list' 'web-hosting-domains' %}">Web Hosting & Domain Names</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -352,7 +361,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fab fa-digital-ocean icon-bg-5"></i> 
-									<h4><a href="">Files, Databases & Storages</a></h4>
+									<h4><a href="{% url 'stores-list' 'files-databases' %}">Files, Databases & Storages</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -369,7 +378,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="far fa-eye icon-bg-6"></i> 
-									<h4><a href="">Others</a></h4>
+									<h4><a href="{% url 'stores-list' 'others' %}">Others</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -449,16 +458,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="footer-top-agileits-w3ls text-center">
 				<h2 class="logo">
 					<a href="index.html">
-						<i class="fas fa-gift"></i> SocialJoy</a>
+						<i class="fas fa-hands"></i> Nimrit <small>Foundation</small></a>
 				</h2>
-				<p class="para three mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at placerat ante. Praesent nulla nunc, pretium dapibus
-					efficitur in, auctor eget elit. Lorem ipsum dolor sit amet consectetur adipiscing elit. Phasellus at placerat ante.
-					Praesent nulla nunc</p>
+				<p class="para three mt-4">We are a for-profit social impact company. Our company is planning to build low-cost residential centers in remote areas, where our volunteer teachers will tecah poor, unprivilidged and drop-out school children life skills and computer expertise for e.g :- Digital Library, Virtual Class Center, Group Based Studies, Sports Training and Infrastructure. etc. As our goals are to empower the lives of millions by the support of other privilidged millions, who are in position of helping others.</p>
+				<p class="para three mt-2">
+					We are seeking for your support to help us raise funds on your every online payments that you make. So we request everyone to shop from our website, this converts some portion of your shopping amount into donations. We strongly think that this model will be sustainable because you can do charity at "no cost to the consumer". Now educating children is click away from your thumb. Let's be part of this movement and help us impact lives of millions. 
+				</p>
+			</div>
+			<div class="text-center">
+				<a href="{% url 'category-list' %}" class="btn btn-warning btn-block" style="max-width: 625px; margin: 2% auto 2% auto;;">View All Stores</a> 
+				<a href="{% url 'contact-us' %}" class="btn btn-warning btn-block" style="max-width: 625px; margin: 2% auto 2% auto;">Contact US</a> 
 			</div>
 			<div class="subscribe-grid text-center">
-				<h5>Subscribe for our latest updates</h5>
+				<h5>Subscribe for our latest programs, news and updates</h5>
 				<p>Get
-					<span>10%</span> off on booking</p>
+					<span>Latest</span> offers and deals on shopping, booking, recharges, utility payments and many more exclusive contents.</p>
 				<form action="#" method="post">
 					<input class="form-control" type="email" placeholder="Subscribe" name="Subscribe" required="">
 					<button class="btn1">
@@ -468,28 +482,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="row footer-bottom-wthree-agile">
 				<div class="col-lg-6 copyright">
-					<p>&copy; 2018 Transco . All Rights Reserved | Design by
-						<a href="http://w3layouts.com/"> W3layouts </a>
+					<p>&copy; 2018 Nimrit Foundation - We Educate Poor Children . All Rights Reserved | Design by
+						<a href="https://www.facebook.com/dustyraju">ImpactOcean Developers</a>
 					</p>
 
 				</div>
-				<div class="col-lg-6 social-icon footer text-right" style="background-color: #212529;">
+				<div class="col-lg-6 social-icon footer text-right">
 					<div class="icon-social">
-						<a href="#" class="button-footr">
+						<a target="_blank" href="https://www.facebook.com/statsbotSocialInnovations/" class="button-footr">
 							<i class="fab fa-facebook-f"></i>
 						</a>
-						<a href="#" class="button-footr">
+						<a target="_blank" href="https://twitter.com/StatsbotI" class="button-footr">
 							<i class="fab fa-twitter"></i>
 						</a>
-						<a href="#" class="button-footr">
-							<i class="fab fa-dribbble"></i>
+						<a target="_blank" href="https://www.linkedin.com/company/statsbot-social-innovations/" class="button-footr">
+							<i class="fab fa-linkedin"></i>
 						</a>
-						<a href="#" class="button-footr">
-							<i class="fab fa-pinterest-p"></i>
+						<a target="_blank" href="https://www.instagram.com/statsbot_org/" class="button-footr">
+							<i class="fab fa-instagram"></i>
 						</a>
 					</div>
 				</div>
 				<div class="clearfix"></div>
+
 
 			</div>
 			<!-- //footer -->

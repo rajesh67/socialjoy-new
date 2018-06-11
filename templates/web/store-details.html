@@ -9,7 +9,7 @@
 <html lang="zxx">
 
 <head>
-	<title>Transco a Transportation Category Bootstrap responsive WebTemplate | Team :: w3layouts</title>
+	<title>SocialJoy - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | Store - {{store.name}} :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="Transco a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{% url 'stores-list' 'electronics' %}" class="nav-link">Stores</a>
+							<a href="{% url 'stores-list' 'electronics' %}" class="nav-link">Electronics</a>
 						</li>
 						
 						<li class="nav-item">
@@ -92,8 +92,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								Projects
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item text-center" href="single-store.html">Single Store Offers</a>
-								<a class="dropdown-item text-center" href="stores-list.html">Shopping</a>
+								<a class="dropdown-item text-center" href="">Cloth Giving</a>
+								<a class="dropdown-item text-center" href="">Digital Centers</a>
+								<a class="dropdown-item text-center" href="">Residential Campus</a>
+								<a class="dropdown-item text-center" href="">Digital Library</a>
 
 							</div>
 						</li>
@@ -110,8 +112,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="wrapper-inner">
 			<h3 class="logo text-center">
 				<a class="navbar-brand" href="{% url 'home' %}">
-					<i class="fas fa-gift"></i> SocialJoy</a>
+					<i class="fas fa-hands"></i> Nimrit <small>Foundation</small>
+				</a>
 			</h3>
+			<h4 style="font-weight: bold; color: #ffffff;" class="text-center">We educate poor children about life and creative skills to rise above the ocean of poverty.</h4>
 		</div>
 	</div>
 	<!-- //banner -->
@@ -121,9 +125,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<a href="{% url 'home' %}">Home</a>
 		</li>
 		<li class="breadcrumb-item">
-			<a href="{% url 'category-list' %}">All Categories</a>
+			<a href="{% url 'category-list' %}">All Stores</a>
 		</li>
-		<li class="breadcrumb-item active">{{ category.name }}</li>
+		<li class="breadcrumb-item active">{{ store.name }}</li>
 	</ol>
 
 
@@ -132,17 +136,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="row">
       	<div class="col-lg-3"></div>
   		<div class="col-lg-6">
-  			<h5 class="my-2 text-center">{{ store.name }} : Offers and Deals</h5>
+  			
   			<div style="margin-top: 5%;">
-  				<ul class="nav nav-pills nav-justified">
-				  <li class="nav-item">
-				  	<a href="#" class="nav-link active"><i class="fa fa-laptop icon-bg-1"></i> Electronics</a>
-				  </li>
-				  <li>
-		            <a href="#" class="nav-link"><i class="fas fa-shopping-bag icon-bg-3"></i> Fashion</a></li>
-		            <li><a href="#" class="nav-link"><i class="fas fa-medkit icon-bg-5"></i> Health & Beauty </a></li>
-		            <li><a href="#" class="nav-link"><i class="fas fa-book-open icon-bg-4"></i> Books </a></li>
-				</ul>
+  				
   			</div>
   		</div>
 
@@ -150,40 +146,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </div>
    	</div><!-- /Container -->
 
-
-      <!-- Offers Section -->
-      <section id="offers" style="margin-top: 5%;">
-      	<div class="container">
-      		<div class="row">
-      			{% for offer in store.offers.all %}
-		            <div class="col-lg-4 col-md-6 mb-4">
-		              <div class="card h-100">
-		                <!-- <a href="{% url 'store-details' store.pk %}"><img class="card-img-top" src="{{STATIC_URL}}banners/offers.jpg" alt=""></a> -->
-		                <div class="card-body">
-		                  <h4 class="card-title">
-		                    <a href="{% url 'store-details' store.pk %}">{{offer.title}}</a>
-		                  </h4>
-		                  <small>Donation Rate :- 0<small> % </small> - 12 <small>%</small> / transaction</small>
-		                  <p class="card-text">
-		                  	<small></small>
-		                  </p>
-		                </div>
-		                <div class="card-footer text-center">
-		                  <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
-		                  <a href="{{ offer.url }}" class="btn btn-sm btn-warning">Grab this Offer</a>
-		                </div>
-		              </div>
-		            </div>
-		            {% endfor %}
-      		</div>
-      	</div>
-      </section>
-    
-
     <section id="storeDetails">
     	<div class="container">
     		<div class="row">
-    			<div class="col-lg-4">
+    			<div class="col-lg-3">
 		          <div class="card mt-4">
 		            <img class="card-img-top img-fluid" src="{{MEDIA_URL}}{{store.logo_image}}" alt="" style="overflow: hidden; width: auto; height: 100px;">
 		            <div class="card-body">
@@ -197,28 +163,60 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </div>
 		        <!-- /.col-lg-3 -->
 
-		        <div class="col-lg-8">
+		        <div class="col-lg-9">
 		        	<div class="card card-outline-secondary my-4">
 			            <div class="card-header">
-			              Customer Store Reviews
+			              {{store.name}} Description
 			            </div>
 			            <div class="card-body">
-			              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-			              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-			              <hr>
-			              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-			              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-			              <hr>
-			              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-			              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-			              <hr>
-			              <a href="#" class="btn btn-success">Leave a Review</a>
+			              <p>{{store.description}}</p>
+			              
 			            </div>
 			          </div>
 			          <!-- /.card -->
-
-			          <div class="faq-cont">
-              <div class="faq-heading">
+			    </div><!-- /col-lg-9 -->
+			     <!-- Offers Section -->
+			      	<div class="container">
+			      		<h5 class="my-2 text-center">{{ store.name }} : Offers and Deals</h5>
+			      		<ul class="nav nav-pills nav-justified">
+							  {% for cat in store.categories.all %}
+							  <li class="nav-item">
+							  	<a href="{% url 'stores-list' cat.catId %}" class="nav-link btn btn-md"><i class="fa fa-laptop"></i> {{cat.name}}</a>
+							  </li>
+							  {% endfor %}
+							</ul>
+			      		<div class="row">
+			      			{% for offer in store.offers.all %}
+					            <div class="col-lg-4 col-md-6 mb-4">
+					              <div class="card h-100">
+					              	{% if offer.imageUrl %}
+					                <!-- <a href="{% url 'store-details' store.pk %}"> --><img class="card-img-top" src="{{ offer.imageUrl }}" alt="" style="height: 50%; width: 50%; margin: 1% auto; overflow: hidden;"><!-- </a> -->
+					                {% else %}
+					                <!-- <a href="{% url 'store-details' store.pk %}"> --><img class="card-img-top" src="http://placehold.it/900x350" alt=""><!-- </a> -->
+					                {% endif %}
+					                <div class="card-body">
+					                  <h5 class="card-title" style="">
+					                    {{offer.title}}
+					                  </h5>
+					            	
+					                  <p class="card-text">
+					                  	<!-- <p>
+					                  		<a href="" class="btn">{{ offer.category }}</a>
+					                  	</p> -->
+					                  	<small>Coupoun Code : {% if offer.coupoun_code %}<p>{{offer.coupoun_code}}</p> {% else %}<p>No Coupoun Code Required</p>{% endif %}</small>
+					                  </p>
+					                </div>
+					                <div class="card-footer text-center">
+					                  <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
+					                  <a href="{{ offer.url }}" class="btn btn-block btn-warning">Grab this Offer</a>
+					                </div>
+					              </div>
+					            </div>
+					            {% endfor %}
+			      		</div>
+			      	</div><!-- /Offers Container -->
+			<div class="faq-cont">
+              <div class="faq-heading text-center" style="margin: 2% auto;">
                 <h3>How It Works?</h3>
                 <div class="heading-border-light" style="background:#fff;"></div>
               </div>
@@ -268,16 +266,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="footer-top-agileits-w3ls text-center">
 				<h2 class="logo">
 					<a href="index.html">
-						<i class="fas fa-gift"></i> SocialJoy</a>
+						<i class="fas fa-hands"></i> Nimrit <small>Foundation</small></a>
 				</h2>
-				<p class="para three mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at placerat ante. Praesent nulla nunc, pretium dapibus
-					efficitur in, auctor eget elit. Lorem ipsum dolor sit amet consectetur adipiscing elit. Phasellus at placerat ante.
-					Praesent nulla nunc</p>
+				<p class="para three mt-4">We are a for-profit social impact company. Our company is planning to build low-cost residential centers in remote areas, where our volunteer teachers will tecah poor, unprivilidged and drop-out school children life skills and computer expertise for e.g :- Digital Library, Virtual Class Center, Group Based Studies, Sports Training and Infrastructure. etc. As our goals are to empower the lives of millions by the support of other privilidged millions, who are in position of helping others.</p>
+				<p class="para three mt-2">
+					We are seeking for your support to help us raise funds on your every online payments that you make. So we request everyone to shop from our website, this converts some portion of your shopping amount into donations. We strongly think that this model will be sustainable because you can do charity at "no cost to the consumer". Now educating children is click away from your thumb. Let's be part of this movement and help us impact lives of millions. 
+				</p>
+			</div>
+			<div class="text-center">
+				<a href="{% url 'category-list' %}" class="btn btn-warning btn-block" style="max-width: 625px; margin: 2% auto;">View All Stores</a> 
+				<a href="{% url 'contact-us' %}" class="btn btn-warning btn-block" style="max-width: 625px; margin: 2% auto;">Contact US</a> 
 			</div>
 			<div class="subscribe-grid text-center">
-				<h5>Subscribe for our latest updates</h5>
+				<h5>Subscribe for our latest programs, news and updates</h5>
 				<p>Get
-					<span>10%</span> off on booking</p>
+					<span>Latest</span> offers and deals on shopping, booking, recharges, utility payments and many more exclusive contents.</p>
 				<form action="#" method="post">
 					<input class="form-control" type="email" placeholder="Subscribe" name="Subscribe" required="">
 					<button class="btn1">
@@ -287,28 +290,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="row footer-bottom-wthree-agile">
 				<div class="col-lg-6 copyright">
-					<p>&copy; 2018 Transco . All Rights Reserved | Design by
-						<a href="http://w3layouts.com/"> W3layouts </a>
+					<p>&copy; 2018 Nimrit Foundation - We Educate Poor Children . All Rights Reserved | Design by
+						<a href="https://www.facebook.com/dustyraju">ImpactOcean Developers</a>
 					</p>
 
 				</div>
 				<div class="col-lg-6 social-icon footer text-right">
 					<div class="icon-social">
-						<a href="#" class="button-footr">
+						<a target="_blank" href="https://www.facebook.com/statsbotSocialInnovations/" class="button-footr">
 							<i class="fab fa-facebook-f"></i>
 						</a>
-						<a href="#" class="button-footr">
+						<a target="_blank" href="https://twitter.com/StatsbotI" class="button-footr">
 							<i class="fab fa-twitter"></i>
 						</a>
-						<a href="#" class="button-footr">
-							<i class="fab fa-dribbble"></i>
+						<a target="_blank" href="https://www.linkedin.com/company/statsbot-social-innovations/" class="button-footr">
+							<i class="fab fa-linkedin"></i>
 						</a>
-						<a href="#" class="button-footr">
-							<i class="fab fa-pinterest-p"></i>
+						<a target="_blank" href="https://www.instagram.com/statsbot_org/" class="button-footr">
+							<i class="fab fa-instagram"></i>
 						</a>
 					</div>
 				</div>
 				<div class="clearfix"></div>
+
 
 			</div>
 			<!-- //footer -->

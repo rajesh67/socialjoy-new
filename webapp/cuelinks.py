@@ -14,7 +14,8 @@ class CuelinksOffersHandler():
 		return super(CuelinksOffersHandler, self).__init__(*args, **kwargs)
 
 	def read_offers_csv(self, catId):
-		self.catId=catId
+		self.cat, new=ProductCategory.objects.get_or_create(catId=catId, name=catId)
+		self.newCat=new
 		date=datetime.datetime.now().date().strftime('%d-%m-%y')
 		fileName=STORE_OFFERS_DATA_FILES.format(storeName='cuelinks', date=date, catId=catId)
 		offers=[]
@@ -43,11 +44,10 @@ class CuelinksOffersHandler():
 				off.status=offer[8]
 				off.imageUrl=offer[12]
 				off.store, created=Store.objects.get_or_create(aff_name=offer[2])
-				cat, new=ProductCategory.objects.get_or_create(catId=self.catId, name=self.catId)
-				if new:
-					off.store.categories.add(cat)
-					off.store.save()
-				off.category=cat
+				if created:
+					self.cat.stores.add(off.store)
+					self.cat.save()
+				off.category=self.cat
 				off.save()
 			else:
 				# Update if the offer has been expired

@@ -68,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mx-auto">
 						<li class="nav-item active">
-							<a class="nav-link ml-lg-0" href="{% url 'home' %}">Home
+							<a class="nav-link ml-lg-0" href="{% url 'home' %}"><bold>Home</bold>
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
@@ -158,12 +158,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											
 										</div>
 										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-laptop"></i>Electronics</a>
-										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-shopping-bag"></i>Fashion</a>
-										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-medkit"></i>Health & Beauty</a>
-										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-book-open"></i> Books</a>
-										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-money-bill-alt"></i>Recharges</a>
+										<a href="{% url 'stores-list' 'fashion' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-shopping-bag"></i>Fashion</a>
+										<a href="{% url 'stores-list' 'health-beauty' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-medkit"></i>Health & Beauty</a>
+										<a href="{% url 'stores-list' 'books' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-book-open"></i> Books</a>
+										<a href="{% url 'stores-list' 'recharge' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-money-bill-alt"></i>Recharges</a>
 										
-										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-car"></i>Travel</a>
+										<a href="{% url 'stores-list' 'travel' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-car"></i>Travel</a>
 
 										<br style="margin-top: 10px;">
 										
@@ -640,9 +640,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					We are seeking for your support to help us raise funds on your every online payments that you make. So we request everyone to shop from our website, this converts some portion of your shopping amount into donations. We strongly think that this model will be sustainable because you can do charity at "no cost to the consumer". Now educating children is click away from your thumb. Let's be part of this movement and help us impact lives of millions. 
 				</p>
 			</div>
-			<div class="">
-				<a href="{% url 'category-list' %}" class="btn btn-warning list-group-item" style="max-width: 625px; margin: 2% auto;">View All Stores</a> 
-				<a href="{% url 'contact-us' %}" class="btn btn-warning list-group-item" style="max-width: 625px; margin: 2% auto;">Contact US</a> 
+			<div class="text-center">
+				<a href="{% url 'category-list' %}" class="btn btn-warning btn-block" style="max-width: 625px; margin: 2% auto;">View All Stores</a> 
+				<a href="{% url 'contact-us' %}" class="btn btn-warning btn-block" style="max-width: 625px; margin: 2% auto;">Contact US</a> 
 			</div>
 			<div class="subscribe-grid text-center">
 				<h5>Subscribe for our latest programs, news and updates</h5>
