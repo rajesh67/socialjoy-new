@@ -196,11 +196,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="card">
 						<div class="card-body">
 							<i class="fas fa-book"></i>
-							<h5 class="card-title">Professional & Quality Education</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
-								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco.</p>
+							<h5 class="card-title">Life Skills & Creative Education</h5>
+							<p class="card-text">We provide life skills & creative education to the unprivilidged children. This will help them become a better decision maker, leader and elite personality. Education is provided on no-time bound manner.</p>
 							<div class="view my-4">
-								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+								<!-- <a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a> -->
 							</div>
 						</div>
 					</div>
@@ -210,10 +209,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="card-body">
 							<i class="fas fa-desktop"></i>
 							<h5 class="card-title">Virtual Classes</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
-								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco</p>
+							<p class="card-text">We setup digital labs acrosss our centers where anyone interested student can study online through video courses or they can be taught by an available vounteer teacher. This will provide opportunity to the remote poor students.</p>
 							<div class="view my-4">
-								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+								<!-- <a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a> -->
 							</div>
 						</div>
 					</div>
@@ -223,10 +221,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="card-body">
 							<i class="fas fa-gift"></i>
 							<h5 class="card-title">Clothes & Shoes Giving</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
-								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco.</p>
+							<p class="card-text">As an environmental issue, we recycle the old clothes and shoes, so that these clothes can be used by the needy people. In future we are also planning to refurbish shoes, and then they will be distributed.</p>
 							<div class="view my-4">
-								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+								<!-- <a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a> -->
 							</div>
 						</div>
 					</div>
@@ -236,10 +233,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="card-body">
 							<i class="fas fa-handshake"></i>
 							<h5 class="card-title">Professional Services</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
-								aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco..</p>
+							<p class="card-text">We provide professional service like - Web Development, App Development and Software Development services to our clients for a minimum fees. We also provide consultancy in the field of virtual classes.</p>
 							<div class="view my-4">
-								<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+								<!-- <a href="{% url 'contact-us' %}" class="btn btn-primary read-m">contact-us</a> -->
 							</div>
 						</div>
 					</div>
@@ -253,34 +249,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="feature-main container-fluid text-left">
 			<div class="row">
 				<div class="col-lg-3 feature text-left">
-					<h3>Special Services</h3>
-					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
+					<h3>Recent Blogs</h3>
+					<p class="card-text">Read our amazing news & updates. Our goal is to impact millions of unprivilidged lives by providing resources to them. In this you are also a part of our movement so please do give a read to our articles. </p>
 					<div class="view my-4">
-						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+						<a href="{% url 'blog-list' %}" class="btn btn-primary read-m">View All</a>
 					</div>
 				</div>
 				<div class="col-lg-3 card feature text-left">
 					<img src="{{STATIC_URL}}banners/first.jpg" alt=" " class="img-fluid rounded" />
-					<h5 class="card-title">Minimum Price Guaranteed</h5>
+					<h5 class="card-title"><a href="">The history of Indian Education System?</a></h5>
 					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
 					<div class="view my-4">
-						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+						<a href="{% url 'blog-details' '1' %}" class="btn btn-primary read-m">Read More</a>
 					</div>
 				</div>
 				<div class="col-lg-3 card feature text-left">
-					<img src="{{STATIC_URL}}f2.jpg" alt=" " class="img-fluid rounded" />
-					<h5 class="card-title">All-in-One Application for Charity</h5>
+					<img src="{{STATIC_URL}}banners/second.jpg" alt=" " class="img-fluid rounded" />
+					<h5 class="card-title"><a href="">How our education system is failing?</a></h5>
 					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
 					<div class="view my-4">
-						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+						<a href="{% url 'blog-details' '1' %}" class="btn btn-primary read-m">Read More</a>
 					</div>
 				</div>
 				<div class="col-lg-3 card feature text-left">
-					<img src="{{STATIC_URL}}f3.jpg" alt=" " class="img-fluid rounded" />
-					<h5 class="card-title">Latest Offers & Deals</h5>
+					<img src="{{STATIC_URL}}banners/third.jpg" alt=" " class="img-fluid rounded" />
+					<h5 class="card-title"><a href="">Join our movement to change the lives of millions !</a></h5>
 					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna..</p>
 					<div class="view my-4">
-						<a href="single.html" class="btn btn-primary read-m" data-toggle="modal" data-target="#exampleModalCenter">Read More</a>
+						<a href="{% url 'blog-details' '1' %}" class="btn btn-primary read-m">Read More</a>
 					</div>
 				</div>
 			</div>
