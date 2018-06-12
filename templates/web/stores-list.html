@@ -248,14 +248,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <h4 class="card-title">
                     <a href="{% url 'store-details' store.pk %}">{{store.name}}</a>
                   </h4>
-            	<div data-id="{{ store.pk }}" data-type="store" data-action="bookmark" title="Favorites">
-				    {% if request.user|check_store_fav:store %}
-				    	<!-- <span class="fas fa-heart"></span> -->
-				    	<i class="fas fa-heart" style="transform: scale(0.75); color: red;"></i>
-				    {% else %}
+            	<div data-id="{{ store.pk }}" data-type="store" data-action="bookmark" title="Favorites"> 
 				    	<i class="far fa-heart" style="transform: scale(0.75); color: red;"></i>
 				    	<!-- <span class="far fa-heart"></span> -->
-				    {% endif %}
 				  	
 				    <span data-count="bookmark">{{ store.storebookmark_set.all|length }}</span>
 				</div>

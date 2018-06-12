@@ -158,7 +158,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<!-- Row Start -->
 			<div class="row">
-				<div class="col-md-10 offset-md-1 col-lg-4 offset-lg-0">
+				<div class="col-md-10 offset-md-1 col-lg-3 offset-lg-0">
 					<div class="sidebar">
 						<!-- User Widget -->
 						<div class="widget user-dashboard-profile">
@@ -189,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 				</div>
-				<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
+				<div class="col-md-10 offset-md-1 col-lg-9 offset-lg-0">
 					<!-- Recently Favorited -->
 					<div class="widget dashboard-container my-adslist">
 						<h3 class="widget-header">My Favourite Offers</h3>
@@ -218,28 +218,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</td>
 									<td class="product-category"><span class="categories">{{bookmark.offer.category.name}}</span></td>
 									<td class="action" data-title="Action">
-										<div class="">
-											<ul class="list-inline justify-content-center">
-												<li class="list-inline-item">
-													<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="{{bookmark.offer.url}}" target="_blank">
-														<i class="fa fa-eye"></i>
-													</a>		
-												</li>
-												<!-- <li class="list-inline-item">
-													<a class="edit" href="">
-														<i class="fa fa-pencil-alt"></i>
-													</a>		
-												</li> -->
-												<li class="list-inline-item">
-													<!-- <a class="delete" href="">
-														<i class="fa fa-trash"></i>
-													</a> -->
-													<a data-id="{{ bookmark.offer.pk }}" data-type="offer" data-action="bookmark" title="Favorites" href=""  data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="delete">
-													   	<i class="fa fa-trash"></i>
-													</a>
-												</li>
-											</ul>
-										</div>
+										<a href="{{bookmark.offer.url}}" target="_blank" class="btn btn-warning" style="display: inherit;">Activate deal</a>
+										<!-- <br style="margin: 5% auto;"> -->
+										<a href="{% url 'store-details' bookmark.offer.store.pk %}" class="btn btn-success" style="display: inherit;">View more</a>
 									</td>
 								</tr>
 								{% endfor %}

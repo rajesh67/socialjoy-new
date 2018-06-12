@@ -158,7 +158,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<!-- Row Start -->
 			<div class="row">
-				<div class="col-md-10 offset-md-1 col-lg-4 offset-lg-0">
+				<div class="col-md-10 offset-md-1 col-lg-3 offset-lg-0">
 					<div class="sidebar">
 						<!-- User Widget -->
 						<div class="widget user-dashboard-profile">
@@ -189,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 				</div>
-				<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
+				<div class="col-md-10 offset-md-1 col-lg-9 offset-lg-0">
 					<!-- Recently Favorited -->
 					<div class="widget dashboard-container my-adslist">
 						<h3 class="widget-header">My Favourite Online Stores</h3>
@@ -197,8 +197,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<thead>
 								<tr>
 									<th>Image</th>
-									<th>Product Title</th>
-									<th class="text-center">Category</th>
+									<th>Seller Name</th>
+									
 									<th class="text-center">Action</th>
 								</tr>
 							</thead>
@@ -215,27 +215,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<span class="status active"><strong>Status</strong>Active</span>
 										<!-- <span class="location"><a href="{{bookmark.store.home_url}}" class="list-group-item text-center btn-warning" target="_blank">Shop on {{bookmark.store.name}}</a></span> -->
 									</td>
-									<td class="product-category"><span class="categories">{{bookmark.store.category.name}}</span></td>
+									
 									<td class="action" data-title="Action">
 										<div class="">
-											<ul class="list-inline justify-content-center">
+											<!-- <ul class="list-inline justify-content-center">
 												<li class="list-inline-item">
 													<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="{% url 'store-details' bookmark.store.pk %}">
 														<i class="fa fa-eye"></i>
 													</a>		
 												</li>
-												<!-- <li class="list-inline-item">
+												<li class="list-inline-item">
 													<a class="edit" href="">
 														<i class="fa fa-pencil-alt"></i>
 													</a>		
-												</li> -->
+												</li>
 												<li class="list-inline-item">
 													<a data-id="{{ bookmark.store.pk }}" data-type="store" data-action="bookmark" title="Favorites" href=""  data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="delete">
 													   	<i class="fa fa-trash"></i>
 													</a>
 												</li>
-											</ul>
+											</ul> -->
+											
 										</div>
+										<a href="{{bookmark.store.home_url}}" target="_blank" class="btn btn-warning" style="display: inherit;">Shop Now</a>
+										<!-- <br style="margin: 5% auto;"> -->
+										<a href="{% url 'store-details' bookmark.store.pk %}" class="btn btn-success" style="display: inherit;">View Offers</a>
 									</td>
 								</tr><!-- /TR -->
 								{% endfor %}
