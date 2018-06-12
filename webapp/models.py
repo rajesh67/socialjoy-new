@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 # Create your models here.
+
 import datetime
 
 class StoreCategory(models.Model):
@@ -20,14 +23,18 @@ class Store(models.Model):
 	aff_name=models.CharField(max_length=128, null=True, blank=True)
 	featured=models.BooleanField(default=False)
 	parent_cats=models.ManyToManyField('StoreCategory', related_name='stores')
-
+	users=models.ManyToManyField(User, related_name="favourite_stores")
+	
 	def __str__(self):
 		return self.aff_name
+
+	def get_bookmark_count(self):
+		return self.storebookmark_set().all().count()
 
 class ProductCategory(models.Model):
 	catId=models.CharField(max_length=30, null=True, blank=True)
 	name=models.CharField(max_length=30)
-	stores=models.ManyToManyField('Store', related_name="categories", null=True, blank=True)
+	stores=models.ManyToManyField('Store', related_name="categories", blank=True)
 
 	def __str__(self):
 		return self.name
@@ -55,6 +62,30 @@ class Offer(models.Model):
 
 	def __str__(self):
 		return self.title
+
+	def get_bookmark_count(self):
+		return self.offerbookmark_set().all().count()
+
+class StoreBookmark(models.Model):
+	user=models.ForeignKey(User, on_delete=models.CASCADE)
+	store=models.ForeignKey(Store, on_delete=models.CASCADE)
+
+class OfferBookmark(models.Model):
+	user=models.ForeignKey(User, on_delete=models.CASCADE)
+	offer=models.ForeignKey(Offer, on_delete=models.CASCADE)
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=500, blank=True)
+    location = models.CharField(max_length=30, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
+    image=models.ImageField(upload_to='users/', null=True)
+
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+	if created:
+		Profile.objects.create(user=instance)
+	instance.profile.save()
 
 #----------------Our Services Cotents ----------------------
 

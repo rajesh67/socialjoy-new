@@ -1,0 +1,425 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Nimrit Foundation - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | Gallary :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Transco a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="{{STATIC_URL}}bootstrap.css" rel='stylesheet' type='text/css' />
+	<link href="{{STATIC_URL}}style.css" rel='stylesheet' type='text/css' />
+	<link href="{{STATIC_URL}}style_other.css" rel='stylesheet' type='text/css' />
+	<!-- <link href="{{STATIC_URL}}fontawesome-all.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,900" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700" rel="stylesheet">
+</head>
+
+<body>
+
+	<!--/banner-->
+	<div class="banner-inner" id="home">
+		<!-- header -->
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light top-header">
+				<button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+				    aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<!-- search -->
+				<div class="search">
+					<div class="cd-main-header">
+						<ul class="cd-header-buttons">
+							<li>
+								<a class="cd-search-trigger" href="#cd-search">
+									<span></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div id="cd-search" class="cd-search">
+						<form action="#" method="post">
+							<input name="Search" type="search" placeholder="Click enter after typing...">
+						</form>
+					</div>
+				</div>
+				<!-- //search -->
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mx-auto">
+						<li class="nav-item active">
+							<a class="nav-link ml-lg-0" href="{% url 'home' %}">Home
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{% url 'stores-list' '3' %}" class="nav-link">Electronics</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown" aria-haspopup="true"
+							    aria-expanded="false">
+								About US
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDrop">
+								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
+								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
+								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Gallery</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+							    aria-expanded="false">
+								Projects
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item text-center" href="">Cloth Giving</a>
+								<a class="dropdown-item text-center" href="">Digital Centers</a>
+								<a class="dropdown-item text-center" href="">Residential Campus</a>
+								<a class="dropdown-item text-center" href="">Digital Library</a>
+
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'contact-us' %}">Contact</a>
+						</li>
+						{% if request.user.is_authenticated %}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+								    aria-expanded="false">
+									Account
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.profile.pk %}">Profile</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-stores'  %}">Favourites Stores</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-offers'  %}">Favourites Offers</a>
+									<a class="dropdown-item text-center" href="{% url 'user-approved-donations'  %}">Donations</a>
+									<div class="dropdown-divider"></div>
+									<a href="{% url 'logout' %}" class="dropdown-item text-center">Logout</a>
+								</div>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'login' %}">LogIn</a>
+							</li>
+						{% endif %}
+					</ul>
+
+				</div>
+			</nav>
+		</header>
+		<!-- //header -->
+		<!-- banner-->
+		<div class="wrapper-inner">
+			<h3 class="logo text-center">
+				<a class="navbar-brand" href="{% url 'home' %}">
+					<i class="fas fa-hands"></i> Nimrit <small>Foundation</small>
+				</a>
+			</h3>
+			<h4 style="font-weight: bold; color: #ffffff;" class="text-center">We educate poor children about life and creative skills to rise above the ocean of poverty.</h4>
+		</div>
+	</div>
+	<!-- //banner -->
+	<!--//nav-->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.html">Home</a>
+		</li>
+		<li class="breadcrumb-item">Users</li>
+		<li class="breadcrumb-item active">{{user.user.username}}</li>
+	</ol>
+	<!-- Page content -->
+
+	<!--==================================
+	=            User Profile            =
+	===================================-->
+	<section class="dashboard section">
+		<!-- Container Start -->
+		<div class="container">
+			<!-- Row Start -->
+			<div class="row">
+				<div class="col-md-10 offset-md-1 col-lg-4 offset-lg-0">
+					<div class="sidebar">
+						<!-- User Widget -->
+						<div class="widget user-dashboard-profile">
+							<!-- User Image -->
+							<div class="profile-thumb">
+								{% if user.user.image %}
+									<img src="images/user/user-thumb.jpg" alt="" class="rounded-circle">
+								{% else %}
+									<img src="http://placehold.it/350x350" alt="" class="rounded-circle">
+								{% endif %}
+							</div>
+							<!-- User Name -->
+							<h5 class="text-center">{{user.first_name}} {{user.last_name}}</h5>
+							<p>Joined {{user.date_joined }}</p>
+							<a href="{% url 'update-user-profile' user.pk %}" class="btn btn-main-sm">Edit Profile</a>
+						</div>
+						<!-- Dashboard Links -->
+						<div class="widget user-dashboard-menu">
+							<ul>
+								<li><a href="{% url 'update-user-profile' user.pk %}"><i class="fa fa-user"></i>My Profile</a></li>
+								<li><a href="{% url 'user-favourite-stores' %}"><i class="fa fa-u"></i> Favourite Stores <span>{{user.storebookmark_set.all|length}}</span></a></li>
+								<li class="active"><a href="{% url 'user-favourite-offers' %}"><i class="fa fa-file-archive-o"></i>Favourite Offers <span>{{user.offerbookmark_set.all|length}}</span></a></li>
+								<li><a href="{% url 'user-approved-donations' %}"><i class="fa fa-bolt"></i> Approved Donations<span>23</span></a></li>
+								<li><a href="{% url 'user-pending-donations' %}"><i class="fa fa-bolt"></i> Pending Donations<span>23</span></a></li>
+								<li><a href="{% url 'logout' %}"><i class="fa fa-cog"></i> Logout</a></li>
+								<li><a href=""><i class="fa fa-power-off"></i>Delete Account</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
+					<!-- Recently Favorited -->
+					<div class="widget dashboard-container my-adslist">
+						<h3 class="widget-header">My Favourite Offers</h3>
+						<table class="table table-responsive product-dashboard-table">
+							<thead>
+								<tr>
+									<th>Image</th>
+									<th>Offer Title</th>
+									<th class="text-center">Category</th>
+									<th class="text-center">Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for bookmark in user.offerbookmark_set.all %}
+								<tr>
+									
+									<td class="product-thumb">
+										<img width="80px" height="auto" src="{{bookmark.offer.imageUrl}}" alt="image description"></td>
+									<td class="product-details">
+										<h3 class="title"><a href="{{bookmark.offer.url}}" target="_blank">{{bookmark.offer.title}}</a></h3>
+										<span class="add-id"><strong>Ad ID:</strong> {{bookmark.offer.offerId}}</span>
+										<span><strong>Starting from: </strong><time>{{bookmark.offer.startTime}}</time> </span>
+										<span><strong>Ends on: </strong><time>{{bookmark.offer.endTime}}</time> </span>
+										<span class="status active"><strong>Status</strong>{{bookmark.offer.status}}</span>
+										<span class="location"><strong>Seller : </strong><a href="{% url 'store-details' bookmark.offer.store.pk %}">{{bookmark.offer.store.name}}</a></span>
+									</td>
+									<td class="product-category"><span class="categories">{{bookmark.offer.category.name}}</span></td>
+									<td class="action" data-title="Action">
+										<div class="">
+											<ul class="list-inline justify-content-center">
+												<li class="list-inline-item">
+													<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="{{bookmark.offer.url}}" target="_blank">
+														<i class="fa fa-eye"></i>
+													</a>		
+												</li>
+												<!-- <li class="list-inline-item">
+													<a class="edit" href="">
+														<i class="fa fa-pencil-alt"></i>
+													</a>		
+												</li> -->
+												<li class="list-inline-item">
+													<!-- <a class="delete" href="">
+														<i class="fa fa-trash"></i>
+													</a> -->
+													<a data-id="{{ bookmark.offer.pk }}" data-type="offer" data-action="bookmark" title="Favorites" href=""  data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="delete">
+													   	<i class="fa fa-trash"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+						
+					</div>
+				</div>
+			</div>
+			<!-- Row End -->
+		</div>
+		<!-- Container End -->
+	</section>
+	<!-- /Page Content -->
+	<!--footer-->
+	<footer style="margin: 5% auto;">
+		<div class="container">
+			<div class="footer-top-agileits-w3ls text-center">
+				<h2 class="logo">
+					<a href="index.html">
+						<i class="fas fa-hands"></i> Nimrit <small>Foundation</small></a>
+				</h2>
+				<p class="para three mt-4">We are a for-profit social impact company. Our company is planning to build low-cost residential centers in remote areas, where our volunteer teachers will tecah poor, unprivilidged and drop-out school children life skills and computer expertise for e.g :- Digital Library, Virtual Class Center, Group Based Studies, Sports Training and Infrastructure. etc. As our goals are to empower the lives of millions by the support of other privilidged millions, who are in position of helping others.</p>
+				<p class="para three mt-2">
+					We are seeking for your support to help us raise funds on your every online payments that you make. So we request everyone to shop from our website, this converts some portion of your shopping amount into donations. We strongly think that this model will be sustainable because you can do charity at "no cost to the consumer". Now educating children is click away from your thumb. Let's be part of this movement and help us impact lives of millions. 
+				</p>
+			</div>
+			<div class="text-center">
+				<a href="{% url 'category-list' %}" class="btn btn-warning btn-block" style="max-width: 625px; margin: 2% auto;">View All Stores</a> 
+				<a href="{% url 'contact-us' %}" class="btn btn-warning btn-block" style="max-width: 625px; margin: 2% auto;">Contact US</a> 
+			</div>
+			<div class="subscribe-grid text-center">
+				<h5>Subscribe for our latest programs, news and updates</h5>
+				<p>Get
+					<span>Latest</span> offers and deals on shopping, booking, recharges, utility payments and many more exclusive contents.</p>
+				<form action="#" method="post">
+					<input class="form-control" type="email" placeholder="Subscribe" name="Subscribe" required="">
+					<button class="btn1">
+						<i class="far fa-envelope"></i>
+					</button>
+				</form>
+			</div>
+			<div class="row footer-bottom-wthree-agile">
+				<div class="col-lg-6 copyright">
+					<p>&copy; 2018 Nimrit Foundation - We Educate Poor Children . All Rights Reserved | Design by
+						<a href="https://www.facebook.com/dustyraju">ImpactOcean Developers</a>
+					</p>
+
+				</div>
+				<div class="col-lg-6 social-icon footer text-right">
+					<div class="icon-social">
+						<a target="_blank" href="https://www.facebook.com/statsbotSocialInnovations/" class="button-footr">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+						<a target="_blank" href="https://twitter.com/StatsbotI" class="button-footr">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a target="_blank" href="https://www.linkedin.com/company/statsbot-social-innovations/" class="button-footr">
+							<i class="fab fa-linkedin"></i>
+						</a>
+						<a target="_blank" href="https://www.instagram.com/statsbot_org/" class="button-footr">
+							<i class="fab fa-instagram"></i>
+						</a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+
+
+			</div>
+			<!-- //footer -->
+		</div>
+	</footer>
+	<!---->
+	<!-- js -->
+	<script  src="{{ STATIC_URL }}jquery-2.2.3.min.js"></script>
+	<!-- //js -->
+	<!--search-bar-->
+	<script src="{{ STATIC_URL }}search.js"></script>
+	<!--//search-bar-->
+	<!--light-box-files -->
+	<script src="{{ STATIC_URL }}lightbox-plus-jquery.min.js"></script>
+	<!--//light-box-files -->
+	<!--/ start-smoth-scrolling -->
+	<script  src="{{ STATIC_URL }}move-top.js"></script>
+	<script  src="{{ STATIC_URL }}easing.js"></script>
+	<script >
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 900);
+			});
+
+			// Getting a cookie by name
+			function getCookie(name) {
+			    var cookieValue = null;
+			    if (document.cookie && document.cookie !== '') {
+			        var cookies = document.cookie.split(';');
+			        for (var i = 0; i < cookies.length; i++) {
+			            var cookie = jQuery.trim(cookies[i]);
+			            // Does this cookie string begin with the name we want?
+			            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+			                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+			                console.log(cookieValue);
+			                break;
+			            }
+			        }
+			    }
+			    return cookieValue;
+			}
+			 
+			// Setup AJAX
+			$(function () {
+			    $.ajaxSetup({
+			        headers: { "X-CSRFToken": getCookie("csrftoken") }
+			    });
+			});
+
+			function to_bookmarks()
+			{
+			    var current = $(this);
+			    var type = current.data('type');
+			    var pk = current.data('id');
+			    var action = current.data('action');
+
+			    var icon=document.createElement('i');
+			    icon.classList.add("fas");
+			    icon.classList.add("fa-heart");
+			    $.ajax({
+			        url : "/web/" + type + "/" + pk + "/" + action + "/",
+			        type : 'POST',
+			        data : { 'obj' : pk, },
+
+			        success : function (json) {
+			            //current.find("[data-count='" + action + "']").text(json.count);
+			            
+			            if(json.result===true){
+			            	current.html('<i class="fas fa-heart" style="transform: scale(0.75); color: red;"></i><span data-count="bookmark">'+json.count+'</span>');
+			            }else{
+			            	current.html('<i class="far fa-heart" style="transform: scale(0.75); color: red;"></i><span data-count="bookmark">'+json.count+'</span>');
+			            }
+			        }
+			    });
+
+			    return false;
+			}
+
+			$(function() {
+			    $('[data-action="bookmark"]').click(to_bookmarks);
+			});
+		});
+	</script>
+	<!--// end-smoth-scrolling -->
+
+	<script >
+		$(document).ready(function () {
+			/*
+									var defaults = {
+							  			containerID: 'toTop', // fading element id
+										containerHoverID: 'toTopHover', // fading element hover id
+										scrollSpeed: 1200,
+										easingType: 'linear' 
+							 		};
+									*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<a href="#home" class="scroll" id="toTop" style="display: block;">
+		<span id="toTopHover" style="opacity: 1;"> </span>
+	</a>
+
+	<!-- //Custom-JavaScript-File-Links -->
+	<script  src="{{STATIC_URL}}bootstrap.js"></script>
+
+
+</body>
+
+</html>

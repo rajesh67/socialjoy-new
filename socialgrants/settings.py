@@ -43,6 +43,8 @@ INSTALLED_APPS = [
 
     #Third Party Apps
     'django_summernote',
+    'bootstrap4',
+    
 ]
 
 MIDDLEWARE = [
@@ -144,6 +146,15 @@ MEDIA_ROOT=os.path.join(BASE_DIR, "media/")
 MEDIAFILES_DIRS=[
     os.path.join('media/stores/'),
 ]
+
+LOGIN_REDIRECT_URL = '/web/'
+from django.contrib.messages import constants as message_constants
+MESSAGE_LEVEL = message_constants.DEBUG
+
+
+POSITIVE_NOTATION = "Favorite"
+NEGATIVE_NOTATION = "Unfavorite"
+# ALLOW_ANONYMOUS = "FALSE"
 
 SUMMERNOTE_CONFIG = {
     # Using SummernoteWidget - iframe mode, default

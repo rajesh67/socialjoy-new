@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{% url 'stores-list' 'electronics' %}" class="nav-link">Electronics</a>
+							<a href="{% url 'stores-list' '3' %}" class="nav-link">Electronics</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
@@ -106,6 +106,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'contact-us' %}">Contact</a>
 						</li>
+						{% if request.user.is_authenticated %}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+								    aria-expanded="false">
+									Account
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.profile.pk %}">Profile</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-stores' %}">Favourites Stores</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-offers'  %}">Favourites Offers</a>
+									<a class="dropdown-item text-center" href="{% url 'user-approved-donations' %}">Donations</a>
+									<div class="dropdown-divider"></div>
+									<a href="{% url 'logout' %}" class="dropdown-item text-center">Logout</a>
+								</div>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'login' %}">LogIn</a>
+							</li>
+						{% endif %}
 					</ul>
 
 				</div>
@@ -128,20 +148,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</h3>
 								<h4 style="font-weight: bold; color: #ffffff;">Every shopping of yours helps us educate a poor child.</h4>
 								<div class="banner-form">
-									<form action="#" method="post" style="font-size: 1em; font-weight: bold;">
+									<form action="" method="post" style="font-size: 1em; font-weight: bold;">{% csrf_token %}
 										<div class="row">
 											<div class="col-md-2">
 												<!-- <input type="text" class="form-control" name="name" placeholder="Name" required=""> -->
 											</div>
 											<div class="col-md-6">
-												<select class="form-control option">
+												<select class="form-control option" name="store">
 													<option>Shopping From</option>
-													<option>Flipkart</option>
-													<option>Amazon</option>
-													<option>Snapdeal</option>
-													<option>Myntra</option>
-													<option>Jabong</option>
-													<option>Ebay</option>
+													<option value="1">Flipkart</option>
+													<option value="3">Paytm</option>
+													<option value="4">Myntra</option>
+													<option value="5">Jabong</option>
+													<option value="6">Croma Retail</option>
 												</select>
 											</div>
 											<!-- <div class="col-md-4">
@@ -157,18 +176,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 											
 										</div>
-										<a href="{% url 'stores-list' 'electronics' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-laptop"></i>Electronics</a>
-										<a href="{% url 'stores-list' 'fashion' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-shopping-bag"></i>Fashion</a>
-										<a href="{% url 'stores-list' 'health-beauty' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-medkit"></i>Health & Beauty</a>
-										<a href="{% url 'stores-list' 'books' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-book-open"></i> Books</a>
-										<a href="{% url 'stores-list' 'recharge' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-money-bill-alt"></i>Recharges</a>
+									</form>
+										<a href="{% url 'stores-list' '3' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-laptop"></i>Electronics</a>
+										<a href="{% url 'stores-list' '6' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-shopping-bag"></i>Fashion</a>
+										<a href="{% url 'stores-list' '11' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-medkit"></i>Health & Beauty</a>
+										<a href="{% url 'stores-list' '5' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-book-open"></i> Books</a>
+										<a href="{% url 'stores-list' '14' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-money-bill-alt"></i>Recharges</a>
 										
-										<a href="{% url 'stores-list' 'travel' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-car"></i>Travel</a>
+										<a href="{% url 'stores-list' '16' %}" class="btn btn-secondary btn-sm" style="margin-top: 2%;"><i class="fas fa-car"></i>Travel</a>
 
 										<br style="margin-top: 10px;">
-										
-										
-									</form>
 									<div class="text-center">
 										<a href="{% url 'category-list' %}" class="btn btn-warning nav-link text-center" style=" max-width: 635px; margin: 1% auto;">View All Stores</a>
 									</div>
@@ -477,7 +494,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		            </div>
 					{% endfor %}
 					<div class="btnDiv text-center" style="margin: 2% auto;">
-						<a href="{% url 'stores-list' 'shopping' %}">
+						<a href="{% url 'category-list' %}">
 							<button class="btn btn-lg btn-warning">View All Stores</button>
 						</a>
 					</div>

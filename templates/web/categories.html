@@ -9,7 +9,7 @@
 <html lang="zxx">
 
 <head>
-	<title>SocialJoy - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | All Categories :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
+	<title>Nimrit Foundation - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | All Categories :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="Transco a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -70,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="{% url 'stores-list' 'electronics' %}">Electronics</a>
+							<a class="nav-link" href="{% url 'stores-list' '3' %}">Electronics</a>
 						</li>
 						
 						<li class="nav-item">
@@ -102,6 +102,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item">
 							<a class="nav-link" href="contact.html">Contact</a>
 						</li>
+						{% if request.user.is_authenticated %}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+								    aria-expanded="false">
+									Account
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.profile.pk %}">Profile</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Stores</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Offers</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Donations</a>
+									<div class="dropdown-divider"></div>
+									<a href="{% url 'logout' %}" class="dropdown-item text-center">Logout</a>
+								</div>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'login' %}">LogIn</a>
+							</li>
+						{% endif %}
 					</ul>
 				</div>
 			</nav>
@@ -150,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="header">
 									<i class="fa fa-laptop icon-bg-1"></i> 
 									<h4>
-										<a href="{% url 'stores-list' 'electronics' %}">Electronics</a>
+										<a href="{% url 'stores-list' '3' %}">Electronics</a>
 									</h4>
 								</div>
 								<ul class="category-list" >
@@ -172,7 +192,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="header">
 									<i class="fas fa-money-bill-alt icon-bg-2"></i> 
 									<h4>
-										<a href="{% url 'stores-list' 'recharge' %}">Recharges</a>
+										<a href="{% url 'stores-list' '14' %}">Recharges</a>
 									</h4>
 								</div>
 								<ul class="category-list" >
@@ -188,7 +208,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-shopping-bag icon-bg-3"></i> 
-									<h4><a href="{% url 'stores-list' 'fashion' %}">Fashion</a></h4>
+									<h4><a href="{% url 'stores-list' '6' %}">Fashion</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Farms <span>93</span></a></li>
@@ -203,7 +223,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fa fa-shopping-basket icon-bg-4"></i> 
-									<h4><a href="{% url 'stores-list' 'food-grocery' %}">Food & Grocery</a></h4>
+									<h4><a href="{% url 'stores-list' '9' %}">Food & Grocery</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Mens Wears <span>53</span></a></li>
@@ -219,7 +239,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="header">
 									<i class="fas fa-medkit icon-bg-5"></i> 
 									<h4>
-										<a href="{% url 'stores-list' 'health-beauty' %}">Health & Beauty</a>
+										<a href="{% url 'stores-list' '11' %}">Health & Beauty</a>
 									</h4>
 								</div>
 								<ul class="category-list" >
@@ -235,7 +255,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fa fa-car icon-bg-6"></i> 
-									<h4><a href="">Travel</a></h4>
+									<h4><a href="{% url 'stores-list' '16' %}">Travel</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Bus <span>193</span></a></li>
@@ -250,7 +270,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-gift icon-bg-7"></i> 
-									<h4><a href="{% url 'stores-list' 'flower-gifts' %}">Flowers & Gifts</a></h4>
+									<h4><a href="{% url 'stores-list' '8' %}">Flowers & Gifts</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cats <span>65</span></a></li>
@@ -265,7 +285,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fab fa-servicestack icon-bg-8"></i> 
-									<h4><a href="{% url 'stores-list' 'services' %}">Services</a></h4>
+									<h4><a href="{% url 'stores-list' '15' %}">Services</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -281,7 +301,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-book-open icon-bg-4"></i> 
-									<h4><a href="{% url 'stores-list' 'books' %}">Books</a></h4>
+									<h4><a href="{% url 'stores-list' '5' %}">Books</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -297,7 +317,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-rupee-sign icon-bg-1"></i> 
-									<h4><a href="{% url 'stores-list' 'finance' %}">Finance</a></h4>
+									<h4><a href="{% url 'stores-list' '7' %}">Finance</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -313,7 +333,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-gamepad icon-bg-2"></i> 
-									<h4><a href="{% url 'stores-list' 'gaming' %}">Gaming</a></h4>
+									<h4><a href="{% url 'stores-list' '10' %}">Gaming</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -329,7 +349,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fas fa-utensils icon-bg-3"></i> 
-									<h4><a href="{% url 'stores-list' 'home-kitchen' %}">Home & Kitchen</a></h4>
+									<h4><a href="{% url 'stores-list' '12' %}">Home & Kitchen</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -345,7 +365,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fab fa-aws icon-bg-8"></i> 
-									<h4><a href="{% url 'stores-list' 'web-hosting-domains' %}">Web Hosting & Domain Names</a></h4>
+									<h4><a href="{% url 'stores-list' '17' %}">Web Hosting & Domain Names</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -361,7 +381,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="fab fa-digital-ocean icon-bg-5"></i> 
-									<h4><a href="{% url 'stores-list' 'files-databases' %}">Files, Databases & Storages</a></h4>
+									<h4><a href="{% url 'stores-list' '18' %}">Files, Databases & Storages</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>
@@ -378,7 +398,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="category-block">
 								<div class="header">
 									<i class="far fa-eye icon-bg-6"></i> 
-									<h4><a href="{% url 'stores-list' 'others' %}">Others</a></h4>
+									<h4><a href="{% url 'stores-list' '13' %}">Others</a></h4>
 								</div>
 								<ul class="category-list" >
 									<li><a href="category.html">Cleaning <span>93</span></a></li>

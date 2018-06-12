@@ -4,12 +4,12 @@
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
-	<title>SocialJoy - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | Store - {{store.name}} :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
+	<title>Nimrit Foundation - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | Store - {{store.name}} :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="Transco a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -25,6 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<link href="{{STATIC_URL}}bootstrap.css" rel='stylesheet' type='text/css' />
 	<link href="{{STATIC_URL}}style.css" rel='stylesheet' type='text/css' />
+	<link href="{{STATIC_URL}}style_other.css" rel='stylesheet' type='text/css' />
 	<!-- <link href="{{STATIC_URL}}fontawesome-all.css" rel="stylesheet"> -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,900" rel="stylesheet">
@@ -69,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{% url 'stores-list' 'electronics' %}" class="nav-link">Electronics</a>
+							<a href="{% url 'stores-list' '3' %}" class="nav-link">Electronics</a>
 						</li>
 						
 						<li class="nav-item">
@@ -102,6 +103,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'contact-us' %}">Contact</a>
 						</li>
+						{% if request.user.is_authenticated %}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+								    aria-expanded="false">
+									Account
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.profile.pk %}">Profile</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Stores</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Offers</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Donations</a>
+									<div class="dropdown-divider"></div>
+									<a href="{% url 'logout' %}" class="dropdown-item text-center">Logout</a>
+								</div>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'login' %}">LogIn</a>
+							</li>
+						{% endif %}
 					</ul>
 
 				</div>
@@ -148,16 +169,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <section id="storeDetails">
     	<div class="container">
+    		<div class="text-center">
+    			<a href="#offers" class="btn btn-primary">View All Offers</a>
+    		</div>
     		<div class="row">
     			<div class="col-lg-3">
 		          <div class="card mt-4">
 		            <img class="card-img-top img-fluid" src="{{MEDIA_URL}}{{store.logo_image}}" alt="" style="overflow: hidden; width: auto; height: 100px;">
 		            <div class="card-body">
 		              <h3 class="card-title">{{ store.name }}</h3>
-		              <h5>Donation Rate :- 0 <small>%</small> - 12 <small>%</small> / Transaction</h5>
-		              <p class="card-text">Amazon is the most trusted online store in india.</p>
+		             
+		              <p class="card-text">Donation Rate :- 0 <small>%</small> - 12 <small>%</small> / Transaction</p>
 		              <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-		              <span><a href="{{ store.home_url }}" class="btn btn-md btn-warning btn-block">Shop Now</a></span>
+		              <span><a href="{{ store.home_url }}" class="btn btn-md btn-warning btn-block" target="_blank">Shop Now</a></span>
 		            </div>
 		          </div>
 		        </div>
@@ -181,21 +205,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			      		<ul class="nav nav-pills nav-justified">
 							  {% for cat in store.categories.all %}
 							  <li class="nav-item">
-							  	<a href="{% url 'stores-list' cat.catId %}" class="nav-link btn btn-md"><i class="fa fa-laptop"></i> {{cat.name}}</a>
+							  	<a href="{% url 'stores-list' cat.pk %}" class="nav-link btn btn-md"><i class="fa fa-laptop"></i> {{cat.name}}</a>
 							  </li>
 							  {% endfor %}
 							</ul>
-			      		<div class="row">
-			      			{% for offer in store.offers.all %}
+						<div class="row">
+							<div class="col-md-12">
+								<div class="search-result bg-gray">
+									<h2>Results For "{{store.name}}" Offers</h2>
+									<p><!-- 123 Results on 12 December, 2017 --></p>
+								</div>
+							</div>
+						</div>
+			      		<div class="row" id="offers">
+			      			{% for offer in offers %}
 					            <div class="col-lg-4 col-md-6 mb-4">
 					              <div class="card h-100">
 					              	{% if offer.imageUrl %}
+					              	<img src="{{MEDIA_URL}}offer.png" class="img-responsive" style="max-width: 20%; height: auto; display: block;vertical-align: middle;">
+					              	<span data-id="{{ offer.pk }}" data-type="offer" data-action="bookmark" title="Favorites" style="position: absolute; right: 2px;">
+									    {% if offer in request.user.offerbookmark_set.all %}
+									    	<!-- <span class="fas fa-heart"></span> -->
+									    	<i class="fas fa-heart" style="transform: scale(0.75); color: red;"></i>
+									    {% else %}
+									    	<i class="far fa-heart" style="transform: scale(0.75); color: red;"></i>
+									    	<!-- <span class="far fa-heart"></span> -->
+									    {% endif %}
+									  	
+									    <span data-count="bookmark">{{ offer.offerbookmark_set.all|length }}</span>
+									</span>
+					              	</span>
 					                <!-- <a href="{% url 'store-details' store.pk %}"> --><img class="card-img-top" src="{{ offer.imageUrl }}" alt="" style="height: 50%; width: 50%; margin: 1% auto; overflow: hidden;"><!-- </a> -->
 					                {% else %}
 					                <!-- <a href="{% url 'store-details' store.pk %}"> --><img class="card-img-top" src="http://placehold.it/900x350" alt=""><!-- </a> -->
 					                {% endif %}
 					                <div class="card-body">
-					                  <h5 class="card-title" style="">
+					                  <h5 class="" style="font-family: Calibri; text-transform: capitalize;">
 					                    {{offer.title}}
 					                  </h5>
 					            	
@@ -208,12 +253,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					                </div>
 					                <div class="card-footer text-center">
 					                  <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
-					                  <a href="{{ offer.url }}" class="btn btn-block btn-warning">Grab this Offer</a>
+					                  <a href="{{ offer.url }}" class="btn btn-block btn-warning" target="_blank">Grab this Offer</a>
+					                  <p style="font-size: 0.5em;">is this your favourite offer, click the heart.</p>
 					                </div>
 					              </div>
 					            </div>
-					            {% endfor %}
-			      		</div>
+					        {% endfor %}
+					        <!-- Paginations -->
+					       
+							<div class="col-md-6 mx-auto">
+								{% if is_paginated %}
+								  <ul class="pagination text-center" style="text-align: center;">
+								    {% if page_obj.has_previous %}
+								      <li class="page-item"><span class="page-link"><a class="page-link" href="?page={{ page_obj.previous_page_number }}#offers">&laquo;Prev</a></span></li>
+								    {% else %}
+								      <li class="disabled page-item"><span class="page-link">&laquo;Prev</span></li>
+								    {% endif %}
+								    {% for i in paginator.page_range %}
+								      {% if page_obj.number == i %}
+								        <li class="active page-item"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+								      {% else %}
+								        <!-- <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li> -->
+								      {% endif %}
+								    {% endfor %}
+								    {% if page_obj.has_next %}
+								      <li class="page-item"><span><a class="page-link" href="?page={{ page_obj.next_page_number }}#offers">Next&raquo;</a></span></li>
+								    {% else %}
+								      <li class="disabled page-item"><span class="page-link">Next&raquo;</span></li>
+								    {% endif %}
+								  </ul>
+								{% endif %}
+							</div><!-- /Pagination -->
+							
+			      		</div><!-- /Row -->
 			      	</div><!-- /Offers Container -->
 			<div class="faq-cont">
               <div class="faq-heading text-center" style="margin: 2% auto;">
@@ -354,6 +426,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			$().UItoTop({
 				easingType: 'easeOutQuart'
 			});
+
+			// Getting a cookie by name
+			function getCookie(name) {
+			    var cookieValue = null;
+			    if (document.cookie && document.cookie !== '') {
+			        var cookies = document.cookie.split(';');
+			        for (var i = 0; i < cookies.length; i++) {
+			            var cookie = jQuery.trim(cookies[i]);
+			            // Does this cookie string begin with the name we want?
+			            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+			                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+			                console.log(cookieValue);
+			                break;
+			            }
+			        }
+			    }
+			    return cookieValue;
+			}
+			 
+			// Setup AJAX
+			$(function () {
+			    $.ajaxSetup({
+			        headers: { "X-CSRFToken": getCookie("csrftoken") }
+			    });
+			});
+
+			function to_bookmarks()
+			{
+			    var current = $(this);
+			    var type = current.data('type');
+			    var pk = current.data('id');
+			    var action = current.data('action');
+
+			    var icon=document.createElement('i');
+			    icon.classList.add("fas");
+			    icon.classList.add("fa-heart");
+			    $.ajax({
+			        url : "/web/" + type + "/" + pk + "/" + action + "/",
+			        type : 'POST',
+			        data : { 'obj' : pk, },
+
+			        success : function (json) {
+			            //current.find("[data-count='" + action + "']").text(json.count);
+			            
+			            if(json.result===true){
+			            	current.html('<i class="fas fa-heart" style="transform: scale(0.75); color: red;"></i><span data-count="bookmark">'+json.count+'</span>');
+			            }else{
+			            	current.html('<i class="far fa-heart" style="transform: scale(0.75); color: red;"></i><span data-count="bookmark">'+json.count+'</span>');
+			            }
+			        }
+			    });
+
+			    return false;
+			}
+
+			$(function() {
+			    $('[data-action="bookmark"]').click(to_bookmarks);
+			});
+
 
 		});
 	</script>

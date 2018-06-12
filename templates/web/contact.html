@@ -9,7 +9,7 @@
 <html lang="zxx">
 
 <head>
-	<title>SocialJoy - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | Contact :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
+	<title>Nimrit Foundation - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | Contact :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="Transco a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'stores-list' 'electronics' %}">Electronics</a>
+							<a class="nav-link" href="{% url 'stores-list' '3' %}">Electronics</a>
 						</li>
 						
 						<li class="nav-item">
@@ -102,6 +102,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item active">
 							<a class="nav-link" href="{% url 'contact-us' %}">Contact</a>
 						</li>
+						{% if request.user.is_authenticated %}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+								    aria-expanded="false">
+									Account
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.profile.pk %}">Profile</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Stores</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Offers</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Donations</a>
+									<div class="dropdown-divider"></div>
+									<a href="{% url 'logout' %}" class="dropdown-item text-center">Logout</a>
+								</div>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'login' %}">LogIn</a>
+							</li>
+						{% endif %}
 					</ul>
 				</div>
 			</nav>

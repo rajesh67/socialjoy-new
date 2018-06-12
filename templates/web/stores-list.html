@@ -4,12 +4,14 @@
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+{% load static %}
+{% load bootstrap4 %}
+{% load favourites %}
 
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
-	<title>SocialJoy - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | Category - {{category.name}} :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
+	<title>Nimrit Foundation - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | Category - {{category.name}} :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="Transco a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -70,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{% url 'stores-list' 'electronics' %}" class="nav-link">Electronics</a>
+							<a href="{% url 'stores-list' '3' %}" class="nav-link">Electronics</a>
 						</li>
 						
 						<li class="nav-item">
@@ -103,6 +105,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'contact-us' %}">Contact</a>
 						</li>
+						{% if request.user.is_authenticated %}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+								    aria-expanded="false">
+									Account
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.profile.pk %}">Profile</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Stores</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Offers</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Donations</a>
+									<div class="dropdown-divider"></div>
+									<a href="{% url 'logout' %}" class="dropdown-item text-center">Logout</a>
+								</div>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'login' %}">LogIn</a>
+							</li>
+						{% endif %}
 					</ul>
 
 				</div>
@@ -153,21 +175,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</select>	
           </span> -->
           <div class="list-group" style="margin-top: 20px;">
-            <a href="{% url 'stores-list' 'electronics' %}" class="list-group-item"><i class="fa fa-laptop icon-bg-1"></i> Electronics</a>
-            <a href="{% url 'stores-list' 'recharge' %}" class="list-group-item"><i class="fas fa-money-bill-alt icon-bg-2"></i> Recharges</a>
-            <a href="{% url 'stores-list' 'fashion' %}" class="list-group-item"><i class="fas fa-shopping-bag icon-bg-3"></i> Fashion</a>
-            <a href="{% url 'stores-list' 'food-grocery' %}" class="list-group-item"><i class="fa fa-shopping-basket icon-bg-4"></i> Food & Grocery </a>
-            <a href="{% url 'stores-list' 'health-beauty' %}" class="list-group-item"><i class="fas fa-medkit icon-bg-5"></i> Health & Beauty </a>
-            <a href="{% url 'stores-list' 'travel' %}" class="list-group-item"><i class="fa fa-car icon-bg-6"></i> Travel </a>
-            <a href="{% url 'stores-list' 'flower-gifts' %}" class="list-group-item"><i class="fas fa-gift icon-bg-7"></i> Flowers & Gifts </a>
-            <a href="{% url 'stores-list' 'services' %}" class="list-group-item"><i class="fab fa-servicestack icon-bg-8"></i> Online Services </a>
-            <a href="{% url 'stores-list' 'books' %}" class="list-group-item"><i class="fas fa-book-open icon-bg-4"></i> Books </a>
-            <a href="{% url 'stores-list' 'finance' %}" class="list-group-item"><i class="fas fa-rupee-sign icon-bg-1"></i> Finance </a>
-            <a href="{% url 'stores-list' 'gaming' %}" class="list-group-item"><i class="fas fa-gamepad icon-bg-2"></i>Gaming </a>
-            <a href="{% url 'stores-list' 'home-kitchen' %}" class="list-group-item"><i class="fas fa-utensils icon-bg-3"></i> Home & Kitchen </a>
-            <a href="{% url 'stores-list' 'web-hosting-domains' %}" class="list-group-item"><i class="fab fa-aws icon-bg-8"></i> Web Hosting & Domain Names </a>
-            <a href="{% url 'stores-list' 'files-databases' %}" class="list-group-item"><i class="fab fa-digital-ocean icon-bg-5"></i> Databases & Storages</a>
-            <a href="{% url 'stores-list' 'others' %}" class="list-group-item"> <i class="far fa-eye"></i> Others</a>
+            <a href="{% url 'stores-list' '3' %}" class="list-group-item"><i class="fa fa-laptop icon-bg-1"></i> Electronics</a>
+            <a href="{% url 'stores-list' '14' %}" class="list-group-item"><i class="fas fa-money-bill-alt icon-bg-2"></i> Recharges</a>
+            <a href="{% url 'stores-list' '6' %}" class="list-group-item"><i class="fas fa-shopping-bag icon-bg-3"></i> Fashion</a>
+            <a href="{% url 'stores-list' '9' %}" class="list-group-item"><i class="fa fa-shopping-basket icon-bg-4"></i> Food & Grocery </a>
+            <a href="{% url 'stores-list' '11' %}" class="list-group-item"><i class="fas fa-medkit icon-bg-5"></i> Health & Beauty </a>
+            <a href="{% url 'stores-list' '16' %}" class="list-group-item"><i class="fa fa-car icon-bg-6"></i> Travel </a>
+            <a href="{% url 'stores-list' '8' %}" class="list-group-item"><i class="fas fa-gift icon-bg-7"></i> Flowers & Gifts </a>
+            <a href="{% url 'stores-list' '15' %}" class="list-group-item"><i class="fab fa-servicestack icon-bg-8"></i> Online Services </a>
+            <a href="{% url 'stores-list' '5' %}" class="list-group-item"><i class="fas fa-book-open icon-bg-4"></i> Books </a>
+            <a href="{% url 'stores-list' '7' %}" class="list-group-item"><i class="fas fa-rupee-sign icon-bg-1"></i> Finance </a>
+            <a href="{% url 'stores-list' '10' %}" class="list-group-item"><i class="fas fa-gamepad icon-bg-2"></i>Gaming </a>
+            <a href="{% url 'stores-list' '12' %}" class="list-group-item"><i class="fas fa-utensils icon-bg-3"></i> Home & Kitchen </a>
+            <a href="{% url 'stores-list' '17' %}" class="list-group-item"><i class="fab fa-aws icon-bg-8"></i> Web Hosting & Domain Names </a>
+            <a href="{% url 'stores-list' '18' %}" class="list-group-item"><i class="fab fa-digital-ocean icon-bg-5"></i> Databases & Storages</a>
+            <a href="{% url 'stores-list' '13' %}" class="list-group-item"> <i class="far fa-eye"></i> Others</a>
           </div>
           <div class="" style="margin: 1% auto;">
           	<a href="{% url 'category-list' %}" class="btn btn-warning btn-block">View All >></a>
@@ -206,28 +228,75 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <span class="sr-only">Next</span>
             </a>
           </div> -->
-
           <div class="row">
-          	{% for store in category.stores.all %}
+				<div class="col-md-12">
+					<div class="search-result bg-gray">
+						<h2>Results For "{{category.name}}" Stores</h2>
+						<p><!-- 123 Results on 12 December, 2017 --></p>
+					</div>
+				</div>
+			</div><!-- /row -->
+          <div class="row">
+          	{% for store in stores %}
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
                 <a href="{% url 'store-details' store.pk %}"><img class="card-img-top" src="{{MEDIA_URL}}{{store.logo_image}}" alt=""></a>
                 <div class="card-body">
+                	<span style="position: absolute; right: 10px;">
+	              			
+	              	</span>
                   <h4 class="card-title">
                     <a href="{% url 'store-details' store.pk %}">{{store.name}}</a>
                   </h4>
+            	<div data-id="{{ store.pk }}" data-type="store" data-action="bookmark" title="Favorites">
+				    {% if request.user|check_store_fav:store %}
+				    	<!-- <span class="fas fa-heart"></span> -->
+				    	<i class="fas fa-heart" style="transform: scale(0.75); color: red;"></i>
+				    {% else %}
+				    	<i class="far fa-heart" style="transform: scale(0.75); color: red;"></i>
+				    	<!-- <span class="far fa-heart"></span> -->
+				    {% endif %}
+				  	
+				    <span data-count="bookmark">{{ store.storebookmark_set.all|length }}</span>
+				</div>
                   <small>Donation Rate :- 0<small> % </small> - 12 <small>%</small> / transaction</small>
                   <p class="card-text">
                   	<a href="{% url 'store-details' store.pk %}">{{store.offers.all|length}}<small>offers</small></a>
                   </p>
                 </div>
                 <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                  <a href="" class="btn btn-sm btn-warning">Shop Now</a>
+                	<a href="" class="btn btn-sm btn-warning">view offers</a>
+                  <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
+                  
+                  <p style="font-size: 0.5em;">Is this your favourite store?, click the heart.</p>
+                  
                 </div>
               </div>
             </div>
             {% endfor %}
+            <div class="col-md-4 mx-auto">
+				{% if is_paginated %}
+				  <ul class="pagination text-center" style="text-align: center;">
+				    {% if page_obj.has_previous %}
+				      <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}#offers">&laquo;Prev</a></li>
+				    {% else %}
+				      <li class="disabled page-item"><span class="page-link">&laquo; Prev</span></li>
+				    {% endif %}
+				    {% for i in paginator.page_range %}
+				      {% if page_obj.number == i %}
+				        <li class="active page-item"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+				      {% else %}
+				        <!-- <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li> -->
+				      {% endif %}
+				    {% endfor %}
+				    {% if page_obj.has_next %}
+				      <li class="page-item"><a class="page-link btn btn-primary btn-block" href="?page={{ page_obj.next_page_number }}#offers">Next &raquo;</a></li>
+				    {% else %}
+				      <li class="disabled page-item"><span class="page-link">Next &raquo;</span></li>
+				    {% endif %}
+				  </ul>
+				{% endif %}
+			</div><!-- /Pagination -->
           </div>
           <!-- /.row -->
 
@@ -364,8 +433,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--/ start-smoth-scrolling -->
 	<script  src="{{STATIC_URL}}move-top.js"></script>
 	<script  src="{{STATIC_URL}}easing.js"></script>
+	<script src="{% static 'js/fav.js' %}">
 	<script >
+		
+
 		jQuery(document).ready(function ($) {
+			
 			$(".scroll").click(function (event) {
 				event.preventDefault();
 				$('html,body').animate({
@@ -373,6 +446,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				}, 900);
 			});
 		});
+
+		
+
 	</script>
 	<!--// end-smoth-scrolling -->
 
@@ -389,6 +465,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			$().UItoTop({
 				easingType: 'easeOutQuart'
+			});
+
+
+			// Getting a cookie by name
+			function getCookie(name) {
+			    var cookieValue = null;
+			    if (document.cookie && document.cookie !== '') {
+			        var cookies = document.cookie.split(';');
+			        for (var i = 0; i < cookies.length; i++) {
+			            var cookie = jQuery.trim(cookies[i]);
+			            // Does this cookie string begin with the name we want?
+			            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+			                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+			                console.log(cookieValue);
+			                break;
+			            }
+			        }
+			    }
+			    return cookieValue;
+			}
+			 
+			// Setup AJAX
+			$(function () {
+			    $.ajaxSetup({
+			        headers: { "X-CSRFToken": getCookie("csrftoken") }
+			    });
+			});
+
+			function to_bookmarks()
+			{
+			    var current = $(this);
+			    var type = current.data('type');
+			    var pk = current.data('id');
+			    var action = current.data('action');
+
+			    var icon=document.createElement('i');
+			    icon.classList.add("fas");
+			    icon.classList.add("fa-heart");
+			    $.ajax({
+			        url : "/web/" + type + "/" + pk + "/" + action + "/",
+			        type : 'POST',
+			        data : { 'obj' : pk, },
+
+			        success : function (json) {
+			            //current.find("[data-count='" + action + "']").text(json.count);
+			            
+			            if(json.result===true){
+			            	current.html('<i class="fas fa-heart" style="transform: scale(0.75); color: red;"></i><span data-count="bookmark">'+json.count+'</span>');
+			            }else{
+			            	current.html('<i class="far fa-heart" style="transform: scale(0.75); color: red;"></i><span data-count="bookmark">'+json.count+'</span>');
+			            }
+			        }
+			    });
+
+			    return false;
+			}
+
+			$(function() {
+			    $('[data-action="bookmark"]').click(to_bookmarks);
 			});
 
 		});

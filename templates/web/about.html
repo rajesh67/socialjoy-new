@@ -9,7 +9,7 @@
 <html lang="zxx">
 
 <head>
-	<title>SocialJoy - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | About :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
+	<title>Nimrit Foundation - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | About :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="Transco a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{% url 'stores-list' 'shopping' %}" class="nav-link">Stores</a>
+							<a href="{% url 'stores-list' '3' %}" class="nav-link">Electronics</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
@@ -102,6 +102,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'contact-us' %}">Contact</a>
 						</li>
+						{% if request.user.is_authenticated %}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+								    aria-expanded="false">
+									Account
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.profile.pk %}">Profile</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Stores</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Offers</a>
+									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Donations</a>
+									<div class="dropdown-divider"></div>
+									<a href="{% url 'logout' %}" class="dropdown-item text-center">Logout</a>
+								</div>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'login' %}">LogIn</a>
+							</li>
+						{% endif %}
+						
 					</ul>
 
 				</div>
@@ -115,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<i class="fas fa-hands"></i> Nimrit <small>Foundation</small>
 				</a>
 			</h3>
-			<h4 style="font-weight: bold; color: #ffffff;" class="text-center">We educate poor children about life and creative skills to rise above the ocean of poverty.</h4>
+			<h5 style="font-weight: bold; color: #ffffff;" class="text-center">We educate poor children about life and creative skills to rise above the ocean of poverty.</h5>
 		</div>
 	</div>
 	<!-- //banner -->

@@ -1,0 +1,277 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Nimrit Foundation - A social activist way of Online shopping, booking, rechareges, Bill Payments, Utilitity Payments | Gallary :: Charity don't need your cash money, we earn donation on every purchase made by You</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Transco a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="{{STATIC_URL}}bootstrap.css" rel='stylesheet' type='text/css' />
+	<link href="{{STATIC_URL}}style.css" rel='stylesheet' type='text/css' />
+	<!-- <link href="{{STATIC_URL}}fontawesome-all.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,900" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700" rel="stylesheet">
+</head>
+
+<body>
+
+	<!--/banner-->
+	<div class="banner-inner" id="home">
+		<!-- header -->
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light top-header">
+				<button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+				    aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<!-- search -->
+				<div class="search">
+					<div class="cd-main-header">
+						<ul class="cd-header-buttons">
+							<li>
+								<a class="cd-search-trigger" href="#cd-search">
+									<span></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div id="cd-search" class="cd-search">
+						<form action="#" method="post">
+							<input name="Search" type="search" placeholder="Click enter after typing...">
+						</form>
+					</div>
+				</div>
+				<!-- //search -->
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mx-auto">
+						<li class="nav-item active">
+							<a class="nav-link ml-lg-0" href="{% url 'home' %}">Home
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{% url 'stores-list' '3' %}" class="nav-link">Electronics</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown" aria-haspopup="true"
+							    aria-expanded="false">
+								About US
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDrop">
+								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
+								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
+								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Gallery</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+							    aria-expanded="false">
+								Projects
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item text-center" href="">Cloth Giving</a>
+								<a class="dropdown-item text-center" href="">Digital Centers</a>
+								<a class="dropdown-item text-center" href="">Residential Campus</a>
+								<a class="dropdown-item text-center" href="">Digital Library</a>
+
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'contact-us' %}">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'signup' %}">SignUp</a>
+						</li>
+					</ul>
+
+				</div>
+			</nav>
+		</header>
+		<!-- //header -->
+		<!-- banner-->
+		<div class="wrapper-inner">
+			<h3 class="logo text-center">
+				<a class="navbar-brand" href="{% url 'home' %}">
+					<i class="fas fa-hands"></i> Nimrit <small>Foundation</small>
+				</a>
+			</h3>
+			<h4 style="font-weight: bold; color: #ffffff;" class="text-center">We educate poor children about life and creative skills to rise above the ocean of poverty.</h4>
+		</div>
+	</div>
+	<!-- //banner -->
+	<!--//nav-->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.html">Home</a>
+		</li>
+		<li class="breadcrumb-item active">Login</li>
+	</ol>
+	<!-- Page content -->
+	<section class="signin-page account">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-6 mx-auto">
+	                <div class="block">
+	                    <h2 class="text-center">Sign In to Nimrit</h2>
+	                    <div class="mx-auto">
+							{% if messages %}
+							  <ul class="messages">
+							    {% for message in messages %}
+							      <li class="{{ message.tags }} text-center">{{ message }}</li>
+							    {% endfor %}
+							  </ul>
+							{% endif %}
+						</div>
+	                    <form class="text-left clearfix mt-50" action="" style="margin: 5% auto;" method="post">
+	                    	{% csrf_token %}
+	                        <div class="form-group">
+	                            <input type="text" class="form-control"  placeholder="Username" name="username">
+	                        </div>
+	                        <div class="form-group">
+	                            <input type="password" class="form-control" placeholder="Password" name="password">
+	                        </div>
+	                        <button type="submit" class="btn btn-primary btn-block" >Sign In</button>
+	                        
+	                    </form>
+	                    <p class="mt-20">New in this site ?<a href="{% url 'signup' %}"> Create New Account</a></p>
+	                    <!-- <p><a href="forget-password.html"> Forgot your password?</a></p> -->
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	<!-- /Page Content -->
+	<!--footer-->
+	<footer style="margin: 5% auto;">
+		<div class="container">
+			<div class="footer-top-agileits-w3ls text-center">
+				<h2 class="logo">
+					<a href="index.html">
+						<i class="fas fa-hands"></i> Nimrit <small>Foundation</small></a>
+				</h2>
+				<p class="para three mt-4">We are a for-profit social impact company. Our company is planning to build low-cost residential centers in remote areas, where our volunteer teachers will tecah poor, unprivilidged and drop-out school children life skills and computer expertise for e.g :- Digital Library, Virtual Class Center, Group Based Studies, Sports Training and Infrastructure. etc. As our goals are to empower the lives of millions by the support of other privilidged millions, who are in position of helping others.</p>
+				<p class="para three mt-2">
+					We are seeking for your support to help us raise funds on your every online payments that you make. So we request everyone to shop from our website, this converts some portion of your shopping amount into donations. We strongly think that this model will be sustainable because you can do charity at "no cost to the consumer". Now educating children is click away from your thumb. Let's be part of this movement and help us impact lives of millions. 
+				</p>
+			</div>
+			<div class="text-center">
+				<a href="{% url 'category-list' %}" class="btn btn-warning btn-block" style="max-width: 625px; margin: 2% auto;">View All Stores</a> 
+				<a href="{% url 'contact-us' %}" class="btn btn-warning btn-block" style="max-width: 625px; margin: 2% auto;">Contact US</a> 
+			</div>
+			<div class="subscribe-grid text-center">
+				<h5>Subscribe for our latest programs, news and updates</h5>
+				<p>Get
+					<span>Latest</span> offers and deals on shopping, booking, recharges, utility payments and many more exclusive contents.</p>
+				<form action="#" method="post">
+					<input class="form-control" type="email" placeholder="Subscribe" name="Subscribe" required="">
+					<button class="btn1">
+						<i class="far fa-envelope"></i>
+					</button>
+				</form>
+			</div>
+			<div class="row footer-bottom-wthree-agile">
+				<div class="col-lg-6 copyright">
+					<p>&copy; 2018 Nimrit Foundation - We Educate Poor Children . All Rights Reserved | Design by
+						<a href="https://www.facebook.com/dustyraju">ImpactOcean Developers</a>
+					</p>
+
+				</div>
+				<div class="col-lg-6 social-icon footer text-right">
+					<div class="icon-social">
+						<a target="_blank" href="https://www.facebook.com/statsbotSocialInnovations/" class="button-footr">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+						<a target="_blank" href="https://twitter.com/StatsbotI" class="button-footr">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a target="_blank" href="https://www.linkedin.com/company/statsbot-social-innovations/" class="button-footr">
+							<i class="fab fa-linkedin"></i>
+						</a>
+						<a target="_blank" href="https://www.instagram.com/statsbot_org/" class="button-footr">
+							<i class="fab fa-instagram"></i>
+						</a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+
+
+			</div>
+			<!-- //footer -->
+		</div>
+	</footer>
+	<!---->
+	<!-- js -->
+	<script  src="{{ STATIC_URL }}jquery-2.2.3.min.js"></script>
+	<!-- //js -->
+	<!--search-bar-->
+	<script src="{{ STATIC_URL }}search.js"></script>
+	<!--//search-bar-->
+	<!--light-box-files -->
+	<script src="{{ STATIC_URL }}lightbox-plus-jquery.min.js"></script>
+	<!--//light-box-files -->
+	<!--/ start-smoth-scrolling -->
+	<script  src="{{ STATIC_URL }}move-top.js"></script>
+	<script  src="{{ STATIC_URL }}easing.js"></script>
+	<script >
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 900);
+			});
+		});
+	</script>
+	<!--// end-smoth-scrolling -->
+
+	<script >
+		$(document).ready(function () {
+			/*
+									var defaults = {
+							  			containerID: 'toTop', // fading element id
+										containerHoverID: 'toTopHover', // fading element hover id
+										scrollSpeed: 1200,
+										easingType: 'linear' 
+							 		};
+									*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<a href="#home" class="scroll" id="toTop" style="display: block;">
+		<span id="toTopHover" style="opacity: 1;"> </span>
+	</a>
+
+	<!-- //Custom-JavaScript-File-Links -->
+	<script  src="{{STATIC_URL}}bootstrap.js"></script>
+
+
+</body>
+
+</html>

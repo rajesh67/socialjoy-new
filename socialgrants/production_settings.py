@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'whitenoise',
     'django_heroku',
+    'bootstrap4',
 
 ]
 
@@ -157,6 +158,7 @@ MEDIAFILES_DIRS=[
     os.path.join('media/stores/'),
 ]
 
+LOGIN_REDIRECT_URL = '/web/'
 # import django_heroku
 # django_heroku.settings(locals())
 
