@@ -110,10 +110,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									Account
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.profile.pk %}">Profile</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Stores</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Offers</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Donations</a>
+									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.pk %}">Profile</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-stores' %}">Favourites Stores</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-offers' %}">Favourites Offers</a>
+									<a class="dropdown-item text-center" href="{% url 'user-approved-donations' %}">Donations</a>
 									<div class="dropdown-divider"></div>
 									<a href="{% url 'logout' %}" class="dropdown-item text-center">Logout</a>
 								</div>
@@ -143,7 +143,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--//nav-->
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">
-			<a href="index.html">Home</a>
+			<a href="{% url 'home' %}">Home</a>
 		</li>
 		<li class="breadcrumb-item">Users</li>
 		<li class="breadcrumb-item active">{{user_profile.user.username}}</li>
@@ -191,6 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
 					<!-- Recently Favorited -->
+					<iframe frameborder="1" width="420" height="345" src="//www.youtube.com/embed/C8kSrkz8Hz8"></iframe> 
 					<div class="widget dashboard-container my-adslist">
 						<h3 class="widget-header">My Ads</h3>
 						<table class="table table-responsive product-dashboard-table">
@@ -203,176 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									
-									<td class="product-thumb">
-										<img width="80px" height="auto" src="http://placehold.it/350x350" alt="image description"></td>
-									<td class="product-details">
-										<h3 class="title">Macbook Pro 15inch</h3>
-										<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-										<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-										<span class="status active"><strong>Status</strong>Active</span>
-										<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-									</td>
-									<td class="product-category"><span class="categories">Laptops</span></td>
-									<td class="action" data-title="Action">
-										<div class="">
-											<ul class="list-inline justify-content-center">
-												<li class="list-inline-item">
-													<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
-														<i class="fa fa-eye"></i>
-													</a>		
-												</li>
-												<li class="list-inline-item">
-													<a class="edit" href="">
-														<i class="fa fa-pencil-alt"></i>
-													</a>		
-												</li>
-												<li class="list-inline-item">
-													<a class="delete" href="">
-														<i class="fa fa-trash"></i>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									
-									<td class="product-thumb">
-										<img width="80px" height="auto" src="http://placehold.it/350x350" alt="image description"></td>
-									<td class="product-details">
-										<h3 class="title">Study Table Combo</h3>
-										<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-										<span><strong>Posted on: </strong><time>Feb 12, 2017</time> </span>
-										<span class="status active"><strong>Status</strong>Active</span>
-										<span class="location"><strong>Location</strong>USA</span>
-									</td>
-									<td class="product-category"><span class="categories">Laptops</span></td>
-									<td class="action" data-title="Action">
-										<div class="">
-											<ul class="list-inline justify-content-center">
-												<li class="list-inline-item">
-													<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
-														<i class="fa fa-eye"></i>
-													</a>		
-												</li>
-												<li class="list-inline-item">
-													<a class="edit" href="">
-														<i class="fa fa-pencil-alt"></i>
-													</a>		
-												</li>
-												<li class="list-inline-item">
-													<a class="delete" href="">
-														<i class="fa fa-trash"></i>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									
-									<td class="product-thumb">
-										<img width="80px" height="auto" src="http://placehold.it/350x350" alt="image description"></td>
-									<td class="product-details">
-										<h3 class="title">Macbook Pro 15inch</h3>
-										<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-										<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-										<span class="status active"><strong>Status</strong>Active</span>
-										<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-									</td>
-									<td class="product-category"><span class="categories">Laptops</span></td>
-									<td class="action" data-title="Action">
-										<div class="">
-											<ul class="list-inline justify-content-center">
-												<li class="list-inline-item">
-													<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
-														<i class="fa fa-eye"></i>
-													</a>		
-												</li>
-												<li class="list-inline-item">
-													<a class="edit" href="">
-														<i class="fa fa-pencil-alt"></i>
-													</a>		
-												</li>
-												<li class="list-inline-item">
-													<a class="delete" href="">
-														<i class="fa fa-trash"></i>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									
-									<td class="product-thumb">
-										<img width="80px" height="auto" src="http://placehold.it/350x350" alt="image description"></td>
-									<td class="product-details">
-										<h3 class="title">Macbook Pro 15inch</h3>
-										<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-										<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-										<span class="status active"><strong>Status</strong>Active</span>
-										<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-									</td>
-									<td class="product-category"><span class="categories">Laptops</span></td>
-									<td class="action" data-title="Action">
-										<div class="">
-											<ul class="list-inline justify-content-center">
-												<li class="list-inline-item">
-													<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
-														<i class="fa fa-eye"></i>
-													</a>		
-												</li>
-												<li class="list-inline-item">
-													<a class="edit" href="">
-														<i class="fa fa-pencil-alt"></i>
-													</a>		
-												</li>
-												<li class="list-inline-item">
-													<a class="delete" href="">
-														<i class="fa fa-trash"></i>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									
-									<td class="product-thumb">
-										<img width="80px" height="auto" src="http://placehold.it/350x350" alt="image description"></td>
-									<td class="product-details">
-										<h3 class="title">Macbook Pro 15inch</h3>
-										<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-										<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-										<span class="status active"><strong>Status</strong>Active</span>
-										<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-									</td>
-									<td class="product-category"><span class="categories">Laptops</span></td>
-									<td class="action" data-title="Action">
-										<div class="">
-											<ul class="list-inline justify-content-center">
-												<li class="list-inline-item">
-													<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
-														<i class="fa fa-eye"></i>
-													</a>		
-												</li>
-												<li class="list-inline-item">
-													<a class="edit" href="">
-														<i class="fa fa-pencil-alt"></i>
-													</a>		
-												</li>
-												<li class="list-inline-item">
-													<a class="delete" href="">
-														<i class="fa fa-trash"></i>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</td>
-								</tr>
+								
 							</tbody>
 						</table>
 						

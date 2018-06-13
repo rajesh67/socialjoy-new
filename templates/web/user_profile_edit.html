@@ -144,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--//nav-->
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">
-			<a href="index.html">Home</a>
+			<a href="{% url 'home' %}">Home</a>
 		</li>
 		<li class="breadcrumb-item">Users</li>
 		<li class="breadcrumb-item">{{request.user.username}}</li>
@@ -187,9 +187,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="widget user-dashboard-menu">
 							<ul>
 								<li class="active"><a href="{% url 'update-user-profile' user.pk %}"><i class="fa fa-user"></i>My Profile</a></li>
-								<li><a href="{% url 'user-favourite-stores' %}"><i class="fa fa-user"></i> Favourite Stores <span>{{user.storebookmark_set.all|length}}</span></a></li>
+								<li><a href="{% url 'user-favourite-stores' %}"><i class="fa fa-"></i> Favourite Stores <span>{{user.storebookmark_set.all|length}}</span></a></li>
 								<li><a href="{% url 'user-favourite-offers' %}"><i class="fa fa-file-archive-o"></i>Favourite Offers <span>{{user.offerbookmark_set.all|length}}</span></a></li>
-								<li><a href="{% url 'user-approved-donations' %}"><i class="fa fa-bolt"></i> Approved Donations<span>23</span></a></li>
+								<li><a href="{% url 'user-approved-donations' %}"><i class="fa fa-"></i> Approved Donations<span>23</span></a></li>
 								<li><a href="{% url 'user-pending-donations' %}"><i class="fa fa-bolt"></i> Pending Donations<span>23</span></a></li>
 								<li><a href="{% url 'logout' %}"><i class="fa fa-cog"></i> Logout</a></li>
 								<li><a href=""><i class="fa fa-power-off"></i>Delete Account</a></li>

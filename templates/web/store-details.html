@@ -110,10 +110,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									Account
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.profile.pk %}">Profile</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Stores</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Offers</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Donations</a>
+									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.pk %}">Profile</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-stores' %}">Favourites Stores</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-offers' %}">Favourites Offers</a>
+									<a class="dropdown-item text-center" href="{% url 'user-approved-donations' %}">Donations</a>
 									<div class="dropdown-divider"></div>
 									<a href="{% url 'logout' %}" class="dropdown-item text-center">Logout</a>
 								</div>
@@ -170,8 +170,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <section id="storeDetails">
     	<div class="container">
     		<div class="text-center">
-    			<a href="#offers" class="btn btn-primary">View All Offers</a>
-    		</div>
+				<div class="search-result bg-gray">
+					<h2 class="text-center">Results for "{{ store.name }}" Exclusive Charity Offers</h2>
+					<p>Your shopping provides us donations!</p>
+				</div>
+			</div>
     		<div class="row">
     			<div class="col-lg-3">
 		          <div class="card mt-4">
@@ -199,26 +202,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			          </div>
 			          <!-- /.card -->
 			    </div><!-- /col-lg-9 -->
-			     <!-- Offers Section -->
-			      	<div class="container">
-			      		<h5 class="my-2 text-center">{{ store.name }} : Offers and Deals</h5>
-			      		<ul class="nav nav-pills nav-justified">
-							  {% for cat in store.categories.all %}
-							  <li class="nav-item">
-							  	<a href="{% url 'stores-list' cat.pk %}" class="nav-link btn btn-md"><i class="fa fa-laptop"></i> {{cat.name}}</a>
-							  </li>
-							  {% endfor %}
-							</ul>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="search-result bg-gray">
-									<h2>Results For "{{store.name}}" Offers</h2>
-									<p><!-- 123 Results on 12 December, 2017 --></p>
-								</div>
+			    <div class="col-lg-12" style="margin-top: 5%;"></div>
+			    <div class="col-lg-3">
+			    	<div class="card-mt-4">
+			    		<div class="card-header" style="background-color: none;">
+			    			<h5>How this works?</h5>
+			    		</div>
+			    		<div class="card-body">
+			    			<p class="card-title" style="font-size: 0.95em;">It's easy and simple</p>
+			    			<ul class="steps">
+			    				<li style="margin-top: 2%;">
+
+			    					<h5> <i class="fas fa-search"></i> Step 1</h5>
+			    					<p>Join Nimrit.org Free & login</p>
+			    				</li>
+			    				<li style="margin-top: 2%;">
+			    					<h5> <i class="fas fa-cart-plus"></i> Step 2</h5>
+			    					<p>Click on the offer that you want. This will take you to seller website. In case coupoun code, please copy the code.</p>
+			    				</li>
+			    				<li style="margin-top: 2%;">
+			    					<h5> <i class="fas fa-money-bill-alt"></i> Step 3</h5>
+			    					<p>Shop normally at seller website . Pay as you normally do, including by Cash-on-delivery.</p>
+			    				</li>
+			    				<li style="margin-top: 2%;">
+			    					<h5> <i class="fas fa-rupee-sign"></i> Step 4</h5>
+			    					<p>Your Donations will track automatically & be added to your Nimrit.org account within 48 hours.</p>
+			    				</li>
+			    			</ul>
+			    		</div>
+			    	</div><!-- /Card -->
+			    </div><!-- /Col-lg-9 -->
+			    <div class="col-lg-9">
+			    	<div class="container">
+						<div class="col-md-12" style="margin-top: 2%;">
+							<div class="search-result bg-gray">
+								<h2 class="text-center">Select Category Wise Charity Offers</h2>
+								<p><!-- 123 Results on 12 December, 2017 --></p>
+								<ul class="nav nav-pills nav-justified">
+								  {% for cat in store.categories.all %}
+								  <li class="nav-item">
+								  	<a href="{% url 'stores-list' cat.pk %}" class="nav-link btn btn-md"><i class="fa fa-laptop"></i> {{cat.name}}</a>
+								  </li>
+								  {% endfor %}
+								</ul>
 							</div>
 						</div>
-			      		<div class="row" id="offers">
-			      			{% for offer in offers %}
+			    		<div class="row">
+			    			{% for offer in offers %}
 					            <div class="col-lg-4 col-md-6 mb-4">
 					              <div class="card h-100">
 					              	{% if offer.imageUrl %}
@@ -226,9 +256,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					              	<span data-id="{{ offer.pk }}" data-type="offer" data-action="bookmark" title="Favorites" style="position: absolute; right: 2px;">
 									    {% if offer in request.user.offerbookmark_set.all %}
 									    	<!-- <span class="fas fa-heart"></span> -->
-									    	<i class="fas fa-heart" style="transform: scale(0.75); color: red;"></i>
+									    	<i class="fas fa-heart" style="transform: scale(0.5); color: red;"></i>
 									    {% else %}
-									    	<i class="far fa-heart" style="transform: scale(0.75); color: red;"></i>
+									    	<i class="far fa-heart" style="transform: scale(0.5);"></i>
 									    	<!-- <span class="far fa-heart"></span> -->
 									    {% endif %}
 									  	
@@ -259,38 +289,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					              </div>
 					            </div>
 					        {% endfor %}
-					        <!-- Paginations -->
-					       
-							<div class="col-md-6 mx-auto">
-								{% if is_paginated %}
-								  <ul class="pagination text-center" style="text-align: center;">
-								    {% if page_obj.has_previous %}
-								      <li class="page-item"><span class="page-link"><a class="page-link" href="?page={{ page_obj.previous_page_number }}#offers">&laquo;Prev</a></span></li>
-								    {% else %}
-								      <li class="disabled page-item"><span class="page-link">&laquo;Prev</span></li>
-								    {% endif %}
-								    {% for i in paginator.page_range %}
-								      {% if page_obj.number == i %}
-								        <li class="active page-item"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
-								      {% else %}
-								        <!-- <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li> -->
-								      {% endif %}
-								    {% endfor %}
-								    {% if page_obj.has_next %}
-								      <li class="page-item"><span><a class="page-link" href="?page={{ page_obj.next_page_number }}#offers">Next&raquo;</a></span></li>
-								    {% else %}
-								      <li class="disabled page-item"><span class="page-link">Next&raquo;</span></li>
-								    {% endif %}
-								  </ul>
-								{% endif %}
-							</div><!-- /Pagination -->
-							
-			      		</div><!-- /Row -->
-			      	</div><!-- /Offers Container -->
-			<div class="faq-cont">
-              <div class="faq-heading text-center" style="margin: 2% auto;">
-                <h3>How It Works?</h3>
-                <div class="heading-border-light" style="background:#fff;"></div>
+			    		</div><!-- /row -->
+			    		
+			    			{% if is_paginated %}
+						  <ul class="pagination justify-content-center mb-4">
+						    {% if page_obj.has_previous %}
+						      <li class="page-item">
+					              
+					              <a href="?page={{ page_obj.previous_page_number }}#offers"> <span class="page-link">&larr; Prev Page</span></a>
+					           </li>
+						    {% else %}
+						      <li class="disabled page-item"><span class="page-link">&larr; Prev Page</span></li>
+						    {% endif %}
+						    {% for i in paginator.page_range %}
+						      {% if page_obj.number == i %}
+						        <li class="page-item active">
+					              <a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a>
+					            </li>
+						      {% else %}
+						      {% endif %}
+						    {% endfor %}
+						    {% if page_obj.has_next %}
+						      <li class="page-item">
+					              <a href="?page={{ page_obj.next_page_number }}#offers"><span class="page-link">Next Page &rarr;</span></a>
+					           </li>
+						    {% else %}
+						      <li class="disabled page-item"><span class="page-link">Next Page&rarr;</span></li>
+						    {% endif %}
+						  </ul>
+						{% endif %}
+			    		
+					</div><!-- /Container -->
+				</div><!-- /Col-lg-9 -->
+
+				</div><!-- Row -->
+            </div><!-- /Container -->
+        </section><!-- /Section -->
+
+     <!-- FAQ 
+    =================-->
+    <section id="faq" class="faq" style="margin-top: 5%;">
+      <div class="container-fluid"> 
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <div class="faq-cont">
+              <div class="faq-heading">
+				<div class="search-result bg-gray">
+						<h2>Frequently Asked Questions</h2>
+						<p>Find the answer to all your questions. please read the following to know more about us.</p>
+					</div>
+				</div>
+               	<div class="heading-border-light" style="background:#fff;"></div>
               </div>
                 <div id="accordion">
                   <div class="card">
@@ -298,14 +348,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       <h5 class="mb-0 card-title">
                         <div class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                           <i class="fa fa-long-arrow-right"></i>
-                          What we do? 
+                          Who are we? 
                         </div>
                       </h5>
                     </div>
 
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                       <div class="card-body">
-                        Because It is good that you have planned to start a business of your own, but it is essential that you must be clear in yourself. You must be clear about your aim and must possess the answer of the question that why you want to start a business of your own. You must be determined that what type of business you want to start with. Never ever think of doing investment in something that is new to you. Doing something like that is full of risks and you have to go blindly towards a direction about which you are not at all sure. It is essential that the business you are planning to start should be familiar to you. 
+                        <p class="card-text">
+                        	We are a not-for-profit social enterprise which is working in the remote areas to help the poor children to pursue their respective interests. We are professionals in different fields like engineering, computer science and computing, who have common interest to tackle the problem of lack of creative and life skills education to the children who are not good at grads. We help the poor grade students as well poor and higher grades students to help them achieve more through introducing them to technology. The only problem we see is the lack of instrastructure and money. So we provide digital libraries to help students to learn themselves through the knowledge of web. Other projects including sports training, instrastructure and employment will be our main focused projects.
+                        </p>. 
                       </div>
                     </div>
                   </div>
@@ -314,23 +366,162 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       <h5 class="mb-0 card-title">
                         <div class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                           <i class="fa fa-long-arrow-right"></i>
-                          How together we can spread happiness accross the globe? 
+                          What we do? 
                         </div>
                       </h5>
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                       <div class="card-body">
-                         Planning is most important in any business. Most of the aspiring business people believe that they have to sit down for hours and make a lengthy business plans clearly showing the amount of money that you will make in the coming years. There is no need of keeping such complexity as it will become difficult for you to understand. The business plan should be simple and precise. You have search everything about your target audience, what they like and what they do not like about the business that you are plan to start.Prices are something that attracts everybody. 
+                       	
+                       		<ol type="a">
+                       			<li>
+                       				<p class="card-text">
+                       					We provide digital libraries facilities in a particular center, where computers with internet connectivity and web cameras facilities are installed. We provide quality education through our virtual classroom technology to the children who are excellent or average on studies. Our virtual class technology will be available 18 hours a day, which is divided in slots. Our volunteer teachers from across top education institutes students, professionals and businessman signup for volunteer teacher positions.
+                       				</p>
+                       			</li>
+                       			<li>
+                       				<p class="card-text">In our coming years we will setup sports instrastructure where children will be professionally trained to become our future sports champions. We are also planning to open low cost residential   facility to our sports children so that they can focus more on their training.</p>
+                       			</li>
+                       		</ol>
+                       	
                       </div>
                     </div>
-                  </div> 
-                </div>
-            </div>
-		        </div>
-    		</div>
-    	</div>
-    </section><!-- /Store-Details -->
+                  </div><!-- /card-2 -->
 
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h5 class="mb-0 card-title">
+                        <div class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          <i class="fa fa-long-arrow-right"></i>
+                          Whom do we benefit and How?
+                        </div>
+                      </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                      <div class="card-body">
+                       	
+                       		<ol type="a">
+                       			<li>
+                       				<p class="card-text">
+                       					Since we provide our facilities to the unprivileged and poor students in terms of grads as well as financials, we provide our services to every needy students and we do not distinguish based upon religion, caste and creed. 
+                       				</p>
+                       			</li>
+                       			<li>
+                       				<p class="card-text">
+                       					We will students who are good in sports to become our future champions, so our volunteer sports persons will provide training to our students, beneficiary students to sports and other programs will be selected solely on interest based. We charge a minimum fee to the students for every year. In case fees are not available to the family we exempt their annual fees.
+                       				</p>
+                       			</li>
+                       			<li>
+                       				<p class="card-text">
+                       					Beneficiary students will have to return their dues to our organization once are earning well in their lives. In case of non-employment of our student we do not charge our dues.
+                       				</p>
+                       			</li>
+                       		</ol>
+                       	
+                      </div>
+                    </div>
+                  </div><!-- /card-3 --> 
+
+                  <div class="card">
+                    <div class="card-header" id="headingFour">
+                      <h5 class="mb-0 card-title">
+                        <div class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          <i class="fa fa-long-arrow-right"></i>
+                          How your shopping helps us raise funds?
+                        </div>
+                      </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                      <div class="card-body">
+                       	
+                       		<ol >
+                       			<li>
+                       				<p class="card-text">
+                       					Every shopping of yours provide us some portion of your shopping amount as a charity donation, these donations funds will be used to build and scale our centers. 
+                       				</p>
+                       			</li>
+                       			
+                       		</ol>
+                       	
+                      </div>
+                    </div>
+                  </div><!-- /card-4 --> 
+
+                  <div class="card">
+                    <div class="card-header" id="headingFive">
+                      <h5 class="mb-0 card-title">
+                        <div class="collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                          <i class="fa fa-long-arrow-right"></i>
+                          How will you spent the raised funds on your online shopping?
+                        </div>
+                      </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                      <div class="card-body">
+                       	
+                       		<ol >
+                       			<li>
+                       				<p class="card-text">
+                       					We have partnered up with hundreds of online shopping sellers across the country as well as abroad, these sellers provide us some portion of every shopping, recharge or booking you do with us. 
+                       				</p>
+                       			</li>
+                       			<li>
+                       				<p class="card-text">
+                       					So we are requesting all of you to visit our website and find the desired online seller then go to the online seller before every shop, recharge or booking you do. This is the only we are hoping to raise most of the funds for our projects. 
+                       				</p>
+                       			</li>
+                       			
+                       			<li>
+                       				<p class="card-text">
+                       					We also provide directly fund one of our projects through crowdfunding on our website. You can find the crowdfunding campaigns of one of our projects on the project page itself. We provide some basic rewards on every contribution you make to fund our projects.  
+                       				</p>
+                       			</li>
+
+                       			<li>
+                       				<p class="card-text">
+                       					Members contribution to our funds will be our additional funds which will be used to manage the operational costs of our organization. Everyone is welcome to become our member and help us raise new heights In our vision of empowering poor lives. Please find our members form and fill up and submit, we reach you as soon as possible  
+                       				</p>
+                       			</li>
+                       		</ol>
+                       	
+                      </div>
+                    </div>
+                  </div><!-- /card-5 --> 
+
+                  <div class="card">
+                    <div class="card-header" id="headingFour">
+                      <h5 class="mb-0 card-title">
+                        <div class="collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                          <i class="fa fa-long-arrow-right"></i>
+                          Who will be your volunteers, teachers and daily workers?
+                        </div>
+                      </h5>
+                    </div>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                      <div class="card-body">
+                       	
+                       		<ol >
+                       			<li>
+                       				<p class="card-text">
+                       					Every shopping of yours provide us some portion of your shopping amount as a charity donation, these donations funds will be used to build and scale our centers. 
+                       				</p>
+                       			</li>
+                       			
+                       		</ol>
+                       	
+                      </div>
+                    </div>
+                  </div><!-- /card-4 --> 
+
+                </div>
+            </div>  
+          </div><!-- /md-10 -->
+
+          <div class="col-md-1"></div>
+
+        </div>
+      </div>
+    </section>
 
 	<!--footer-->
 	<footer style="margin-top: 5%;">
@@ -471,9 +662,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			            //current.find("[data-count='" + action + "']").text(json.count);
 			            
 			            if(json.result===true){
-			            	current.html('<i class="fas fa-heart" style="transform: scale(0.75); color: red;"></i><span data-count="bookmark">'+json.count+'</span>');
+			            	current.html('<i class="fas fa-heart" style="transform: scale(0.5);"></i><span data-count="bookmark">'+json.count+'</span>');
 			            }else{
-			            	current.html('<i class="far fa-heart" style="transform: scale(0.75); color: red;"></i><span data-count="bookmark">'+json.count+'</span>');
+			            	current.html('<i class="far fa-heart" style="transform: scale(0.5);"></i><span data-count="bookmark">'+json.count+'</span>');
 			            }
 			        }
 			    });

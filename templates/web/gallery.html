@@ -109,10 +109,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									Account
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.profile.pk %}">Profile</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Stores</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Offers</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Donations</a>
+									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.pk %}">Profile</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-stores' %}">Favourites Stores</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-offers' %}">Favourites Offers</a>
+									<a class="dropdown-item text-center" href="{% url 'user-approved-donations' %}">Donations</a>
 									<div class="dropdown-divider"></div>
 									<a href="{% url 'logout' %}" class="dropdown-item text-center">Logout</a>
 								</div>
@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--//nav-->
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">
-			<a href="index.html">Home</a>
+			<a href="{% url 'home' %}">Home</a>
 		</li>
 		<li class="breadcrumb-item active">Gallery</li>
 	</ol>

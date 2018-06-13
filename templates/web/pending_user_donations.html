@@ -110,10 +110,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									Account
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.profile.pk %}">Profile</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Stores</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Favourites Offers</a>
-									<a class="dropdown-item text-center" href="{% url 'user-profile' request.user.profile.pk %}">Donations</a>
+									<a class="dropdown-item text-center" href="{% url 'update-user-profile' request.user.pk %}">Profile</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-stores' %}">Favourites Stores</a>
+									<a class="dropdown-item text-center" href="{% url 'user-favourite-offers' %}">Favourites Offers</a>
+									<a class="dropdown-item text-center" href="{% url 'user-approved-donations' %}">Donations</a>
 									<div class="dropdown-divider"></div>
 									<a href="{% url 'logout' %}" class="dropdown-item text-center">Logout</a>
 								</div>
@@ -179,8 +179,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="widget user-dashboard-menu">
 							<ul>
 								<li><a href="{% url 'user-favourite-offers' %}"><i class="fa fa-user"></i>My Profile <span>12</span></a></li>
-								<li><a href="{% url 'user-favourite-stores' %}"><i class="fa fa-user"></i> Favourite Stores <span>5</span></a></li>
-								<li><a href="{% url 'user-favourite-offers' %}"><i class="fa fa-file-archive-o"></i>Favourite Offers <span>12</span></a></li>
+								<li><a href="{% url 'user-favourite-stores' %}"><i class="far fa-heart"></i> Favourite Stores <span>5</span></a></li>
+								<li><a href="{% url 'user-favourite-offers' %}"><i class="fas fa-heart"></i>Favourite Offers <span>12</span></a></li>
 								<li><a href="{% url 'user-approved-donations' %}"><i class="fa fa-bolt"></i> Approved Donations<span>23</span></a></li>
 								<li class="active"><a href="{% url 'user-pending-donations' %}"><i class="fa fa-bolt"></i> Pending Donations<span>23</span></a></li>
 								<li><a href="{% url 'logout' %}"><i class="fa fa-cog"></i> Logout</a></li>
