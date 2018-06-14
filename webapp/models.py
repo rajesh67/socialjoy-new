@@ -23,7 +23,6 @@ class Store(models.Model):
 	aff_name=models.CharField(max_length=128, null=True, blank=True)
 	featured=models.BooleanField(default=False)
 	parent_cats=models.ManyToManyField('StoreCategory', related_name='stores')
-	users=models.ManyToManyField(User, related_name="favourite_stores")
 	
 	def __str__(self):
 		return self.aff_name
