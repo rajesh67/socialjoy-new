@@ -40,10 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'webapp',
-
+    'search',
     #Third Party Apps
     'django_summernote',
     'bootstrap4',
+    'django_elasticsearch_dsl',
     
 ]
 
@@ -90,6 +91,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+ELASTICSEARCH_DSL={
+    'default':{
+        'hosts':'localhost:9200',
+        # 'hosts' :'https://nimrit-dev-575792947.us-west-2.bonsaisearch.net/',
     }
 }
 

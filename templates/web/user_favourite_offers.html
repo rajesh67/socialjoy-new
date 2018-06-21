@@ -65,17 +65,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mx-auto">
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a class="nav-link ml-lg-0" href="{% url 'home' %}">Home
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{% url 'stores-list' '3' %}" class="nav-link">Electronics</a>
+							<a href="{% url 'store-search' %}" class="nav-link">Stores</a>
 						</li>
 						
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
+							<a class="nav-link" href="{% url 'offer-search' %}">Offers</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -85,7 +85,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="dropdown-menu" aria-labelledby="navbarDrop">
 								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
 								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
-								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Gallery</a>
+								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Our Gallery</a>
+								<a class="dropdown-item text-center" href="{% url 'blog-list' %}">Our Blogs</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -105,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a class="nav-link" href="{% url 'contact-us' %}">Contact</a>
 						</li>
 						{% if request.user.is_authenticated %}
-							<li class="nav-item dropdown">
+							<li class="nav-item dropdown active">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 								    aria-expanded="false">
 									Account
@@ -210,7 +211,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td class="product-thumb">
 										<img width="80px" height="auto" src="{{bookmark.offer.imageUrl}}" alt="image description"></td>
 									<td class="product-details">
-										<h3 class="title"><a href="{{bookmark.offer.url}}" target="_blank">{{bookmark.offer.title}}</a></h3>
+										<div class="" style="width: 200%;">
+											<h3 class="title"><a href="{{bookmark.offer.url}}" target="_blank">{{bookmark.offer.title}}</a></h3>
+										</div>
 										<span class="add-id"><strong>Ad ID:</strong> {{bookmark.offer.offerId}}</span>
 										<span><strong>Starting from: </strong><time>{{bookmark.offer.startTime}}</time> </span>
 										<span><strong>Ends on: </strong><time>{{bookmark.offer.endTime}}</time> </span>

@@ -3,14 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 # Create your models here.
-
 import datetime
-
-class StoreCategory(models.Model):
-	name=models.CharField(max_length=128)
-
-	def __str__(self):
-		return self.name
 
 class Store(models.Model):
 	name=models.CharField(max_length=100, null=True, blank=True)
@@ -22,7 +15,7 @@ class Store(models.Model):
 	logo_image=models.ImageField(upload_to='stores/', null=True)
 	aff_name=models.CharField(max_length=128, null=True, blank=True)
 	featured=models.BooleanField(default=False)
-	parent_cats=models.ManyToManyField('StoreCategory', related_name='stores')
+	categories=models.ManyToManyField('Category')
 	
 	def __str__(self):
 		return self.aff_name
@@ -30,10 +23,15 @@ class Store(models.Model):
 	def get_bookmark_count(self):
 		return self.storebookmark_set().all().count()
 
-class ProductCategory(models.Model):
+	def get_similar_stores(self):
+		cat=self.categories.last()
+		if cat:
+			return cat.store_set.all().exclude(pk=self.pk)[:3]
+		return None
+
+class Category(models.Model):
 	catId=models.CharField(max_length=30, null=True, blank=True)
 	name=models.CharField(max_length=30)
-	stores=models.ManyToManyField('Store', related_name="categories", blank=True)
 
 	def __str__(self):
 		return self.name
@@ -57,13 +55,23 @@ class Offer(models.Model):
 	imageUrl=models.URLField(max_length=2500)
 
 	store=models.ForeignKey('Store', related_name="offers", on_delete=models.CASCADE, null=True)
-	category=models.ForeignKey('ProductCategory', related_name='offers', on_delete=models.CASCADE, null=True)
+	category=models.ForeignKey('Category', related_name='categories', on_delete=models.CASCADE, null=True)
 
 	def __str__(self):
 		return self.title
 
 	def get_bookmark_count(self):
 		return self.offerbookmark_set().all().count()
+
+	def get_category_name(self):
+		if self.category:
+			return self.category.catId
+		return "None"
+
+	def get_store_name(self):
+		if self.store:
+			return self.store.name
+		return "None"
 
 class StoreBookmark(models.Model):
 	user=models.ForeignKey(User, on_delete=models.CASCADE)

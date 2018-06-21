@@ -5,6 +5,7 @@
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 {% load static %}
+{% load favourites %}
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -65,17 +66,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mx-auto">
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a class="nav-link ml-lg-0" href="{% url 'home' %}">Home
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{% url 'stores-list' '3' %}" class="nav-link">Electronics</a>
+							<a href="{% url 'store-search' %}" class="nav-link active">Stores</a>
 						</li>
 						
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'blog-list' %}">Blogs</a>
+							<a class="nav-link" href="{% url 'offer-search' %}">Offers</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -85,7 +86,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item text-center" href="{% url 'team' %}">Team</a>
 								<a class="dropdown-item text-center" href="{% url 'about-us' %}">About US</a>
-								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Gallery</a>
+								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Our Gallery</a>
+								<a class="dropdown-item text-center" href="{% url 'gallery' %}">Our Blogs</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -171,74 +173,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <section id="storeDetails">
     	<div class="container">
     		<div class="text-center">
-				<div class="search-result bg-gray">
+				<div class="search-result">
 					<h2 class="text-center">Results for "{{ store.name }}" Exclusive Charity Offers</h2>
 					<p>Your shopping provides us donations!</p>
 				</div>
 			</div>
     		<div class="row">
     			<div class="col-lg-3">
-		          <div class="card mt-4">
+		          <div class="card mt-4" style=" border: none;">
 		            <img class="card-img-top img-fluid" src="{{MEDIA_URL}}{{store.logo_image}}" alt="" style="overflow: hidden; width: auto; height: 100px;">
 		            <div class="card-body">
 		              <h3 class="card-title">{{ store.name }}</h3>
 		             
-		              <p class="card-text">Donation Rate :- 0 <small>%</small> - 12 <small>%</small> / Transaction</p>
+		              <p class="card-text">Donation Rate :- 0 <small>%</small> - 12 <small>%</small> / Sale</p>
 		              <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
 		              <span><a href="{{ store.home_url }}" class="btn btn-md btn-warning btn-block" target="_blank">Shop Now</a></span>
 		            </div>
 		          </div>
+
+		          <div class="card" style="border: none;">
+			    		<div class="card-header" style="background: none;">
+			    			<h4>All Category</h4>
+			    		</div>
+			    		<div class="card-body">
+			    			<ul class="category-list list-group">
+								{% for cat in cats_list %}
+									<li class="list-group-item"><a href="?catId={{cat.catId}}">{{cat.name}}</a></li>
+								{% endfor %}
+							</ul>
+			    		</div>
+			    	</div>
 		        </div>
 		        <!-- /.col-lg-3 -->
 
-		        <div class="col-lg-9">
-		        	<div class="card card-outline-secondary my-4">
-			            <div class="card-header">
-			              {{store.name}} Description
-			            </div>
-			            <div class="card-body">
-			              <p>{{store.description}}</p>
-			              
-			            </div>
-			          </div>
-			          <!-- /.card -->
-			    </div><!-- /col-lg-9 -->
-			    <div class="col-lg-12" style="margin-top: 5%;"></div>
-			    <div class="col-lg-3">
-			    	<div class="card-mt-4">
-			    		<div class="card-header" style="background-color: none;">
-			    			<h5>How this works?</h5>
-			    		</div>
-			    		<div class="card-body">
-			    			<p class="card-title" style="font-size: 0.95em;">It's easy and simple</p>
-			    			<ul class="steps">
-			    				<li style="margin-top: 2%;">
-
-			    					<h5> <i class="fas fa-search"></i> Step 1</h5>
-			    					<p>Join Nimrit.org Free & login</p>
-			    				</li>
-			    				<li style="margin-top: 2%;">
-			    					<h5> <i class="fas fa-cart-plus"></i> Step 2</h5>
-			    					<p>Click on the offer that you want. This will take you to seller website. In case coupoun code, please copy the code.</p>
-			    				</li>
-			    				<li style="margin-top: 2%;">
-			    					<h5> <i class="fas fa-money-bill-alt"></i> Step 3</h5>
-			    					<p>Shop normally at seller website . Pay as you normally do, including by Cash-on-delivery.</p>
-			    				</li>
-			    				<li style="margin-top: 2%;">
-			    					<h5> <i class="fas fa-rupee-sign"></i> Step 4</h5>
-			    					<p>Your Donations will track automatically & be added to your Nimrit.org account within 48 hours.</p>
-			    				</li>
-			    			</ul>
-			    		</div>
-			    	</div><!-- /Card -->
-			    </div><!-- /Col-lg-9 -->
+		       
 			    <div class="col-lg-9">
 			    	<div class="container">
-						<div class="col-md-12" style="margin-top: 2%;">
+						<!-- <div class="col-md-12" style="margin-top: 2%;">
 							<div class="search-result bg-gray">
 								<h2 class="text-center">Select Category Wise Charity Offers</h2>
-								<p><!-- 123 Results on 12 December, 2017 --></p>
+								
 								<ul class="nav nav-pills nav-justified">
 								  {% for cat in store.categories.all %}
 								  <li class="nav-item">
@@ -247,28 +221,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								  {% endfor %}
 								</ul>
 							</div>
-						</div>
+						</div> -->
 			    		<div class="row">
-			    			{% for offer in offers %}
+			    			<!-- {% for offer in offers %}
 					            <div class="col-lg-4 col-md-6 mb-4">
-					              <div class="card h-100">
+					              <div class="card h-100" style="border: none;">
 					              	{% if offer.imageUrl %}
 					              	<img src="{{MEDIA_URL}}offer.png" class="img-responsive" style="max-width: 20%; height: auto; display: block;vertical-align: middle;">
 					              	<span data-id="{{ offer.pk }}" data-type="offer" data-action="bookmark" title="Favorites" style="position: absolute; right: 2px;">
 									    {% if offer in request.user.offerbookmark_set.all %}
-									    	<!-- <span class="fas fa-heart"></span> -->
+									    	
 									    	<i class="fas fa-heart" style="transform: scale(0.5); color: red;"></i>
 									    {% else %}
 									    	<i class="far fa-heart" style="transform: scale(0.5);"></i>
-									    	<!-- <span class="far fa-heart"></span> -->
+									    	
 									    {% endif %}
 									  	
 									    <span data-count="bookmark">{{ offer.offerbookmark_set.all|length }}</span>
 									</span>
 					              	</span>
-					                <!-- <a href="{% url 'store-details' store.pk %}"> --><img class="card-img-top" src="{{ offer.imageUrl }}" alt="" style="height: 50%; width: 50%; margin: 1% auto; overflow: hidden;"><!-- </a> -->
+					               <img class="card-img-top" src="{{ offer.imageUrl }}" alt="" style="height: 50%; width: 50%; margin: 1% auto; overflow: hidden;"></a>
 					                {% else %}
-					                <!-- <a href="{% url 'store-details' store.pk %}"> --><img class="card-img-top" src="http://placehold.it/900x350" alt=""><!-- </a> -->
+					                <img class="card-img-top" src="http://placehold.it/900x350" alt="">
 					                {% endif %}
 					                <div class="card-body">
 					                  <h5 class="" style="font-family: Calibri; text-transform: capitalize;">
@@ -276,20 +250,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					                  </h5>
 					            	
 					                  <p class="card-text">
-					                  	<!-- <p>
-					                  		<a href="" class="btn">{{ offer.category }}</a>
-					                  	</p> -->
+					                  	
+					                  	
 					                  	<small>Coupoun Code : {% if offer.coupoun_code %}<p>{{offer.coupoun_code}}</p> {% else %}<p>No Coupoun Code Required</p>{% endif %}</small>
 					                  </p>
 					                </div>
 					                <div class="card-footer text-center">
-					                  <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
+					                  
 					                  <a href="{{ offer.url }}" class="btn btn-block btn-warning" target="_blank">Grab this Offer</a>
 					                  <p style="font-size: 0.5em;">is this your favourite offer, click the heart.</p>
 					                </div>
 					              </div>
 					            </div>
-					        {% endfor %}
+					        {% endfor %} -->
+					        <div class="clearfix"></div>
+					        {% for offer in store.offers.all %}
+							        <div class="col-lg-4" style="margin: 2% auto;">
+							        	<div class="dl">
+								            <div class="brand">
+								                <img src="{{offer.imageUrl}}" style="height: 50px; overflow: hidden; margin: auto auto; width: 60%;">
+								            </div>
+								            <div class="discount alizarin">
+								                {{ offer|get_discount }}
+								                <div class="type">
+								                    off
+								                </div>
+								            </div>
+								            <div class="descr">
+								                <strong>
+								                    {{offer.title}} 
+								                </strong> 
+								      			{{offer.description}}
+								            </div>
+								            <div class="ends">
+								                <small>
+								                    * Conditions and restrictions apply.
+								                </small>
+								                
+								            </div>
+								            <div class="coupon midnight-blue">
+								                
+								                {% if offer.coupoun_code %}
+									                <a data-toggle="collapse" href="#code-{{offer.id}}" class="open-code">Get Coupoun code</a>
+									                <div id="code-{{offer.id}}" class="collapse code">
+									                    {{offer.coupoun_code}}
+									                </div>
+								                {% else %}
+								                	<h5 class="text-muted">No Coupoun Code</h5>
+								                {% endif %}
+
+								            </div>
+								            <div class="" style="margin-top: 5%;">
+								            	<a href="{{offer.url}}" class="btn btn-block btn-warning btn-lg">Grab this Offer</a>
+								            </div>
+								          </div>
+								        </div>
+							        {% endfor %}
 			    		</div><!-- /row -->
 			    		
 			    			{% if is_paginated %}
@@ -322,6 +338,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			    		
 					</div><!-- /Container -->
 				</div><!-- /Col-lg-9 -->
+			    <div class="col-lg-12" style="margin-top: 5%;"></div>
+			    
+			     <div class="col-lg-12">
+		        	<div class="card card-outline-secondary my-4" style="border: none;">
+			            <div class="card-header text-center" style="background: none;">
+			              About {{store.name}} :
+			            </div>
+			            <div class="card-body">
+			              <p>{{store.description}}</p>
+			              
+			            </div>
+			          </div>
+			          <!-- /.card -->
+			    </div><!-- /col-lg-9 -->
 
 				</div><!-- Row -->
             </div><!-- /Container -->
@@ -329,7 +359,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
  <section style="padding-bottom: 10%;">
    <div class="container">
-   		<div class="search-result bg-gray">
+   		<div class="search-result text-center">
 			<h2>Similar Charity Stores</h2>
 			<p>Find the similar charity stores with exclusive offers and deals</p>
 		</div>
@@ -337,35 +367,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="row">
-                    
+                    {% for seller in store.get_similar_stores %}
                     <div class="card col-md mx-auto" style="width: 18rem; border: none;">
-					  <img class="card-img-top" src="//placehold.it/1200x600/444" alt="Card image cap">
+					  <img class="card-img-top" src="{{MEDIA_URL}}{{seller.logo_image}}" alt="Card image cap" style="height: 100px; overflow: hidden; width: auto; margin: auto auto;">
 					  <div class="card-body mx-auto">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					    <h5 class="card-title"><a href="{% url 'store-details' seller.pk %}">{{seller.name}}</a></h5>
+					    <p class="card-text">{{seller.description|truncatechars:100}}</p>
+					    <a href="{% url 'store-details' seller.pk %}" class="btn btn-primary">Visit Store</a>
 					  </div>
 					</div>
-
-					  <div class="card col-md mx-auto" style="width: 18rem; border: none;">
-						  <img class="card-img-top" src="//placehold.it/1200x600/ccff00" alt="Card image cap">
-						  <div class="card-body">
-						    <h5 class="card-title">Card title</h5>
-						    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						    <a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					  <div class="card col-md" style="width: 18rem; border: none;">
-						  <img class="card-img-top" src="//placehold.it/1200x600" alt="Card image cap">
-						  <div class="card-body">
-						    <h5 class="card-title">Card title</h5>
-						    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						    <a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
+					{% endfor %}
        			 </div>
        		</div>
-            <div class="carousel-item">
+            <!-- <div class="carousel-item">
                 <div class="row">
                   
 
@@ -395,19 +409,128 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						  </div>
 						</div>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 		    <span class="fas fa-chevron-left" aria-hidden="true" style="transform: scale(2); color: blue;"></span>
 		    <span class="sr-only">Previous</span>
 		  </a>
 		  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
 		    <span class="fas fa-chevron-right" aria-hidden="true" style="transform: scale(2); color: blue;"></span>
 		    <span class="sr-only">Next</span>
-		  </a>
+		  </a> -->
     </div>
 </div>
    </section>
+
+
+   	<!-- How It Works -->
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">How this Works?</h2>
+            <h3 class="section-subheading text-muted">Our work process and empowerment through your online shopping.</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="timeline">
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="{% static 'HowItWorks/step1.jpg' %}" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4><i class="fas fa-search"></i>Step 1</h4>
+                    <h4 class="subheading">Join/Visit StatsBot.org </h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Please Login to track your contributions otherwise we will not be able to track you.</p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="{% static 'HowItWorks/online_stores.jpg' %}" alt="" style="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4><i class="fas fa-cart-plus"></i> Step 2</h4>
+                    <h4 class="subheading">Search Find or Select the desired seller/offer .</h4>
+                    
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">
+                    	<ul type="a">
+                    	<li>                    
+                    		<p class="text-muted">Found desired offer? click "Grab Offer" link.</p>
+                    	</li>
+                    	<li>
+                    		<p class="text-muted">Found desired seller? click "Shop Now".</p>
+                    	</li>
+                    </ul>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="{% static 'HowItWorks/wallet.jpg' %}" alt="" style="height: 100%; width: 100%;">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4><i class="fas fa-money-bill-alt"></i> Step 3</h4>
+                    <h4 class="subheading">Shop normally at seller/store.</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Pay as you normally do, including by Cash-on-delivery. </p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="{% static 'HowItWorks/donation.jpg' %}" alt="" style="height: 100%; width: 150%;">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4><i class="fas fa-rupee-sign"></i> Step 4</h4>
+                    <h4 class="subheading">Your shopping lend us Donations</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Your Donations will track automatically & be added to your StatsBot.org account within 48 hours.</a></p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="{% static 'HowItWorks/childrens.jpg' %}" alt="" style="height: 100%; width: 100%;">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4><i class="fas fa-school"></i> Step 5</h4>
+                    <h4 class="subheading">We provide quality and creative education to poor/remote childs.</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Pay as you normally do, including by Cash-on-delivery. </p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-image" style="">
+                	
+                  <h4 style="">Together
+                    <br>We Empower
+                    <br>Lives!</h4>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
      <!-- FAQ 
     =================-->
@@ -418,7 +541,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <div class="col-md-10">
             <div class="faq-cont">
               <div class="faq-heading">
-				<div class="search-result bg-gray">
+				<div class="search-result">
 						<h2>Frequently Asked Questions</h2>
 						<p>Find the answer to all your questions. please read the following to know more about us.</p>
 					</div>
@@ -426,8 +549,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                	<div class="heading-border-light" style="background:#fff;"></div>
               </div>
                 <div id="accordion">
-                  <div class="card">
-                    <div class="card-header" id="headingOne">
+                  <div class="card" style="border: none;">
+                    <div class="card-header" id="headingOne" style="background: none;">
                       <h5 class="mb-0 card-title">
                         <div class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                           <i class="fa fa-long-arrow-right"></i>
@@ -436,7 +559,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       </h5>
                     </div>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion" style="">
                       <div class="card-body">
                         <p class="card-text">
                         	We are a not-for-profit social enterprise which is working in the remote areas to help the poor children to pursue their respective interests. We are professionals in different fields like engineering, computer science and computing, who have common interest to tackle the problem of lack of creative and life skills education to the children who are not good at grads. We help the poor grade students as well poor and higher grades students to help them achieve more through introducing them to technology. The only problem we see is the lack of instrastructure and money. So we provide digital libraries to help students to learn themselves through the knowledge of web. Other projects including sports training, instrastructure and employment will be our main focused projects.
@@ -444,8 +567,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       </div>
                     </div>
                   </div>
-                  <div class="card">
-                    <div class="card-header" id="headingTwo">
+                  <div class="card" style="border: none;">
+                    <div class="card-header" id="headingTwo" style="background: none;">
                       <h5 class="mb-0 card-title">
                         <div class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                           <i class="fa fa-long-arrow-right"></i>
@@ -471,8 +594,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                   </div><!-- /card-2 -->
 
-                  <div class="card">
-                    <div class="card-header" id="headingThree">
+                  <div class="card" style="border: none;">
+                    <div class="card-header" id="headingThree" style="background: none;">
                       <h5 class="mb-0 card-title">
                         <div class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                           <i class="fa fa-long-arrow-right"></i>
@@ -505,8 +628,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                   </div><!-- /card-3 --> 
 
-                  <div class="card">
-                    <div class="card-header" id="headingFour">
+                  <div class="card" style="border:  none;">
+                    <div class="card-header" id="headingFour" style="background: none;">
                       <h5 class="mb-0 card-title">
                         <div class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                           <i class="fa fa-long-arrow-right"></i>
@@ -530,8 +653,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                   </div><!-- /card-4 --> 
 
-                  <div class="card">
-                    <div class="card-header" id="headingFive">
+                  <div class="card" style="border: none;">
+                    <div class="card-header" id="headingFive" style="background: none;">
                       <h5 class="mb-0 card-title">
                         <div class="collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                           <i class="fa fa-long-arrow-right"></i>
@@ -571,8 +694,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                   </div><!-- /card-5 --> 
 
-                  <div class="card">
-                    <div class="card-header" id="headingFour">
+                  <div class="card" style="border: none;">
+                    <div class="card-header" id="headingFour" style="background: none;">
                       <h5 class="mb-0 card-title">
                         <div class="collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                           <i class="fa fa-long-arrow-right"></i>

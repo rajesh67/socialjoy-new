@@ -29,6 +29,11 @@ urlpatterns=[
 	url(r'^all/$', views.categoryListView, name="category-list"),
 	url(r'^categories/(?P<pk>[0-9]+)/$', views.StoreListView.as_view(), name="stores-list"),
 	url(r'^stores/(?P<pk>[0-9]+)/$', views.OfferListView.as_view(), name="store-details"),
+	# url(r'^stores/(?P<pk>[0-9]+)/offers/$', views.StoreOffersFilterView.as_view(), name="store-offers-filter"),
+
+	url(r'^stores/$', views.StoreSearchView.as_view(), name="store-search"),
+	url(r'^stores/categories/(?P<pk>[0-9]+)/$', views.CategoryWiseStoreListView.as_view(), name="cat-store-list"),
+	url(r'^offers/$', views.OfferSearchView.as_view(), name="offer-search"),
 
 	url(r'^blogs/$', views.blogListView, name="blog-list"),
 	url(r'^blogs/(?P<pk>[0-9]+)/$', views.blogDetailView, name="blog-details"),

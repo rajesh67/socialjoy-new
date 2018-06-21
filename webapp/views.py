@@ -11,18 +11,15 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
-from webapp.models import Store, StoreCategory, ProductCategory, BlogPost, BlogTopic, Offer, Profile, StoreBookmark, OfferBookmark
+from webapp.models import Store, Category, BlogPost, BlogTopic, Offer, Profile, StoreBookmark, OfferBookmark
 from django.urls import reverse
 from django.contrib import auth
 from webapp.forms import UserForm
 import json
+from search.documents import StoreDocument, OfferDocument
+from itertools import chain
 
 def homeView(request):
-	if request.method=='POST':
-		pk=request.POST.get('store')[0]
-		# store=Store.objects.get(pk=pk)
-		# print(store.home_url)
-		return redirect(reverse('store-details', kwargs={'pk' : pk, }))
 	return render(request, 'index.html', {
 			'shoppingStores':Store.objects.all()[:4],
 		})
@@ -37,11 +34,11 @@ def contactView(request):
 	return render(request, 'contact.html', {})
 
 def categoryView(request, catId):
-	category=ProductCategory.objects.get(catId=catId)
+	category=Category.objects.get(catId=catId)
 	return render(request, 'stores-list.html', {'category': category})
 
 def categoryListView(request):
-	return render(request, 'categories.html', {'categories': StoreCategory.objects.all(),'eCat':ProductCategory.objects.get(catId='electronics')})
+	return render(request, 'categories.html', {'categories': StoreCategory.objects.all(),'eCat':Category.objects.get(catId='electronics')})
 
 def storeDetailView(request, pk):
 	return render(request, 'store-details.html', {'store': Store.objects.get(pk=pk)})
@@ -123,13 +120,28 @@ class OfferListView(ListView):
 
 	def get_queryset(self):
 		try:
-			return Offer.objects.filter(store__pk=self.kwargs.get('pk'))
+			if 'catId' in self.request.GET.keys():
+				catId=self.request.GET.get('catId')
+				cat=Category.objects.get(catId=catId)
+				return Offer.objects.filter(store__pk=self.kwargs.get('pk'), category=cat)
+			else:
+				return Offer.objects.filter(store__pk=self.kwargs.get('pk'))
 		except Exception as e:
 			raise e
+	def get_offers_categories(self, store):
+		cats=[]
+		try:
+			for off in store.offers.all():
+				cat=Category.objects.get(name=off.category.name)
+				cats.append(cat)
+			return set(cats)
+		except Exception as e:
+			pass
 
 	def get_context_data(self, **kwargs):
 		context=super(OfferListView, self).get_context_data(**kwargs)
 		context['store']=Store.objects.get(pk=self.kwargs.get('pk'))
+		context['cats_list']=self.get_offers_categories(context['store'])
 		return context
 
 class StoreListView(ListView):
@@ -139,12 +151,12 @@ class StoreListView(ListView):
 	paginate_by=9
 
 	def get_queryset(self):
-		cat=ProductCategory.objects.get(pk=self.kwargs.get('pk'))
+		cat=Category.objects.get(pk=self.kwargs.get('pk'))
 		return cat.stores.all()
 
 	def get_context_data(self, **kwargs):
 		context=super(StoreListView, self).get_context_data(**kwargs)
-		context['category']=ProductCategory.objects.get(pk=self.kwargs.get('pk'))
+		context['category']=Category.objects.get(pk=self.kwargs.get('pk'))
 		return context
 
 class StoreBookmarkView(View):
@@ -227,3 +239,85 @@ class PendingDonationsView(DetailView):
 		context=super(PendingDonationsView, self).get_context_data()
 		return context
 
+class StoreSearchView(ListView):
+	model=Store
+	context_object_name="stores_list"
+	template_name="stores.html"
+	paginate_by=24
+
+	def get_queryset(self):
+		q=self.request.GET.get('q')
+		if q:
+			return StoreDocument.search().filter("match", name=q).to_queryset()
+		return super(StoreSearchView, self).get_queryset()
+
+	def get_context_data(self, **kwargs):
+		context=super(StoreSearchView, self).get_context_data(**kwargs)
+		context['cats_list']=Category.objects.all()
+		return context
+
+	def search_stores_by_category(self, categoryId):
+		store_qs_catId=StoreDocument.search().filter("match", categoryId=categoryId).to_queryset()
+		stores_chain=chain(store_qs_catId)
+		store_results=sorted(stores_chain, key=lambda instance: instance.pk, reverse=True )
+		# print("Found %s Stores for %s "%(stores_chain, q))
+		return render(self.request, 'stores.html',{
+				'stores_list' : store_results,
+				'cats_list' : Category.objects.all()
+			})
+
+	def search_stores(self, keywords):
+		# store_qs_desc=StoreDocument.search().filter("match", description=keywords).to_queryset()
+		store_results=StoreDocument.search().filter("match", name=keywords).to_queryset()
+		# print("Found %s Stores for %s "%(stores_chain, q))
+		return render(self.request, 'stores.html',{
+				'stores_list' : store_results,
+				'cats_list' : Category.objects.all()
+			})
+
+class OfferSearchView(ListView):
+	model=Offer
+	context_object_name='offers_list'
+	paginate_by=24
+	template_name='offers.html'
+
+	def get_queryset(self):
+		q=self.request.GET.get('q')
+		if q:
+			qs=OfferDocument.search().filter("match", title=q).to_queryset()
+			return qs
+		return super(OfferSearchView, self).get_queryset()
+
+	def get_context_data(self, **kwargs):
+		context=super(OfferSearchView, self).get_context_data(**kwargs)
+		context['cats_list']=Category.objects.all()
+		return context
+
+	def search_offers(self, keywords):
+		# qs_desc=OfferDocument.search().filter("match", description=keywords).to_queryset()
+		qs_name=OfferDocument.search().filter("match", title=keywords).to_queryset()
+		offer_chain=chain(qs_name)
+		offer_results=sorted(offer_chain, key=lambda instance: instance.pk, reverse=True )
+		# print("Found %s Stores for %s "%(stores_chain, q))
+		return render(self.request, 'offers.html',{
+				'offers_list' : offer_results,
+				'cats_list' : Category.objects.all()
+			})
+
+class CategoryWiseStoreListView(ListView):
+	model=Store
+	template_name='stores.html'
+	context_object_name="stores_list"
+	paginate_by=12
+
+	def get_queryset(self):
+		try:
+			cat=Category.objects.get(pk=self.kwargs.get('pk'))
+			return cat.store_set.all()
+		except Exception as e:
+			raise e
+
+	def get_context_data(self, **kwargs):
+		context=super(CategoryWiseStoreListView, self).get_context_data(**kwargs)
+		context['cats_list']=Category.objects.all()
+		return context
