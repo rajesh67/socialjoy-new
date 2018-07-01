@@ -175,12 +175,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</h4>
 								</div>
 								<ul class="category-list" >
-									<!-- <li><a href="category.html">Laptops <span>93 <small>offers</small></span></a></li>
-									<li><a href="category.html">Iphone <span>233</span></a></li>
-									<li><a href="category.html">Microsoft  <span>183</span></a></li> -->
-									<!-- {% for store in eCat.get_featured_stores %}
-										<li><a href="{% url 'store-details' store.pk %}">{{store.name}} <span>{{store.offers.all|length}}</span></a></li>
-									{% endfor %} -->
+									
+									
 									{% for store in eCat.get_top_stores %}
 										<li><a href="{% url 'store-details' store.pk %}">{{store.name}} <span>{{store.offers.all|length}} offers</span></a></li>
 									{% endfor %}

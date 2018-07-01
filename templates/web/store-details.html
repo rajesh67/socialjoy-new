@@ -172,12 +172,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <section id="storeDetails">
     	<div class="container">
-    		<div class="text-center">
-				<div class="search-result">
-					<h2 class="text-center">Results for "{{ store.name }}" Exclusive Charity Offers</h2>
-					<p>Your shopping provides us donations!</p>
+    
+			<form id="searchform" action="{% url 'store-search' %}" method="get" accept-charset="utf-8" class="form form-responsive">
+						
+				<div class="form-group row">
+					<input class="form-control form-control-lg col-md-9" id="searchbox" name="q" type="text" placeholder="Search for any online store in India.">		
+					<button class="btn btn-warning btn-block col-md-3" type="submit" style="">
+		        		<i class="fa fa-search"> Search Store</i>
+		      		</button>
 				</div>
-			</div>
+		      
+		    </form>
     		<div class="row">
     			<div class="col-lg-3">
 		          <div class="card mt-4" style=" border: none;">
@@ -209,6 +214,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		       
 			    <div class="col-lg-9">
 			    	<div class="container">
+			    		<div class="text-center">
+							<div class="search-result">
+								<h2 class="text-center">Results for "{{ store.name }}" Exclusive Charity Offers</h2>
+								<p>Your shopping provides us donations!</p>
+							</div>
+						</div>
 						<!-- <div class="col-md-12" style="margin-top: 2%;">
 							<div class="search-result bg-gray">
 								<h2 class="text-center">Select Category Wise Charity Offers</h2>
@@ -264,7 +275,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					            </div>
 					        {% endfor %} -->
 					        <div class="clearfix"></div>
-					        {% for offer in store.offers.all %}
+					        {% for offer in offers %}
 							        <div class="col-lg-4" style="margin: 2% auto;">
 							        	<div class="dl">
 								            <div class="brand">
@@ -301,7 +312,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 								            </div>
 								            <div class="" style="margin-top: 5%;">
-								            	<a href="{{offer.url}}" class="btn btn-block btn-warning btn-lg">Grab this Offer</a>
+								            	<a href="{{offer.url}}" class="btn btn-block btn-warning btn-lg" target="_blank">Grab this Offer</a>
 								            </div>
 								          </div>
 								        </div>
@@ -328,7 +339,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						    {% endfor %}
 						    {% if page_obj.has_next %}
 						      <li class="page-item">
-					              <a href="?page={{ page_obj.next_page_number }}#offers"><span class="page-link">Next Page &rarr;</span></a>
+					              <a href="?page={{ page_obj.next_page_number }}"><span class="page-link">Next Page &rarr;</span></a>
 					           </li>
 						    {% else %}
 						      <li class="disabled page-item"><span class="page-link">Next Page&rarr;</span></li>
@@ -363,9 +374,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h2>Similar Charity Stores</h2>
 			<p>Find the similar charity stores with exclusive offers and deals</p>
 		</div>
-    <div class="carousel slide" data-ride="carousel" id="carouselExampleControls" style="height: 24rem;">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
+        
                 <div class="row">
                     {% for seller in store.get_similar_stores %}
                     <div class="card col-md mx-auto" style="width: 18rem; border: none;">
@@ -377,51 +386,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					  </div>
 					</div>
 					{% endfor %}
-       			 </div>
-       		</div>
-            <!-- <div class="carousel-item">
-                <div class="row">
-                  
-
-                      <div class="card col-md mx-auto" style="width: 18rem; border: none;">
-					  <img class="card-img-top" src="//placehold.it/1200x600/" alt="Card image cap">
-					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
-					  </div>
-					</div>
-
-					  <div class="card col-md mx-auto" style="width: 18rem; border: none;">
-						  <img class="card-img-top" src="//placehold.it/1200x600/444" alt="Card image cap">
-						  <div class="card-body">
-						    <h5 class="card-title">Card title</h5>
-						    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						    <a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					  <div class="card col-md mx-auto" style="width: 18rem; border: none;">
-						  <img class="card-img-top" src="//placehold.it/1200x600/ddd" alt="Card image cap">
-						  <div class="card-body">
-						    <h5 class="card-title">Card title</h5>
-						    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						    <a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-                </div>
-            </div> -->
-        </div>
-        <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-		    <span class="fas fa-chevron-left" aria-hidden="true" style="transform: scale(2); color: blue;"></span>
-		    <span class="sr-only">Previous</span>
-		  </a>
-		  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-		    <span class="fas fa-chevron-right" aria-hidden="true" style="transform: scale(2); color: blue;"></span>
-		    <span class="sr-only">Next</span>
-		  </a> -->
-    </div>
-</div>
-   </section>
+    			</div>
+	</div>
+</section>
 
 
    	<!-- How It Works -->

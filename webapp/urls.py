@@ -34,6 +34,7 @@ urlpatterns=[
 	url(r'^stores/$', views.StoreSearchView.as_view(), name="store-search"),
 	url(r'^stores/categories/(?P<pk>[0-9]+)/$', views.CategoryWiseStoreListView.as_view(), name="cat-store-list"),
 	url(r'^offers/$', views.OfferSearchView.as_view(), name="offer-search"),
+	url(r'^offers/categories/(?P<pk>[0-9]+)/$', views.CategoryWiseOfferListView.as_view(), name="cat-offer-list"),
 
 	url(r'^blogs/$', views.blogListView, name="blog-list"),
 	url(r'^blogs/(?P<pk>[0-9]+)/$', views.blogDetailView, name="blog-details"),

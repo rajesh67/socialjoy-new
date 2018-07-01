@@ -40,22 +40,22 @@ class Category(models.Model):
 		return self.stores.filter(featured=True)
 
 	def get_top_stores(self):
-		return self.stores.all()[:5]
+		return self.store_set.all()[:5]
 
 class Offer(models.Model):
 	offerId=models.CharField(max_length=10)
-	title=models.CharField(max_length=1024)
+	title=models.CharField(max_length=1024, null=True)
 	description=models.TextField(blank=True, null=True)
 	terms=models.TextField(blank=True, null=True)
 	coupoun_code=models.CharField(max_length=50, null=True, blank=True)
-	url=models.URLField(max_length=2500)
-	status=models.CharField(max_length=10)
+	url=models.URLField(max_length=2500, null=True)
+	status=models.CharField(max_length=10, null=True)
 	startTime=models.DateTimeField(null=True)
 	endTime=models.DateTimeField(null=True)
-	imageUrl=models.URLField(max_length=2500)
+	imageUrl=models.URLField(max_length=2500, null=True)
 
 	store=models.ForeignKey('Store', related_name="offers", on_delete=models.CASCADE, null=True)
-	category=models.ForeignKey('Category', related_name='categories', on_delete=models.CASCADE, null=True)
+	category=models.ForeignKey('Category', related_name='offers', on_delete=models.CASCADE, null=True)
 
 	def __str__(self):
 		return self.title
@@ -72,6 +72,26 @@ class Offer(models.Model):
 		if self.store:
 			return self.store.name
 		return "None"
+
+
+class OfferUpdate(models.Model):
+	updated_on=models.DateTimeField(default=datetime.datetime.now())
+	category=models.OneToOneField('Category', related_name="offerUpdate", on_delete=models.CASCADE)
+	offers_file=models.FileField(upload_to='get_upload_path')
+
+	def get_upload_path(self):
+		return 'offers/cuelinks/%s/'%self.category.catId
+
+	def __str__(self):
+		return self.updated_on.date
+
+# 
+@receiver(post_save, sender=OfferUpdate)
+def update_user_profile(sender, instance, created, **kwargs):
+	if created:
+		# Create / Update  All Offers In the Uploaded File
+		pass
+	instance.save()
 
 class StoreBookmark(models.Model):
 	user=models.ForeignKey(User, on_delete=models.CASCADE)

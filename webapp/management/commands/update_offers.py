@@ -13,10 +13,11 @@ class Command(BaseCommand):
 		try:
 			catId=kwargs['catId'][0]
 			handle=CuelinksOffersHandler()
-			print("Step1")
 			offers=handle.read_offers_csv(catId)
-			print("Step2")
-			offerList=handle.save_offers(offers)
+			offerList=[]
+			for off in offers:
+				offer=handle.create_offer(off, catId)
+				offerList.append(offer)
 			print("SuccesFully Updated {0} Offers".format(offerList.__len__()))
 		except Exception as e:
 			print(e)

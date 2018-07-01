@@ -38,7 +38,7 @@ def categoryView(request, catId):
 	return render(request, 'stores-list.html', {'category': category})
 
 def categoryListView(request):
-	return render(request, 'categories.html', {'categories': StoreCategory.objects.all(),'eCat':Category.objects.get(catId='electronics')})
+	return render(request, 'categories.html', {'categories': Category.objects.all(),'eCat':Category.objects.get(catId='electronics')})
 
 def storeDetailView(request, pk):
 	return render(request, 'store-details.html', {'store': Store.objects.get(pk=pk)})
@@ -119,15 +119,14 @@ class OfferListView(ListView):
 	paginate_by=9
 
 	def get_queryset(self):
-		try:
-			if 'catId' in self.request.GET.keys():
-				catId=self.request.GET.get('catId')
-				cat=Category.objects.get(catId=catId)
-				return Offer.objects.filter(store__pk=self.kwargs.get('pk'), category=cat)
-			else:
-				return Offer.objects.filter(store__pk=self.kwargs.get('pk'))
-		except Exception as e:
-			raise e
+		store=Store.objects.get(pk=self.kwargs.get('pk'))
+		queryset=store.offers.all()
+		if 'catId' in self.request.GET.keys():
+			catId=self.request.GET.get('catId')
+			# print(catId, queryset.__len__(), queryset.filter(category__catId=catId))
+			return queryset.filter(category__catId=catId)
+		return queryset
+
 	def get_offers_categories(self, store):
 		cats=[]
 		try:
@@ -152,7 +151,7 @@ class StoreListView(ListView):
 
 	def get_queryset(self):
 		cat=Category.objects.get(pk=self.kwargs.get('pk'))
-		return cat.stores.all()
+		return cat.store_set.all()
 
 	def get_context_data(self, **kwargs):
 		context=super(StoreListView, self).get_context_data(**kwargs)
@@ -282,15 +281,24 @@ class OfferSearchView(ListView):
 	template_name='offers.html'
 
 	def get_queryset(self):
+		queryset=super(OfferSearchView, self).get_queryset()
 		q=self.request.GET.get('q')
 		if q:
 			qs=OfferDocument.search().filter("match", title=q).to_queryset()
 			return qs
-		return super(OfferSearchView, self).get_queryset()
+		elif 'storePk' in self.request.GET.keys():
+			storePk=self.request.GET.get('storePk')
+			return queryset.filter(store__pk=storePk)
+		return queryset
 
 	def get_context_data(self, **kwargs):
 		context=super(OfferSearchView, self).get_context_data(**kwargs)
 		context['cats_list']=Category.objects.all()
+		stores_list=[]
+		for offer in self.get_queryset():
+			if offer.store not in stores_list:
+				stores_list.append(offer.store)
+		context['stores_list']=stores_list
 		return context
 
 	def search_offers(self, keywords):
@@ -299,9 +307,15 @@ class OfferSearchView(ListView):
 		offer_chain=chain(qs_name)
 		offer_results=sorted(offer_chain, key=lambda instance: instance.pk, reverse=True )
 		# print("Found %s Stores for %s "%(stores_chain, q))
+		stores_list=[]
+		for offer in offer_results:
+			if offer.store not in stores_list:
+				stores_list.append(offer.store)
+		
 		return render(self.request, 'offers.html',{
 				'offers_list' : offer_results,
-				'cats_list' : Category.objects.all()
+				'cats_list' : Category.objects.all(),
+				'stores_list' : stores_list
 			})
 
 class CategoryWiseStoreListView(ListView):
@@ -320,4 +334,29 @@ class CategoryWiseStoreListView(ListView):
 	def get_context_data(self, **kwargs):
 		context=super(CategoryWiseStoreListView, self).get_context_data(**kwargs)
 		context['cats_list']=Category.objects.all()
+		return context
+
+class CategoryWiseOfferListView(ListView):
+	model=Store
+	template_name='offers.html'
+	context_object_name="offers_list"
+	paginate_by=12
+
+	def get_queryset(self):
+		try:
+			cat=Category.objects.get(pk=self.kwargs.get('pk'))
+			queryset=cat.offers.all()
+			return queryset
+		except Exception as e:
+			raise e
+
+	def get_context_data(self, **kwargs):
+		context=super(CategoryWiseOfferListView, self).get_context_data(**kwargs)
+		context['cats_list']=Category.objects.all()
+		cat=Category.objects.get(pk=self.kwargs.get('pk'))
+		stores_list=[]
+		for offer in self.get_queryset():
+			if offer.store not in stores_list:
+				stores_list.append(offer.store)
+		context['stores_list']=stores_list
 		return context

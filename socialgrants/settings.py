@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'bootstrap4',
     'django_elasticsearch_dsl',
+    'certifi',
     
 ]
 
@@ -93,11 +94,22 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+import re
+BONSAI_URL='https://bgo0jlpd8e:7swe4vld8a@nimrit-dev-575792947.us-west-2.bonsaisearch.net'
+ES_AUTH = re.search('https\:\/\/(.*)\@', BONSAI_URL).group(1).split(':')
+ES_HOST = BONSAI_URL.replace('https://%s:%s@' % (ES_AUTH[0], ES_AUTH[1]), '')
 
 ELASTICSEARCH_DSL={
     'default':{
         'hosts':'localhost:9200',
-        # 'hosts' :'https://nimrit-dev-575792947.us-west-2.bonsaisearch.net/',
+        # 'hosts' : 'https://bgo0jlpd8e:7swe4vld8a@nimrit-dev-575792947.us-west-2.bonsaisearch.net',
+        # 'hosts': [{
+        #     'host': 'nimrit-dev-575792947.us-west-2.bonsaisearch.net',
+        #     'http_auth': ('bgo0jlpd8e', '7swe4vld8a'),
+        #     'verify_certs': False,
+        #     'use_ssl': True,
+        #     'port' : 443,
+        # }]
     }
 }
 
