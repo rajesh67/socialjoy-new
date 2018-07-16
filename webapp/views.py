@@ -19,6 +19,12 @@ import json
 from search.documents import StoreDocument, OfferDocument
 from itertools import chain
 
+def handler404(request):
+    return render(request, '404.html', status=404)
+
+# def handler500(request):
+#     return render(request, '500.html', status=500)
+
 def homeView(request):
 	return render(request, 'index.html', {
 			'shoppingStores':Store.objects.all()[:4],

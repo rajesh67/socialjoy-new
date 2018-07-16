@@ -2,6 +2,7 @@ from django.conf.urls import url, include
 from webapp import views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
+from django.conf.urls import handler404, handler500
 
 urlpatterns=[
 	url(r'^store/(?P<pk>\d+)/bookmark/$', login_required(views.StoreBookmarkView.as_view()), name="bookmark-store"),
@@ -39,3 +40,5 @@ urlpatterns=[
 	url(r'^blogs/$', views.blogListView, name="blog-list"),
 	url(r'^blogs/(?P<pk>[0-9]+)/$', views.blogDetailView, name="blog-details"),
 ]
+
+handler404=views.handler404
