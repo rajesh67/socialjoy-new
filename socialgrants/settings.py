@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^8bhx_ur^9d(sp&xir!07n$x4t(p_*np@ja@p746rqs8-u2q_j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost',]
 
 
 # Application definition
@@ -151,13 +151,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT=os.path.join(BASE_DIR, "static/")
+STATIC_ROOT=os.path.join(BASE_DIR, "static")
 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR, "templates/web/css/"),
     os.path.join(BASE_DIR, "templates/web/js/"),
     os.path.join(BASE_DIR, "templates/web/images/"),
-    #os.path.join(BASE_DIR, "templates/web/webfonts/"),
+    # os.path.join(BASE_DIR, "templates/web/webfonts/"),
 ]
 
 MEDIA_URL = '/media/'
