@@ -24,8 +24,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 	</script>
 	<link href="{{ STATIC_URL }}bootstrap.css" rel='stylesheet' type='text/css' />
-	<link href="{% static 'style.css' %}" rel='stylesheet' type='text/css' />
-	<link href="{% static 'fontawesome-all.css' %}" rel="stylesheet">
+	<link href="{{ STATIC_URL }}style.css" rel='stylesheet' type='text/css' />
+	<link href="{{ STATIC_URL }}fontawesome-all.css" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,900" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700" rel="stylesheet">
 </head>
@@ -181,11 +181,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</footer>
 	<!---->
 	<!-- js -->
-	<script  src="js/jquery-2.2.3.min.js"></script>
+	<script  src="{{ STATIC_URL }}jquery-2.2.3.min.js"></script>
 	<!-- //js -->
 	<!--/ start-smoth-scrolling -->
-	<script  src="js/move-top.js"></script>
-	<script  src="js/easing.js"></script>
+	<script  src="{{ STATIC_URL }}move-top.js"></script>
+	<script  src="{{ STATIC_URL }}easing.js"></script>
 	<script >
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
@@ -220,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</a>
 
 	<!-- //Custom-JavaScript-File-Links -->
-	<script  src="js/bootstrap.js"></script>
+	<script  src="{{ STATIC_URL }}bootstrap.js"></script>
 
 
 </body>
