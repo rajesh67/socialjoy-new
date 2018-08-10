@@ -164,7 +164,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR, "media/")
 
 MEDIAFILES_DIRS=[
-    os.path.join('media/stores/'),
+    os.path.join('templates/web/images/stores/'),
+    os.path.join('templates/web/images/banners/'),
+    os.path.join('templates/web/images/howItWorks/'),
+    os.path.join('templates/web/images/services/'),
+    os.path.join('templates/web/images/social-work/'),
+    os.path.join('templates/web/images/team/'),
+    os.path.join('templates/web/images/'),
 ]
 
 LOGIN_REDIRECT_URL = '/web/'

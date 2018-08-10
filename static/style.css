@@ -458,7 +458,7 @@ h3.logo a.navbar-brand i {
 	text-decoration: none;
 	height: 61px;
 	width: 38px;
-	background: transparent url(/static/arrows.png) no-repeat left 50%;
+	background: transparent url(/media/arrows.png) no-repeat left 50%;
 	margin-top: -45px;
 }
 
@@ -504,7 +504,7 @@ h3.logo a.navbar-brand i {
 	top: 0;
 	bottom: 0;
 	left: 0;
-	background: url(/static/arrows.png) no-repeat left 50%;
+	background: url(/media/arrows.png) no-repeat left 50%;
 	width: 38px;
 }
 
@@ -569,7 +569,7 @@ h3.logo a.navbar-brand i {
 .banner-img.one,
 .banner-img.two,
 .banner-img.three {
-	background: url(/static/banners/first.jpg) no-repeat 0px 0px;
+	background: url(/media/banners/first.jpg) no-repeat 0px 0px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -579,16 +579,16 @@ h3.logo a.navbar-brand i {
 }
 
 .banner-img.one {
-	background: url(/static/banners/second.jpg) no-repeat 0px 0px;
+	background: url(/media/banners/second.jpg) no-repeat 0px 0px;
 
 }
 
 .banner-img.two {
-	background: url(/static/banners/third.jpg) no-repeat 0px 0px;
+	background: url(/media/banners/third.jpg) no-repeat 0px 0px;
 }
 
 .banner-img.tthree {
-	background: url(/static/banners/fourth.jpg) no-repeat 0px 0px;
+	background: url(/media/banners/fourth.jpg) no-repeat 0px 0px;
 }
 
 .banner-info {
@@ -885,7 +885,7 @@ p.card-text {
 /*-- /centers --*/
 
 .areas {
-	background: #171819 url(/static/banner5.png) no-repeat;
+	background: #171819 url(/media/banner5.png) no-repeat;
 	padding: 7em 0;
 }
 
@@ -910,7 +910,7 @@ p.card-text {
 }
 
 .banner-inner {
-	background: url(/static/banner1.jpg) no-repeat 0px 0px;
+	background: url(/media/banner1.jpg) no-repeat 0px 0px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -1463,7 +1463,7 @@ footer {
 	height: 48px;
 	border: none;
 	text-indent: 100%;
-	background: url(/static/top_up.png) no-repeat 0px 0px;
+	background: url(/media/top_up.png) no-repeat 0px 0px;
 }
 
 /*--// copyright-- */
