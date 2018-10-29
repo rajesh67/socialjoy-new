@@ -2,7 +2,7 @@ import random
 from fabric.contrib.files import append, exists
 from fabric.api import cd, env, local, run
 
-REPO_URL = 'https://github.com/rajesh67/socialjoy.git'  
+REPO_URL = 'https://github.com/rajesh67/socialjoy-new.git'  
 
 def deploy():
     site_folder = f'/home/{env.user}/sites/{env.host}'  
