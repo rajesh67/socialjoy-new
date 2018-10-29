@@ -1,0 +1,21 @@
+[Unit]
+Description=Gunicorn server for DOMAIN
+
+[Service]
+Restart=on-failure
+User=root
+WorkingDirectory=/home/root/sites/DOMAIN
+
+Environment=DJANGO_DEBUG_FALSE=y
+Environment=DJANGO_SECRET_KEY="m-a)%cx^w6!%r9%on688*=*hu$&4%30v)s7s221*f)vvz1a-xi"
+Environment=SITENAME=DOMAIN
+Environment=EMAIL_PASSWORD='salika@11cs30025'
+
+ExecStart=/home/root/sites/DOMAIN/virtualenv/bin/gunicorn \
+    --bind unix:/tmp/DOMAIN.socket \
+    --access-logfile logs/access.log \
+    --error-logfile logs/error.log \
+    socialgrants.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
